@@ -1,0 +1,62 @@
+file src/App.jsx javascript module=src/App
+  decl import src/App.Toolbar L1:8
+  decl import src/App.Btn L1:29
+  decl function src/App.App L6:17 body=L6:31-L19:2
+  decl parameter src/App.App->user L6:23
+  decl constant src/App.App->title L7:9
+  decl constant src/App.App->ratio L8:9
+  ref L1:19 Button import in=src/App -> src/Button.Button (src/Button.tsx)
+  ref L7:17 user in=src/App.App -> src/App.App->user
+  ref L7:35 user in=src/App.App -> src/App.App->user
+  ref L7:40 name in=src/App.App -> ?
+  ref L11:8 title in=src/App.App -> src/App.App->title
+  ref L13:8 Toolbar call in=src/App.App -> src/App.Toolbar
+  ref L14:8 Btn call in=src/App.App -> src/App.Btn
+  ref L14:28 ratio in=src/App.App -> src/App.App->ratio
+  ref L14:52 alert call in=src/App.App -> ?
+  ref L14:58 ratio in=src/App.App -> src/App.App->ratio
+  ref L16:9 Btn in=src/App.App -> src/App.Btn
+file src/Button.tsx typescript module=src/Button
+  decl import src/Button.React L1:8
+  decl interface src/Button.ButtonProps L3:18 body=L3:30-L6:2
+  decl property src/Button.ButtonProps.label L4:3 type=string
+  decl property src/Button.ButtonProps.onClick L5:3 type=(count: number) => void
+  decl function src/Button.Button L8:17 body=L8:57-L19:2
+  decl parameter src/Button.Button->label L8:26
+  decl parameter src/Button.Button->onClick L8:33
+  decl constant src/Button.Button->count L9:10
+  decl constant src/Button.Button->setCount L9:17
+  decl function src/Button.Button->handle L10:9 body=L10:24-L13:4
+  decl function src/Button.identity L21:14 type=T
+  decl type_parameter src/Button.identity->T L21:26
+  decl parameter src/Button.identity->value L21:30 type=T
+  decl function src/Button.Toolbar L23:25 body=L23:61-L32:2
+  decl parameter src/Button.Toolbar->props L23:33 type={ items: string[] }
+  decl parameter src/Button.Toolbar->item L26:25
+  decl constant src/Button.Icons L34:7
+  decl method src/Button.Icons.Star L34:17
+  decl parameter src/Button.Icons.Star->p L34:24 type={ size: number }
+  ref L1:17 useState import in=src/Button -> ?
+  ref L8:44 ButtonProps in=src/Button.Button -> src/Button.ButtonProps
+  ref L9:29 useState call in=src/Button.Button -> ?
+  ref L11:5 setCount call in=src/Button.Button->handle -> src/Button.Button->setCount
+  ref L11:14 count in=src/Button.Button->handle -> src/Button.Button->count
+  ref L12:5 onClick call in=src/Button.Button->handle -> src/Button.Button->onClick
+  ref L12:15 count in=src/Button.Button->handle -> src/Button.Button->count
+  ref L15:41 count in=src/Button.Button -> src/Button.Button->count
+  ref L15:57 handle in=src/Button.Button -> src/Button.Button->handle
+  ref L16:8 label in=src/Button.Button -> src/Button.Button->label
+  ref L16:24 count in=src/Button.Button -> src/Button.Button->count
+  ref L21:37 T in=src/Button.identity -> src/Button.identity->T
+  ref L21:41 T in=src/Button.identity -> src/Button.identity->T
+  ref L21:46 value in=src/Button.identity -> src/Button.identity->value
+  ref L26:8 props in=src/Button.Toolbar -> src/Button.Toolbar->props
+  ref L26:14 items in=src/Button.Toolbar -> ?
+  ref L26:20 map call in=src/Button.Toolbar -> ?
+  ref L27:10 Button call in=src/Button.Toolbar -> src/Button.Button
+  ref L27:22 item in=src/Button.Toolbar -> src/Button.Toolbar->item
+  ref L27:35 item in=src/Button.Toolbar -> src/Button.Toolbar->item
+  ref L29:8 Icons in=src/Button.Toolbar -> src/Button.Icons
+  ref L29:14 Star call in=src/Button.Toolbar -> src/Button.Icons.Star
+  ref L34:60 p in=src/Button.Icons.Star -> src/Button.Icons.Star->p
+  ref L34:62 size in=src/Button.Icons.Star -> ?

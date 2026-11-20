@@ -1,0 +1,2 @@
+$ myoo lsp rename calculator x --backend=builtin
+[err] `calculator` is a module. myoo does not rename modules or files (exit 1)

@@ -1,0 +1,28 @@
+$ myoo lsp rename src/math.add sum --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+src/math.sum (src/math.ts:2:17)
+	export function sum(a: number, b: number): number {
+	  return a + b;
+	}
+
+- src/index.ts (3 edits)
+- src/math.ts (1 edit)
+[changed src/index.ts]
+import { sum, Counter } from "./math";
+
+const counter = new Counter();
+console.log(sum(1, 2), counter.increment(sum(3, 4)));
+[changed src/math.ts]
+/** Adds a and b. */
+export function sum(a: number, b: number): number {
+  return a + b;
+}
+
+export class Counter {
+  private count = 0;
+
+  increment(by: number): number {
+    this.count += by;
+    return this.count;
+  }
+}

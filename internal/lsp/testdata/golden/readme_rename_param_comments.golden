@@ -1,0 +1,13 @@
+$ myoo lsp rename calculator.calculate->a first_number -c --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+calculator.calculate->first_number (calculator.py:2:15)
+	def calculate(first_number, b):
+	    """sums `first_number` and `b`"""
+	    return first_number + b
+
+- calculator.py (3 edits)
+[changed calculator.py]
+# source for calculator
+def calculate(first_number, b):
+    """sums `first_number` and `b`"""
+    return first_number + b

@@ -1,0 +1,5 @@
+$ myoo lsp references include/calc.h:!Calc --backend=builtin
+# format: (for each matching symbol with one or more references) `<fqn>[-><local/temporary symbols>]\n- <reference fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)`
+include/calc.shop.Calc
+- src/calc.shop.Calc.add->Calc (src/calc.cpp:6:5)
+- src/main.main->Calc (src/main.cpp:4:11)

@@ -1,0 +1,373 @@
+file App/Broken.cs csharp module=
+  decl namespace Shop.App L1:11 body=L2:1-L10:1
+  decl class Shop.App.Broken L3:11 body=L4:5-L10:1
+  decl method Shop.App.Broken.Method L5:14 body=L6:9-L10:1 type=void
+  decl variable Shop.App.Broken.Method->s L7:17
+  decl variable Shop.App.Broken.Method->t L8:17
+  ref L8:29 s in=Shop.App.Broken.Method -> Shop.App.Broken.Method->s
+file App/Program.cs csharp module=
+  decl import Calc L2:7 type=Shop.Core.Pricing.Calculator
+  decl namespace Shop.App L5:11
+  decl type Shop.App.Logger L7:22 type=void
+  decl parameter Shop.App.Logger->message L7:36 type=string
+  decl class Shop.App.Program L9:23 body=L10:1-L85:2
+  decl parameter Shop.App.Program->log L9:38 type=Logger
+  decl field Shop.App.Program._runs L11:17 type=int
+  decl method Shop.App.Program.Main L13:24 body=L14:5-L17:6 type=void
+  decl parameter Shop.App.Program.Main->args L13:38 type=string[]
+  decl variable Shop.App.Program.Main->program L15:13 type=Program
+  decl method Shop.App.Program.Run L19:17 body=L20:5-L52:6 type=void
+  decl parameter Shop.App.Program.Run->customer L19:28 type=string
+  decl variable Shop.App.Program.Run->order L21:13 type=Order
+  decl variable Shop.App.Program.Run->discounted L24:17 type=decimal
+  decl function Shop.App.Program.Run->Twice L27:13 body=L27:29-L27:34 type=int
+  decl parameter Shop.App.Program.Run->Twice->x L27:23 type=int
+  decl variable Shop.App.Program.Run->big L30:37
+  decl variable Shop.App.Program.Run->sku L35:23
+  decl variable Shop.App.Program.Run->price L35:28
+  decl variable Shop.App.Program.Run->raw L41:16 type=string
+  decl variable Shop.App.Program.Run->nested L45:13
+  decl variable Shop.App.Program.Run->verbatim L46:13
+  decl variable Shop.App.Program.Run->square L48:24 type=Func<int,int>
+  decl parameter Shop.App.Program.Run->n L48:33
+  decl function Shop.App.Program.Run->Helper L51:16 body=L51:37-L51:85 type=string
+  decl parameter Shop.App.Program.Run->Helper->value L51:27 type=int
+  decl method Shop.App.Program.Guard L54:18 body=L55:5-L72:6 type=void
+  decl parameter Shop.App.Program.Guard->order L54:30 type=Order
+  decl variable Shop.App.Program.Guard->writer L58:23 type=System.IO.StringWriter
+  decl parameter Shop.App.Program.Guard->ex L64:42 type=InvalidOperationException
+  decl method Shop.App.Program.Pairs L74:51 body=L75:5-L77:6 type=IEnumerable<(string,decimal)>
+  decl parameter Shop.App.Program.Pairs->order L74:63 type=Order
+  decl method Shop.App.Program.Describe L79:20 body=L79:45-L84:6 type=string
+  decl parameter Shop.App.Program.Describe->order L79:35 type=Order
+  decl variable Shop.App.Program.Describe->o L82:15 type=Order
+  ref L1:7 Shop import in= -> Shop (Core/Util/Cache.cs)
+  ref L1:12 Core import in= -> ?
+  ref L1:17 Models import in= -> ?
+  ref L2:14 Shop import in= -> Shop (Core/Util/Cache.cs)
+  ref L2:19 Core import in= -> ?
+  ref L2:24 Pricing import in= -> ?
+  ref L2:32 Calculator import in= -> Shop.Core.Pricing.Calculator (Core/Pricing/Calculator.cs)
+  ref L3:14 System import in= -> ?
+  ref L3:21 Math import in= -> ?
+  ref L9:31 Logger in=Shop.App.Program -> Shop.App.Logger
+  ref L15:27 Program call in=Shop.App.Program.Main -> Shop.App.Program
+  ref L15:35 Console in=Shop.App.Program.Main -> ?
+  ref L15:43 WriteLine in=Shop.App.Program.Main -> ?
+  ref L16:9 program in=Shop.App.Program.Main -> Shop.App.Program.Main->program
+  ref L16:17 Run call in=Shop.App.Program.Main -> Shop.App.Program.Run
+  ref L16:21 args in=Shop.App.Program.Main -> Shop.App.Program.Main->args
+  ref L16:26 Length in=Shop.App.Program.Main -> ?
+  ref L16:39 args in=Shop.App.Program.Main -> Shop.App.Program.Main->args
+  ref L21:25 Order call in=Shop.App.Program.Run -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L21:31 customer in=Shop.App.Program.Run -> Shop.App.Program.Run->customer
+  ref L21:43 Customer in=Shop.App.Program.Run -> Shop.Core.Models.Order.Customer (Core/Models/Order.cs)
+  ref L21:54 customer in=Shop.App.Program.Run -> Shop.App.Program.Run->customer
+  ref L22:9 order in=Shop.App.Program.Run -> Shop.App.Program.Run->order
+  ref L22:15 Add call in=Shop.App.Program.Run -> Shop.Core.Models.Order.Add (Core/Models/Order.cs)
+  ref L23:9 order in=Shop.App.Program.Run -> Shop.App.Program.Run->order
+  ref L23:22 Line call in=Shop.App.Program.Run -> Shop.Core.Models.Line (Core/Models/Entity.cs)
+  ref L24:30 order in=Shop.App.Program.Run -> Shop.App.Program.Run->order
+  ref L24:36 Discount call in=Shop.App.Program.Run -> Shop.Core.Pricing.Calculator.Discount (Core/Pricing/Calculator.cs)
+  ref L25:9 log call in=Shop.App.Program.Run -> Shop.App.Program->log
+  ref L25:16 order in=Shop.App.Program.Run -> Shop.App.Program.Run->order
+  ref L25:22 Customer in=Shop.App.Program.Run -> Shop.Core.Models.Order.Customer (Core/Models/Order.cs)
+  ref L25:38 Round call in=Shop.App.Program.Run -> ?
+  ref L25:44 discounted in=Shop.App.Program.Run -> Shop.App.Program.Run->discounted
+  ref L27:29 x in=Shop.App.Program.Run->Twice -> Shop.App.Program.Run->Twice->x
+  ref L28:9 _runs in=Shop.App.Program.Run -> Shop.App.Program._runs
+  ref L28:17 Twice call in=Shop.App.Program.Run -> Shop.App.Program.Run->Twice
+  ref L28:23 _runs in=Shop.App.Program.Run -> Shop.App.Program._runs
+  ref L30:13 order in=Shop.App.Program.Run -> Shop.App.Program.Run->order
+  ref L30:24 Count in=Shop.App.Program.Run -> ?
+  ref L30:44 big in=Shop.App.Program.Run -> Shop.App.Program.Run->big
+  ref L30:48 Total in=Shop.App.Program.Run -> Shop.Core.Models.Order.Total (Core/Models/Order.cs)
+  ref L32:13 Describe call in=Shop.App.Program.Run -> Shop.App.Program.Describe
+  ref L32:22 big in=Shop.App.Program.Run -> Shop.App.Program.Run->big
+  ref L35:38 Pairs call in=Shop.App.Program.Run -> Shop.App.Program.Pairs
+  ref L35:44 order in=Shop.App.Program.Run -> Shop.App.Program.Run->order
+  ref L37:13 log call in=Shop.App.Program.Run -> Shop.App.Program->log
+  ref L37:17 sku in=Shop.App.Program.Run -> Shop.App.Program.Run->sku
+  ref L37:23 price in=Shop.App.Program.Run -> Shop.App.Program.Run->price
+  ref L45:39 order in=Shop.App.Program.Run -> Shop.App.Program.Run->order
+  ref L45:45 Total in=Shop.App.Program.Run -> Shop.Core.Models.Order.Total (Core/Models/Order.cs)
+  ref L47:9 log call in=Shop.App.Program.Run -> Shop.App.Program->log
+  ref L47:13 raw in=Shop.App.Program.Run -> Shop.App.Program.Run->raw
+  ref L47:19 nested in=Shop.App.Program.Run -> Shop.App.Program.Run->nested
+  ref L47:28 verbatim in=Shop.App.Program.Run -> Shop.App.Program.Run->verbatim
+  ref L48:9 Func in=Shop.App.Program.Run -> ?
+  ref L48:38 n in=Shop.App.Program.Run -> Shop.App.Program.Run->n
+  ref L48:42 n in=Shop.App.Program.Run -> Shop.App.Program.Run->n
+  ref L49:9 log call in=Shop.App.Program.Run -> Shop.App.Program->log
+  ref L49:13 Helper call in=Shop.App.Program.Run -> Shop.App.Program.Run->Helper
+  ref L49:20 square call in=Shop.App.Program.Run -> Shop.App.Program.Run->square
+  ref L51:37 Calc in=Shop.App.Program.Run->Helper -> Calc
+  ref L51:42 Sum call in=Shop.App.Program.Run->Helper -> Shop.Core.Pricing.Calculator.Sum (Core/Pricing/Calculator.cs)
+  ref L51:46 Array in=Shop.App.Program.Run->Helper -> ?
+  ref L51:52 Empty call in=Shop.App.Program.Run->Helper -> ?
+  ref L51:58 Line in=Shop.App.Program.Run->Helper -> Shop.Core.Models.Line (Core/Models/Entity.cs)
+  ref L51:69 value in=Shop.App.Program.Run->Helper -> Shop.App.Program.Run->Helper->value
+  ref L51:75 ToString call in=Shop.App.Program.Run->Helper -> ?
+  ref L54:24 Order in=Shop.App.Program.Guard -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L58:36 System in=Shop.App.Program.Guard -> ?
+  ref L58:43 IO in=Shop.App.Program.Guard -> ?
+  ref L58:46 StringWriter call in=Shop.App.Program.Guard -> ?
+  ref L59:19 order in=Shop.App.Program.Guard -> Shop.App.Program.Guard->order
+  ref L61:17 order in=Shop.App.Program.Guard -> Shop.App.Program.Guard->order
+  ref L61:23 Note call in=Shop.App.Program.Guard -> Shop.Core.Models.Order.Note (Core/Models/Order.Notes.cs)
+  ref L64:16 InvalidOperationException in=Shop.App.Program.Guard -> ?
+  ref L64:52 ex in=Shop.App.Program.Guard -> Shop.App.Program.Guard->ex
+  ref L64:55 Message in=Shop.App.Program.Guard -> ?
+  ref L64:63 Length in=Shop.App.Program.Guard -> ?
+  ref L66:13 log call in=Shop.App.Program.Guard -> Shop.App.Program->log
+  ref L66:17 ex in=Shop.App.Program.Guard -> Shop.App.Program.Guard->ex
+  ref L66:20 Message in=Shop.App.Program.Guard -> ?
+  ref L70:13 _runs in=Shop.App.Program.Guard -> Shop.App.Program._runs
+  ref L74:20 IEnumerable in=Shop.App.Program.Pairs -> ?
+  ref L74:57 Order in=Shop.App.Program.Pairs -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L76:32 order in=Shop.App.Program.Pairs -> Shop.App.Program.Pairs->order
+  ref L76:38 Total in=Shop.App.Program.Pairs -> Shop.Core.Models.Order.Total (Core/Models/Order.cs)
+  ref L79:29 Order in=Shop.App.Program.Describe -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L79:45 order in=Shop.App.Program.Describe -> Shop.App.Program.Describe->order
+  ref L81:11 Count in=Shop.App.Program.Describe -> ?
+  ref L82:9 Order in=Shop.App.Program.Describe -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L82:22 o in=Shop.App.Program.Describe -> Shop.App.Program.Describe->o
+  ref L82:24 Total in=Shop.App.Program.Describe -> Shop.Core.Models.Order.Total (Core/Models/Order.cs)
+file Core/Models/Entity.cs csharp module=
+  decl namespace Shop.Core.Models L1:11
+  decl class Shop.Core.Models.Entity L3:24 body=L4:1-L6:2
+  decl property Shop.Core.Models.Entity.Id L3:35 type=int
+  decl method Shop.Core.Models.Entity.ToString L5:28 body=L5:42-L5:50 type=string
+  decl class Shop.Core.Models.Line L8:15
+  decl property Shop.Core.Models.Line.Sku L8:27 type=string
+  decl property Shop.Core.Models.Line.Price L8:40 type=decimal
+  decl struct Shop.Core.Models.Money L10:31
+  decl property Shop.Core.Models.Money.Amount L10:45 type=decimal
+  decl property Shop.Core.Models.Money.Currency L10:60 type=string
+  ref L5:46 Id in=Shop.Core.Models.Entity.ToString -> Shop.Core.Models.Entity.Id
+file Core/Models/Order.Notes.cs csharp module=
+  decl namespace Shop.Core.Models L1:11 body=L2:1-L13:2
+  decl class Shop.Core.Models.Order L3:26 body=L4:5-L12:6
+  decl field Shop.Core.Models.Order._notes L5:39 type=List<string>
+  decl method Shop.Core.Models.Order.Note L7:21 body=L8:9-L11:10 type=void
+  decl parameter Shop.Core.Models.Order.Note->text L7:33 type=string
+  ref L5:26 List in=Shop.Core.Models.Order -> ?
+  ref L5:52 List call in=Shop.Core.Models.Order -> ?
+  ref L9:13 _notes in=Shop.Core.Models.Order.Note -> Shop.Core.Models.Order._notes
+  ref L9:20 Add call in=Shop.Core.Models.Order.Note -> ?
+  ref L9:27 Customer in=Shop.Core.Models.Order.Note -> Shop.Core.Models.Order.Customer (Core/Models/Order.cs)
+  ref L9:39 text in=Shop.Core.Models.Order.Note -> Shop.Core.Models.Order.Note->text
+  ref L10:13 Changed in=Shop.Core.Models.Order.Note -> Shop.Core.Models.Order.Changed (Core/Models/Order.cs)
+  ref L10:22 Invoke call in=Shop.Core.Models.Order.Note -> ?
+  ref L10:35 EventArgs in=Shop.Core.Models.Order.Note -> ?
+  ref L10:45 Empty in=Shop.Core.Models.Order.Note -> ?
+file Core/Models/Order.cs csharp module=
+  decl namespace Shop.Core.Models L4:11
+  decl class Shop.Core.Models.Order L8:22 body=L9:1-L50:2 bases=Entity,IComparable<Order>
+  decl field Shop.Core.Models.Order._lines L10:33 type=List<Line>
+  decl constant Shop.Core.Models.Order.MaxLines L11:22 type=int
+  decl property Shop.Core.Models.Order.Customer L13:19 body=L13:28-L13:42 type=string
+  decl property Shop.Core.Models.Order.Total L15:20 body=L15:29-L15:51 type=decimal
+  decl property Shop.Core.Models.Order.Count L17:16 body=L18:5-L24:6 type=int
+  decl field Shop.Core.Models.Order.Changed L26:32 type=EventHandler?
+  decl constructor Shop.Core.Models.Order.Order L28:12 body=L29:5-L31:6
+  decl parameter Shop.Core.Models.Order.Order->customer L28:25 type=string
+  decl method Shop.Core.Models.Order.Add L33:17 body=L33:35-L33:51 type=void
+  decl parameter Shop.Core.Models.Order.Add->line L33:26 type=Line
+  decl method Shop.Core.Models.Order.Add L35:17 body=L36:5-L39:6 type=void
+  decl parameter Shop.Core.Models.Order.Add->sku L35:28 type=string
+  decl parameter Shop.Core.Models.Order.Add->price L35:41 type=decimal
+  decl method Shop.Core.Models.Order.CompareTo L41:16 body=L41:43-L41:77 type=int
+  decl parameter Shop.Core.Models.Order.CompareTo->other L41:33 type=Order?
+  decl method Shop.Core.Models.Order.operator + L43:25 body=L44:5-L47:6 type=Order
+  decl parameter Shop.Core.Models.Order.operator +->a L43:42 type=Order
+  decl parameter Shop.Core.Models.Order.operator +->b L43:50 type=Line
+  decl property Shop.Core.Models.Order.this[] L49:17 body=L49:36-L49:49 type=Line
+  decl parameter Shop.Core.Models.Order.this[]->index L49:26 type=int
+  ref L1:7 System import in= -> ?
+  ref L1:14 Linq import in= -> ?
+  ref L2:7 Shop import in= -> Shop (Core/Util/Cache.cs)
+  ref L2:12 Core import in= -> ?
+  ref L2:17 Pricing import in= -> ?
+  ref L7:2 Serializable in=Shop.Core.Models -> ?
+  ref L8:30 Entity in=Shop.Core.Models.Order -> Shop.Core.Models.Entity (Core/Models/Entity.cs)
+  ref L8:38 IComparable in=Shop.Core.Models.Order -> ?
+  ref L8:50 Order in=Shop.Core.Models.Order -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L10:22 List in=Shop.Core.Models.Order -> ?
+  ref L10:27 Line in=Shop.Core.Models.Order -> Shop.Core.Models.Line (Core/Models/Entity.cs)
+  ref L15:29 Calculator in=Shop.Core.Models.Order.Total -> Shop.Core.Pricing.Calculator (Core/Pricing/Calculator.cs)
+  ref L15:40 Sum call in=Shop.Core.Models.Order.Total -> Shop.Core.Pricing.Calculator.Sum (Core/Pricing/Calculator.cs)
+  ref L15:44 _lines in=Shop.Core.Models.Order.Total -> Shop.Core.Models.Order._lines
+  ref L19:22 _lines in=Shop.Core.Models.Order.Count -> Shop.Core.Models.Order._lines
+  ref L19:29 Count in=Shop.Core.Models.Order.Count -> ?
+  ref L22:25 MaxLines in=Shop.Core.Models.Order.Count -> Shop.Core.Models.Order.MaxLines
+  ref L22:45 ArgumentException call in=Shop.Core.Models.Order.Count -> ?
+  ref L26:18 EventHandler in=Shop.Core.Models.Order -> ?
+  ref L30:9 Customer in=Shop.Core.Models.Order.Order -> Shop.Core.Models.Order.Customer
+  ref L30:20 customer in=Shop.Core.Models.Order.Order -> Shop.Core.Models.Order.Order->customer
+  ref L33:21 Line in=Shop.Core.Models.Order.Add -> Shop.Core.Models.Line (Core/Models/Entity.cs)
+  ref L33:35 _lines in=Shop.Core.Models.Order.Add -> Shop.Core.Models.Order._lines
+  ref L33:42 Add call in=Shop.Core.Models.Order.Add -> ?
+  ref L33:46 line in=Shop.Core.Models.Order.Add -> Shop.Core.Models.Order.Add->line
+  ref L37:9 Add call in=Shop.Core.Models.Order.Add -> Shop.Core.Models.Order.Add
+  ref L37:17 Line call in=Shop.Core.Models.Order.Add -> Shop.Core.Models.Line (Core/Models/Entity.cs)
+  ref L37:22 sku in=Shop.Core.Models.Order.Add -> Shop.Core.Models.Order.Add->sku
+  ref L37:27 price in=Shop.Core.Models.Order.Add -> Shop.Core.Models.Order.Add->price
+  ref L38:9 Changed in=Shop.Core.Models.Order.Add -> Shop.Core.Models.Order.Changed
+  ref L38:18 Invoke call in=Shop.Core.Models.Order.Add -> ?
+  ref L38:31 EventArgs in=Shop.Core.Models.Order.Add -> ?
+  ref L38:41 Empty in=Shop.Core.Models.Order.Add -> ?
+  ref L41:26 Order in=Shop.Core.Models.Order.CompareTo -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L41:43 Total in=Shop.Core.Models.Order.CompareTo -> Shop.Core.Models.Order.Total
+  ref L41:49 CompareTo call in=Shop.Core.Models.Order.CompareTo -> ?
+  ref L41:59 other in=Shop.Core.Models.Order.CompareTo -> Shop.Core.Models.Order.CompareTo->other
+  ref L41:66 Total in=Shop.Core.Models.Order.CompareTo -> Shop.Core.Models.Order.Total
+  ref L43:19 Order in=Shop.Core.Models.Order.operator + -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L43:36 Order in=Shop.Core.Models.Order.operator + -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L43:45 Line in=Shop.Core.Models.Order.operator + -> Shop.Core.Models.Line (Core/Models/Entity.cs)
+  ref L45:9 a in=Shop.Core.Models.Order.operator + -> Shop.Core.Models.Order.operator +->a
+  ref L45:11 Add call in=Shop.Core.Models.Order.operator + -> Shop.Core.Models.Order.Add
+  ref L45:15 b in=Shop.Core.Models.Order.operator + -> Shop.Core.Models.Order.operator +->b
+  ref L46:16 a in=Shop.Core.Models.Order.operator + -> Shop.Core.Models.Order.operator +->a
+  ref L49:12 Line in=Shop.Core.Models.Order.this[] -> Shop.Core.Models.Line (Core/Models/Entity.cs)
+  ref L49:36 _lines in=Shop.Core.Models.Order.this[] -> Shop.Core.Models.Order._lines
+  ref L49:43 index in=Shop.Core.Models.Order.this[] -> Shop.Core.Models.Order.this[]->index
+file Core/Pricing/Calculator.cs csharp module=
+  decl namespace Shop.Core.Pricing L3:11 body=L4:1-L25:2
+  decl class Shop.Core.Pricing.Calculator L5:25 body=L6:5-L24:6
+  decl method Shop.Core.Pricing.Calculator.Sum L7:31 body=L8:9-L15:10 type=decimal
+  decl parameter Shop.Core.Pricing.Calculator.Sum->lines L7:53 type=IEnumerable<Line>
+  decl variable Shop.Core.Pricing.Calculator.Sum->total L9:21 type=decimal
+  decl variable Shop.Core.Pricing.Calculator.Sum->line L10:26
+  decl method Shop.Core.Pricing.Calculator.Discount L17:31 body=L17:75-L17:99 type=decimal
+  decl parameter Shop.Core.Pricing.Calculator.Discount->order L17:51 type=Order
+  decl parameter Shop.Core.Pricing.Calculator.Discount->rate L17:66 type=decimal
+  decl method Shop.Core.Pricing.Calculator.Expensive L19:43 body=L20:13-L23:25 type=IEnumerable<string>
+  decl parameter Shop.Core.Pricing.Calculator.Expensive->lines L19:71 type=IEnumerable<Line>
+  decl parameter Shop.Core.Pricing.Calculator.Expensive->min L19:86 type=decimal
+  decl variable Shop.Core.Pricing.Calculator.Expensive->l L20:18
+  ref L1:7 Shop import in= -> Shop (Core/Util/Cache.cs)
+  ref L1:12 Core import in= -> ?
+  ref L1:17 Models import in= -> ?
+  ref L7:35 IEnumerable in=Shop.Core.Pricing.Calculator.Sum -> ?
+  ref L7:47 Line in=Shop.Core.Pricing.Calculator.Sum -> Shop.Core.Models.Line (Core/Models/Entity.cs)
+  ref L10:34 lines in=Shop.Core.Pricing.Calculator.Sum -> Shop.Core.Pricing.Calculator.Sum->lines
+  ref L12:17 total in=Shop.Core.Pricing.Calculator.Sum -> Shop.Core.Pricing.Calculator.Sum->total
+  ref L12:26 line in=Shop.Core.Pricing.Calculator.Sum -> Shop.Core.Pricing.Calculator.Sum->line
+  ref L12:31 Price in=Shop.Core.Pricing.Calculator.Sum -> Shop.Core.Models.Line.Price (Core/Models/Entity.cs)
+  ref L14:20 total in=Shop.Core.Pricing.Calculator.Sum -> Shop.Core.Pricing.Calculator.Sum->total
+  ref L17:45 Order in=Shop.Core.Pricing.Calculator.Discount -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L17:75 order in=Shop.Core.Pricing.Calculator.Discount -> Shop.Core.Pricing.Calculator.Discount->order
+  ref L17:81 Total in=Shop.Core.Pricing.Calculator.Discount -> Shop.Core.Models.Order.Total (Core/Models/Order.cs)
+  ref L17:94 rate in=Shop.Core.Pricing.Calculator.Discount -> Shop.Core.Pricing.Calculator.Discount->rate
+  ref L19:23 IEnumerable in=Shop.Core.Pricing.Calculator.Expensive -> ?
+  ref L19:53 IEnumerable in=Shop.Core.Pricing.Calculator.Expensive -> ?
+  ref L19:65 Line in=Shop.Core.Pricing.Calculator.Expensive -> Shop.Core.Models.Line (Core/Models/Entity.cs)
+  ref L20:23 lines in=Shop.Core.Pricing.Calculator.Expensive -> Shop.Core.Pricing.Calculator.Expensive->lines
+  ref L21:19 l in=Shop.Core.Pricing.Calculator.Expensive -> Shop.Core.Pricing.Calculator.Expensive->l
+  ref L21:21 Price in=Shop.Core.Pricing.Calculator.Expensive -> Shop.Core.Models.Line.Price (Core/Models/Entity.cs)
+  ref L21:29 min in=Shop.Core.Pricing.Calculator.Expensive -> Shop.Core.Pricing.Calculator.Expensive->min
+  ref L22:21 l in=Shop.Core.Pricing.Calculator.Expensive -> Shop.Core.Pricing.Calculator.Expensive->l
+  ref L22:23 Price in=Shop.Core.Pricing.Calculator.Expensive -> Shop.Core.Models.Line.Price (Core/Models/Entity.cs)
+  ref L23:20 l in=Shop.Core.Pricing.Calculator.Expensive -> Shop.Core.Pricing.Calculator.Expensive->l
+  ref L23:22 Sku in=Shop.Core.Pricing.Calculator.Expensive -> Shop.Core.Models.Line.Sku (Core/Models/Entity.cs)
+file Core/Util/Cache.cs csharp module=
+  decl namespace Shop L1:11 body=L2:1-L44:2
+  decl namespace Shop.Core.Util L3:15 body=L4:5-L43:6
+  decl interface Shop.Core.Util.IRepository L5:26 body=L6:9-L8:10
+  decl type_parameter Shop.Core.Util.IRepository.T L5:38
+  decl method Shop.Core.Util.IRepository.Find L7:16 type=T?
+  decl parameter Shop.Core.Util.IRepository.Find->id L7:25 type=int
+  decl class Shop.Core.Util.Cache L10:22 body=L11:9-L35:10 bases=IRepository<T>
+  decl type_parameter Shop.Core.Util.Cache.T L10:28
+  decl field Shop.Core.Util.Cache._items L12:49 type=Dictionary<int,T>
+  decl field Shop.Core.Util.Cache._evicted L13:35 type=EventHandler?
+  decl field Shop.Core.Util.Cache.Evicted L15:39 body=L16:13-L19:14 type=EventHandler
+  decl method Shop.Core.Util.Cache.Find L21:23 body=L21:39-L21:92 type=T?
+  decl parameter Shop.Core.Util.Cache.Find->id L21:32 type=int
+  decl variable Shop.Core.Util.Cache.Find->item L21:70
+  decl method Shop.Core.Util.Cache.TryFind L23:25 body=L24:13-L27:14 type=bool
+  decl parameter Shop.Core.Util.Cache.TryFind->id L23:37 type=int
+  decl parameter Shop.Core.Util.Cache.TryFind->found L23:48 type=T?
+  decl method Shop.Core.Util.Cache.operator bool L29:36 body=L29:69-L29:91 type=bool
+  decl parameter Shop.Core.Util.Cache.operator bool->cache L29:59 type=Cache<T>
+  decl method Shop.Core.Util.Cache.~Cache L31:13 body=L32:13-L34:14
+  decl class Shop.Core.Util.LoggingCache L37:22 body=L38:9-L42:10 bases=Cache<T>
+  decl type_parameter Shop.Core.Util.LoggingCache.T L37:35
+  decl method Shop.Core.Util.LoggingCache.Find L39:27 body=L39:47-L39:90 type=T?
+  decl parameter Shop.Core.Util.LoggingCache.Find->class L39:37 type=int
+  decl method Shop.Core.Util.LoggingCache.Fallback L41:31 body=L41:58-L41:62 type=T?
+  decl parameter Shop.Core.Util.LoggingCache.Fallback->reason L41:47 type=string
+  ref L5:47 T in=Shop.Core.Util.IRepository -> Shop.Core.Util.IRepository.T
+  ref L5:51 Models in=Shop.Core.Util.IRepository -> ?
+  ref L5:58 Entity in=Shop.Core.Util.IRepository -> Shop.Core.Models.Entity (Core/Models/Entity.cs)
+  ref L7:13 T in=Shop.Core.Util.IRepository -> Shop.Core.Util.IRepository.T
+  ref L10:33 IRepository in=Shop.Core.Util.Cache -> Shop.Core.Util.IRepository
+  ref L10:45 T in=Shop.Core.Util.Cache -> Shop.Core.Util.Cache.T
+  ref L10:54 T in=Shop.Core.Util.Cache -> Shop.Core.Util.Cache.T
+  ref L10:58 Models in=Shop.Core.Util.Cache -> ?
+  ref L10:65 Entity in=Shop.Core.Util.Cache -> Shop.Core.Models.Entity (Core/Models/Entity.cs)
+  ref L12:30 Dictionary in=Shop.Core.Util.Cache -> ?
+  ref L12:46 T in=Shop.Core.Util.Cache -> Shop.Core.Util.Cache.T
+  ref L13:21 EventHandler in=Shop.Core.Util.Cache -> ?
+  ref L15:26 EventHandler in=Shop.Core.Util.Cache.Evicted -> ?
+  ref L17:23 _evicted in=Shop.Core.Util.Cache.Evicted -> Shop.Core.Util.Cache._evicted
+  ref L18:26 _evicted in=Shop.Core.Util.Cache.Evicted -> Shop.Core.Util.Cache._evicted
+  ref L21:20 T in=Shop.Core.Util.Cache.Find -> Shop.Core.Util.Cache.T
+  ref L21:39 _items in=Shop.Core.Util.Cache.Find -> Shop.Core.Util.Cache._items
+  ref L21:46 TryGetValue call in=Shop.Core.Util.Cache.Find -> ?
+  ref L21:58 id in=Shop.Core.Util.Cache.Find -> Shop.Core.Util.Cache.Find->id
+  ref L21:78 item in=Shop.Core.Util.Cache.Find -> Shop.Core.Util.Cache.Find->item
+  ref L23:45 T in=Shop.Core.Util.Cache.TryFind -> Shop.Core.Util.Cache.T
+  ref L25:17 found in=Shop.Core.Util.Cache.TryFind -> Shop.Core.Util.Cache.TryFind->found
+  ref L25:30 Find call in=Shop.Core.Util.Cache.TryFind -> Shop.Core.Util.Cache.Find
+  ref L25:35 id in=Shop.Core.Util.Cache.TryFind -> Shop.Core.Util.Cache.TryFind->id
+  ref L26:24 found in=Shop.Core.Util.Cache.TryFind -> Shop.Core.Util.Cache.TryFind->found
+  ref L29:50 Cache in=Shop.Core.Util.Cache.operator bool -> Shop.Core.Util.Cache
+  ref L29:56 T in=Shop.Core.Util.Cache.operator bool -> Shop.Core.Util.Cache.T
+  ref L29:69 cache in=Shop.Core.Util.Cache.operator bool -> Shop.Core.Util.Cache.operator bool->cache
+  ref L29:75 _items in=Shop.Core.Util.Cache.operator bool -> Shop.Core.Util.Cache._items
+  ref L29:82 Count in=Shop.Core.Util.Cache.operator bool -> ?
+  ref L33:17 _items in=Shop.Core.Util.Cache.~Cache -> Shop.Core.Util.Cache._items
+  ref L33:24 Clear call in=Shop.Core.Util.Cache.~Cache -> ?
+  ref L37:40 Cache in=Shop.Core.Util.LoggingCache -> Shop.Core.Util.Cache
+  ref L37:46 T in=Shop.Core.Util.LoggingCache -> Shop.Core.Util.LoggingCache.T
+  ref L37:55 T in=Shop.Core.Util.LoggingCache -> Shop.Core.Util.LoggingCache.T
+  ref L37:59 Models in=Shop.Core.Util.LoggingCache -> ?
+  ref L37:66 Entity in=Shop.Core.Util.LoggingCache -> Shop.Core.Models.Entity (Core/Models/Entity.cs)
+  ref L39:24 T in=Shop.Core.Util.LoggingCache.Find -> Shop.Core.Util.LoggingCache.T
+  ref L39:52 Find call in=Shop.Core.Util.LoggingCache.Find -> Shop.Core.Util.Cache.Find
+  ref L39:58 class in=Shop.Core.Util.LoggingCache.Find -> Shop.Core.Util.LoggingCache.Find->class
+  ref L39:68 Fallback call in=Shop.Core.Util.LoggingCache.Find -> Shop.Core.Util.LoggingCache.Fallback
+  ref L39:84 Find in=Shop.Core.Util.LoggingCache.Find -> Shop.Core.Util.LoggingCache.Find
+  ref L41:28 T in=Shop.Core.Util.LoggingCache.Fallback -> Shop.Core.Util.LoggingCache.T
+file GlobalUsings.cs csharp module=
+  ref L1:14 System import in= -> ?
+  ref L2:14 System import in= -> ?
+  ref L2:21 Collections import in= -> ?
+  ref L2:33 Generic import in= -> ?
+file Tools/Seed.cs csharp module=
+  decl variable orders L3:5 type=List<Order>
+  decl variable o L4:14
+  decl variable summary L8:5 type=Summary
+  decl function Print L10:13 body=L10:35-L10:68 type=void
+  decl parameter Print->order L10:25 type=Order
+  decl class Summary L12:8
+  decl property Summary.Count L12:20 type=int
+  ref L1:7 Shop import in= -> Shop (Core/Util/Cache.cs)
+  ref L1:12 Core import in= -> ?
+  ref L1:17 Models import in= -> ?
+  ref L3:18 List call in= -> ?
+  ref L3:23 Order in= -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L3:48 Order call in= -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L4:19 orders in= -> orders
+  ref L6:5 Print call in= -> Print
+  ref L6:11 o in= -> o
+  ref L8:19 Summary call in= -> Summary
+  ref L8:27 orders in= -> orders
+  ref L8:34 Count in= -> ?
+  ref L10:19 Order in=Print -> Shop.Core.Models.Order (Core/Models/Order.Notes.cs)
+  ref L10:35 Console in=Print -> ?
+  ref L10:43 WriteLine call in=Print -> ?
+  ref L10:53 order in=Print -> Print->order
+  ref L10:59 Customer in=Print -> Shop.Core.Models.Order.Customer (Core/Models/Order.cs)

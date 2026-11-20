@@ -1,0 +1,26 @@
+$ myoo lsp rename com.shop.Calc.add->a x -c --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+com.shop.Calc.add->x (com/shop/Calc.java:8:24)
+	    public int add(int x, int b) {
+	        total += x + b;
+	        return total;
+	    }
+
+- com/shop/Calc.java (5 edits)
+[changed com/shop/Calc.java]
+package com.shop;
+
+/** Accumulates a total. */
+public class Calc {
+    private int total;
+
+    /** Adds {@code x} and {@code b} to the total. */
+    public int add(int x, int b) {
+        total += x + b;
+        return total;
+    }
+
+    public int add(int x) {
+        return add(x, 0);
+    }
+}

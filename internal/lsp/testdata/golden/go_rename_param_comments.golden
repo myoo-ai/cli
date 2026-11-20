@@ -1,0 +1,25 @@
+$ myoo lsp rename calc.Calc.Add->a x -c --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+calc.Calc.Add->x (calc/calc.go:9:20)
+	func (c *Calc) Add(x, b int) int {
+		c.total += x + b
+		return c.total
+	}
+
+- calc/calc.go (3 edits)
+[changed calc/calc.go]
+package calc
+
+// Calc accumulates a total.
+type Calc struct {
+	total int
+}
+
+// Add adds x and b to the total and returns it.
+func (c *Calc) Add(x, b int) int {
+	c.total += x + b
+	return c.total
+}
+
+// New returns an empty Calc.
+func New() *Calc { return &Calc{} }

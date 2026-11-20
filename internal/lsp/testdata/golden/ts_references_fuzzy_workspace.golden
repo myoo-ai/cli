@@ -1,0 +1,4 @@
+$ myoo lsp references incr --backend=builtin
+# format: (for each matching symbol with one or more references) `<fqn>[-><local/temporary symbols>]\n- <reference fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)`
+src/math.Counter.increment
+- src/index.increment (src/index.ts:4:32)

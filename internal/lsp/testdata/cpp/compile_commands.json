@@ -1,0 +1,4 @@
+[
+  {"directory": "${DIR}", "file": "${DIR}/src/calc.cpp", "arguments": ["clang++", "-std=c++17", "-Iinclude", "-c", "src/calc.cpp"]},
+  {"directory": "${DIR}", "file": "${DIR}/src/main.cpp", "arguments": ["clang++", "-std=c++17", "-Iinclude", "-c", "src/main.cpp"]}
+]

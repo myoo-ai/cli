@@ -1,0 +1,13 @@
+file broken.ts typescript module=broken
+  decl class broken.Broken L3:14 body=L3:21-L12:2
+  decl method broken.Broken.method L4:3
+  decl method broken.Broken.other L9:3 body=L9:17-L11:4 type=void
+  decl function broken.ok L14:10 body=L14:28-L16:2
+  decl parameter broken.ok->value L14:13 type=number
+  decl constant broken.t L18:7
+  decl variable broken.after L19:5
+  ref L1:10 a import in=broken -> ?
+  ref L10:10 method call in=broken.Broken.other -> broken.Broken.method
+  ref L15:10 value in=broken.ok -> broken.ok->value
+  ref L18:20 ok call in=broken -> broken.ok
+  ref L19:13 ok call in=broken -> broken.ok

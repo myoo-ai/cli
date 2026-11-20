@@ -1,0 +1,48 @@
+file edge.js javascript module=edge
+  decl constant edge.re L1:7
+  decl constant edge.half L2:7
+  decl constant edge.parts L3:7
+  decl constant edge.big L4:7
+  decl constant edge.division L5:7
+  decl constant edge.tagged L6:7
+  decl variable edge.total L7:5
+  decl variable edge.count L7:17
+  decl variable edge.inner L7:28
+  decl variable edge.title L7:41
+  decl variable edge.a L7:54
+  decl variable edge.b L7:61
+  decl variable edge.c L7:68
+  decl constant edge.obj L8:7
+  decl property edge.obj.key L8:15
+  decl property edge.obj.quoted-key L8:26
+  decl property edge.obj.re L8:54
+  decl class edge.Store L12:7 body=L12:13-L17:2
+  decl field edge.Store.#items L13:3
+  decl method edge.Store.has L14:3 body=L14:10-L16:4
+  decl parameter edge.Store.has->x L14:7
+  decl function edge.html L18:10 body=L18:35-L20:2
+  decl parameter edge.html->strings L18:15
+  decl parameter edge.html->values L18:27
+  ref L2:14 total in=edge -> edge.total
+  ref L2:26 count in=edge -> edge.count
+  ref L3:29 inner in=edge -> edge.inner
+  ref L3:40 obj in=edge -> edge.obj
+  ref L3:44 key in=edge -> edge.obj.key
+  ref L5:19 a in=edge -> edge.a
+  ref L5:23 b in=edge -> edge.b
+  ref L5:28 c in=edge -> edge.c
+  ref L6:16 html call in=edge -> edge.html
+  ref L6:26 title in=edge -> edge.title
+  ref L8:43 count in=edge -> edge.count
+  ref L9:10 test call in=edge -> ?
+  ref L9:15 title in=edge -> edge.title
+  ref L9:23 total in=edge -> edge.total
+  ref L15:12 #items in=edge.Store.has -> edge.Store.#items
+  ref L15:35 #items in=edge.Store.has -> edge.Store.#items
+  ref L15:42 includes call in=edge.Store.has -> ?
+  ref L15:51 x in=edge.Store.has -> edge.Store.has->x
+  ref L19:10 strings in=edge.html -> edge.html->strings
+  ref L19:18 raw in=edge.html -> ?
+  ref L19:22 join call in=edge.html -> ?
+  ref L19:33 values in=edge.html -> edge.html->values
+  ref L19:40 length in=edge.html -> ?

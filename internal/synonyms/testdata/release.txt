@@ -1,0 +1,3 @@
+HOW A RELEASE HAPPENS
+After all six builds succeed → `gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes` — this publishes the release with auto-generated notes. Only this job can write to the repo; everything else is read-only.
+It hasn't run on GitHub yet: the package doesn't exist there and this folder isn't a git repo.

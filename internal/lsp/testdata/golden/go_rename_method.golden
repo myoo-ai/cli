@@ -1,0 +1,42 @@
+$ myoo lsp rename calc.Calc.Add Sum --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+calc.Calc.Sum (calc/calc.go:9:16)
+	func (c *Calc) Sum(a, b int) int {
+		c.total += a + b
+		return c.total
+	}
+
+- calc/calc.go (1 edit)
+- main.go (2 edits)
+[changed calc/calc.go]
+package calc
+
+// Calc accumulates a total.
+type Calc struct {
+	total int
+}
+
+// Add adds a and b to the total and returns it.
+func (c *Calc) Sum(a, b int) int {
+	c.total += a + b
+	return c.total
+}
+
+// New returns an empty Calc.
+func New() *Calc { return &Calc{} }
+[changed main.go]
+package main
+
+import (
+	"fmt"
+
+	"example.com/shop/calc"
+)
+
+func main() {
+	c := calc.New()
+	fmt.Println(c.Sum(1, 2))
+	var total int
+	total = c.Sum(total, 3)
+	fmt.Println(total)
+}

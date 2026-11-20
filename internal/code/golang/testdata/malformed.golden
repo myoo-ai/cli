@@ -1,0 +1,8 @@
+file broken.go go module=broken
+  decl function broken.Good L3:6 body=L3:17-L3:29 type=int
+  decl function broken.Bad L5:6
+  ref L3:13 int in=broken.Good -> ?
+file ok.go go module=broken
+  decl function broken.Fine L3:6 body=L3:17-L3:34 type=int
+  ref L3:13 int in=broken.Fine -> ?
+  ref L3:26 Good call in=broken.Fine -> broken.Good (broken.go)

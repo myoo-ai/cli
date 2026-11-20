@@ -1,0 +1,60 @@
+#1 positive.go:1:1-2.43 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#2 positive.go:18:1-44 - decorative-comment: use of banner or separator comments made of repeated characters.
+#3 positive.go:20:1-45 - redundant-docstring: documentation only restates the name of the declaration.
+#4 positive.go:22:2-42 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#5 positive.go:24:2-43 - narrating-comment: comment narrates what the code does instead of explaining why.
+#6 positive.go:30:2-40 - obvious-comment: comment repeats the code it is attached to.
+#7 positive.go:36:2-38 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#8 positive.go:38:2-40 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 positive.go:43:2-9 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#10 positive.go:47:2-26 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#11 positive.go:51:15-16 - emoji-in-code: use of emoji in comments or string literals.
+#12 positive.go:52:20-21 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#13 positive.go:53:19-20 - emdash-in-code: use of emdash in comments or string literals.
+#14 positive.go:54:14-37 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#15 positive.go:55:14-26 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#16 positive.go:60:2-61.3 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#17 positive.go:62:2-9 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#18 positive.go:65:3-18 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#19 positive.go:68:1-76.2 - excessive-comments: function body is dominated by comments (6 of 9 non-blank lines are comments).
+#20 positive.go:84:6-17 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#21 positive.go:95:1-180.2 - long-function: function has more than 80 lines of code (86 lines of code).
+#22 positive.go:194:50-204.2 - duplicated-block: block of code duplicates another block (first occurrence at positive.go:182:46, lines 182-192).
+#23 positive.go:207:2-14 - go-deprecated-ioutil: prefer the io and os functions instead of the deprecated io/ioutil package, which only wraps them since Go 1.16 (`iu.WriteFile` -> `os.WriteFile`).
+#24 positive.go:208:9-20 - go-deprecated-ioutil: prefer the io and os functions instead of the deprecated io/ioutil package, which only wraps them since Go 1.16 (`iu.ReadFile` -> `os.ReadFile`).
+#25 positive.go:211:17-28 - go-interface-any: prefer using `any` instead of `interface{}`, as it's shorter and easier to read (`interface{}` -> `any`).
+#26 positive.go:216:13-34 - go-time-since: prefer using `time.Since` or `time.Until` instead of subtracting `time.Now()`, as they state the intent directly (`time.Now().Sub(start)` -> `time.Since(start)`).
+#27 positive.go:217:10-34 - go-time-since: prefer using `time.Since` or `time.Until` instead of subtracting `time.Now()`, as they state the intent directly (`deadline.Sub(time.Now())` -> `time.Until(deadline)`).
+#28 positive.go:219:3-66 - go-errors-new-sprintf: prefer using `fmt.Errorf` instead of `errors.New(fmt.Sprintf(...))`, as it formats the message in one call (`errors.New(fmt.Sprintf("failed %d times after %s", n, elapsed))` -> `fmt.Errorf("failed %d times after %s", n, elapsed)`).
+#29 positive.go:220:3-37 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`errors.New("Something went wrong")`).
+#30 positive.go:220:14-36 - go-error-string-format: error strings should start lowercase and end without punctuation, as callers usually print them inside other messages (`"Something went wrong"` -> `"something went wrong"`).
+#31 positive.go:221:14-31 - go-error-string-format: error strings should start lowercase and end without punctuation, as callers usually print them inside other messages (`"deadline in %s."` -> `"deadline in %s"`).
+#32 positive.go:222:14-27 - go-error-string-format: error strings should start lowercase and end without punctuation, as callers usually print them inside other messages (`"disk full\n"` -> `"disk full"`).
+#33 positive.go:227:5-32 - go-strings-contains: prefer using `strings.Contains` instead of comparing the result of `strings.Index`, as it says what is tested (`strings.Index(s, sub) != -1` -> `strings.Contains(s, sub)`).
+#34 positive.go:227:36-65 - go-strings-contains: prefer using `strings.Contains` instead of comparing the result of `strings.Index`, as it says what is tested (`strings.IndexAny(s, "xy") < 0` -> `!strings.ContainsAny(s, "xy")`).
+#35 positive.go:228:10-34 - go-bytes-equal: prefer using `bytes.Equal` instead of `bytes.Compare` for equality checks, as it is faster and easier to read (`bytes.Compare(a, b) == 0` -> `bytes.Equal(a, b)`).
+#36 positive.go:230:9-37 - go-strings-contains: prefer using `strings.Contains` instead of comparing the result of `strings.Index`, as it says what is tested (`bytes.IndexRune(a, 'x') >= 0` -> `bytes.ContainsRune(a, 'x')`).
+#37 positive.go:230:41-83 - go-strings-equal-fold: prefer using `strings.EqualFold` instead of comparing case-converted strings, as it compares without allocating 2 new strings (`strings.ToLower(s) != strings.ToLower(sub)` -> `!strings.EqualFold(s, sub)`).
+#38 positive.go:239:3-18 - go-defer-in-loop: deferred calls in a loop should be avoided, as they run when the function returns instead of at the end of each iteration (`defer f.Close()` runs when the function returns).
+#39 positive.go:241:2-33 - go-range-over-int: prefer using `for i := range n` instead of a three-clause loop counting from zero, as it's more concise and easier to read (`for i := 0; i < len(paths); i++` -> `for i := range len(paths)`).
+#40 positive.go:244:2-24 - go-range-over-int: prefer using `for i := range n` instead of a three-clause loop counting from zero, as it's more concise and easier to read (`for i := 0; i < 3; i++` -> `for range 3`).
+#41 positive.go:247:2-19 - go-redundant-blank-range: prefer omitting blank identifiers at the end of a range clause, as they add nothing (`for k, _ := range` -> `for k := range`).
+#42 positive.go:250:2-15 - go-redundant-blank-range: prefer omitting blank identifiers at the end of a range clause, as they add nothing (`for _ = range` -> `for range`).
+#43 positive.go:256:2-57 - go-context-cancel-not-deferred: context cancellation functions should be deferred, as the context and its timer leak until the parent context ends (`defer cancel()` is missing).
+#44 positive.go:265:2-20 - no-formatted-string-placeholders: formatted string without any placeholders (`t.Logf("starting")` -> `t.Log("starting")`).
+#45 positive.go:266:9-31 - no-formatted-string-placeholders: formatted string without any placeholders (`fmt.Errorf("no input")` -> `errors.New("no input")`).
+#46 positive.go:269:14-22 - change-narration-comment: comment describes the edit history instead of the code (`now uses`).
+#47 positive.go:269:40-58 - change-narration-comment: comment describes the edit history instead of the code (`instead of the old`).
+#48 positive.go:271:5-9 - change-narration-comment: comment describes the edit history instead of the code (`NEW:`).
+#49 positive.go:273:14-41 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`errors.New("Invalid input")`).
+#50 positive.go:273:25-40 - go-error-string-format: error strings should start lowercase and end without punctuation, as callers usually print them inside other messages (`"Invalid input"` -> `"invalid input"`).
+#51 positive.go:275:5-29 - demo-grade-comment: comment admits that the code is a simplification or a stub (`In a real implementation`).
+#52 positive.go:276:5-21 - reviewer-addressed-comment: comment speaks to the reviewer or the person who asked for the change (`adjust as needed`).
+#53 positive.go:278:3-32 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`panic("something went wrong")`).
+#54 positive.go:280:9-23 - placeholder-data: sample data left in a string literal (`lorem ipsum`, `John Doe`, an API key placeholder) (`YOUR_API_KEY`).
+#55 positive.go:280:25-45 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`fmt.Errorf("failed")`).
+#56 positive.go:280:25-45 - no-formatted-string-placeholders: formatted string without any placeholders (`fmt.Errorf("failed")` -> `errors.New("failed")`).
+#57 positive.go:284:9-50 - cheerful-message: chatty or celebratory string literal ("Oops", "Yay", "Great!", "successfully!") (`Yay! Your upload finished successfully!`).
+#58 positive.go:288:2-22 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assert.True(t, true)`).
+#59 positive.go:289:2-24 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`require.Equal(t, 1, 1)`).
+#60 positive.go:290:2-27 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assert.Equal(t, "a", "a")`).

@@ -1,0 +1,74 @@
+#1 Positive.php:1:1-6 - php-strict-types: declare `strict_types=1` in a file that declares functions or classes, as without it scalar arguments are silently coerced (`<?php` -> `<?php declare(strict_types=1);`).
+#2 Positive.php:2:1-5.4 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#3 Positive.php:13:5-36 - decorative-comment: use of banner or separator comments made of repeated characters.
+#4 Positive.php:16:5-18.8 - redundant-docstring: documentation only restates the name of the declaration.
+#5 Positive.php:21:9-48 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#6 Positive.php:23:9-49 - narrating-comment: comment narrates what the code does instead of explaining why.
+#7 Positive.php:29:9-47 - obvious-comment: comment repeats the code it is attached to.
+#8 Positive.php:36:9-51 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 Positive.php:38:9-48 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#10 Positive.php:44:9-53 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#11 Positive.php:49:9-16 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#12 Positive.php:54:15-16 - emoji-in-code: use of emoji in comments or string literals.
+#13 Positive.php:55:15-16 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#14 Positive.php:56:17-18 - emdash-in-code: use of emdash in comments or string literals.
+#15 Positive.php:57:14-33 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#16 Positive.php:58:14-26 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#17 Positive.php:59:20-35 - no-formatted-string-placeholders: formatted string without any placeholders (`sprintf('done')` -> `'done'`).
+#18 Positive.php:60:9-36 - no-formatted-string-placeholders: formatted string without any placeholders (`printf("no placeholders\n")` -> `echo "no placeholders\n"`).
+#19 Positive.php:67:11-68.10 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#20 Positive.php:71:11-73.10 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#21 Positive.php:76:9-34 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#22 Positive.php:79:12-24 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#23 Positive.php:81:13-44 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#24 Positive.php:85:5-94.6 - excessive-comments: function body is dominated by comments (6 of 9 non-blank lines are comments).
+#25 Positive.php:102:25-43 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#26 Positive.php:112:5-196.6 - long-function: function has more than 80 lines of code (84 lines of code).
+#27 Positive.php:212:5-222.6 - duplicated-block: block of code duplicates another block (first occurrence at Positive.php:199:5, lines 199-209).
+#28 Positive.php:233:17-31 - php-long-array-syntax: prefer the short array syntax `[...]` over `array(...)`, as it is shorter and the style every current PHP standard uses (`array(1, 2, 3)` -> `[1, 2, 3]`).
+#29 Positive.php:234:17-37 - php-loose-equality: use `===` and `!==` instead of `==` and `!=`, as loose comparison juggles types in surprising ways (`$name == $user->name` -> `$name === $user->name`).
+#30 Positive.php:235:13-28 - php-loose-equality: use `===` and `!==` instead of `==` and `!=`, as loose comparison juggles types in surprising ways (`$items != $args` -> `$items !== $args`).
+#31 Positive.php:238:16-44 - php-str-contains: prefer `str_contains()` over comparing the result of `strpos()` with false, as it states the intent (`strpos($name, 'x') !== false` -> `str_contains($name, 'x')`).
+#32 Positive.php:239:20-48 - php-str-contains: prefer `str_contains()` over comparing the result of `strpos()` with false, as it states the intent (`false === strpos($name, 'y')` -> `!str_contains($name, 'y')`).
+#33 Positive.php:240:19-44 - php-str-starts-with: prefer `str_starts_with()` over `strpos(...) === 0` or comparing a `substr()` prefix, as it states the intent and does not scan the whole string (`strpos($name, 'ab') === 0` -> `str_starts_with($name, 'ab')`).
+#34 Positive.php:241:19-48 - php-str-starts-with: prefer `str_starts_with()` over `strpos(...) === 0` or comparing a `substr()` prefix, as it states the intent and does not scan the whole string (`substr($name, 0, 3) === 'abc'` -> `str_starts_with($name, 'abc')`).
+#35 Positive.php:242:19-47 - php-str-ends-with: prefer `str_ends_with()` over comparing a `substr()` suffix, as it states the intent (`substr($name, -4) !== '.php'` -> `!str_ends_with($name, '.php')`).
+#36 Positive.php:243:18-59 - php-null-coalescing: prefer the null coalescing operator `??` over `isset($a) ? $a : $b`, as it repeats nothing (`isset($items['k']) ? $items['k'] : 'none'` -> `$items['k'] ?? 'none'`).
+#37 Positive.php:244:9-37 - php-null-coalescing-assignment: prefer `??=` over `$a = $a ?? $b`, as it names the target once (`$name = $name ?? 'anonymous'` -> `$name ??= 'anonymous'`).
+#38 Positive.php:245:16-33 - php-dir-constant: prefer `__DIR__` over `dirname(__FILE__)`, as the constant is resolved at compile time (`dirname(__FILE__)` -> `__DIR__`).
+#39 Positive.php:246:18-34 - php-get-class: prefer `::class` over `get_class()`, as it is shorter and `get_class()` without arguments is deprecated (`get_class($this)` -> `static::class`).
+#40 Positive.php:247:17-28 - php-get-class: prefer `::class` over `get_class()`, as it is shorter and `get_class()` without arguments is deprecated (`get_class()` -> `self::class`).
+#41 Positive.php:248:18-34 - php-get-class: prefer `::class` over `get_class()`, as it is shorter and `get_class()` without arguments is deprecated (`get_class($user)` -> `$user::class`).
+#42 Positive.php:249:14-20 - php-alias-function: prefer the canonical function over its alias, as aliases such as `sizeof` and `join` hide the function readers know (`sizeof` -> `count`).
+#43 Positive.php:250:16-20 - php-alias-function: prefer the canonical function over its alias, as aliases such as `sizeof` and `join` hide the function readers know (`join` -> `implode`).
+#44 Positive.php:251:19-29 - php-alias-function: prefer the canonical function over its alias, as aliases such as `sizeof` and `join` hide the function readers know (`key_exists` -> `array_key_exists`).
+#45 Positive.php:252:20-24 - php-alias-function: prefer the canonical function over its alias, as aliases such as `sizeof` and `join` hide the function readers know (`chop` -> `rtrim`).
+#46 Positive.php:253:16-26 - php-alias-function: prefer the canonical function over its alias, as aliases such as `sizeof` and `join` hide the function readers know (`is_integer` -> `is_int`).
+#47 Positive.php:253:34-41 - php-alias-function: prefer the canonical function over its alias, as aliases such as `sizeof` and `join` hide the function readers know (`is_long` -> `is_int`).
+#48 Positive.php:253:49-58 - php-alias-function: prefer the canonical function over its alias, as aliases such as `sizeof` and `join` hide the function readers know (`is_double` -> `is_float`).
+#49 Positive.php:254:16-22 - php-alias-function: prefer the canonical function over its alias, as aliases such as `sizeof` and `join` hide the function readers know (`strchr` -> `strstr`).
+#50 Positive.php:255:18-21 - php-alias-function: prefer the canonical function over its alias, as aliases such as `sizeof` and `join` hide the function readers know (`pos` -> `current`).
+#51 Positive.php:256:20-45 - php-error-suppression: avoid the `@` error control operator, as it hides warnings that explain later failures (`@file_get_contents($name)` -> `file_get_contents($name)`).
+#52 Positive.php:257:9-25 - php-debug-leftover: remove this debug output, as `var_dump`, `print_r`, `dump` and `dd` calls are leftovers from debugging (`var_dump($items)`).
+#53 Positive.php:258:9-24 - php-debug-leftover: remove this debug output, as `var_dump`, `print_r`, `dump` and `dd` calls are leftovers from debugging (`print_r($items)`).
+#54 Positive.php:259:9-29 - php-debug-leftover: remove this debug output, as `var_dump`, `print_r`, `dump` and `dd` calls are leftovers from debugging (`die(var_dump($user))`).
+#55 Positive.php:260:9-18 - php-debug-leftover: remove this debug output, as `var_dump`, `print_r`, `dump` and `dd` calls are leftovers from debugging (`dd($user)`).
+#56 Positive.php:261:18-54 - php-nullsafe-operator: prefer the nullsafe operator `?->` over a null check in a ternary, as it is shorter and evaluates the object once (`$user !== null ? $user->email : null` -> `$user?->email`).
+#57 Positive.php:262:18-56 - php-nullsafe-operator: prefer the nullsafe operator `?->` over a null check in a ternary, as it is shorter and evaluates the object once (`$user === null ? null : $user->phone()` -> `$user?->phone()`).
+#58 Positive.php:263:19-50 - php-call-user-func: prefer calling a callable directly over `call_user_func()`, as `$f(...)` is shorter and faster (`call_user_func($callback, 1, 2)` -> `$callback(1, 2)`).
+#59 Positive.php:264:19-57 - php-call-user-func: prefer calling a callable directly over `call_user_func()`, as `$f(...)` is shorter and faster (`call_user_func_array($callback, $args)` -> `$callback(...$args)`).
+#60 Positive.php:265:9-21 - php-list-syntax: prefer the short destructuring syntax `[...]` over `list(...)`, as it matches the array syntax (`list($a, $b)` -> `[$a, $b]`).
+#61 Positive.php:266:9-23 - php-extract: avoid `extract()`, as it creates variables that neither readers nor static analysis can see and may overwrite existing ones.
+#62 Positive.php:267:15-30 - php-removed-function: replace this function, as current PHP versions removed it (`create_function` -> a closure).
+#63 Positive.php:268:18-31 - php-cast-function: prefer a cast over `intval()`, `floatval()`, `strval()` and `boolval()` with one argument, as the cast is shorter and avoids a function call (`intval($name)` -> `(int) $name`).
+#64 Positive.php:269:19-33 - php-is-null: prefer `=== null` over `is_null()`, as the comparison is shorter and needs no function call (`is_null($user)` -> `$user === null`).
+#65 Positive.php:270:9-34 - php-array-push: prefer `$a[] = $x` over `array_push($a, $x)` for a single element, as it avoids a function call (`array_push($items, $name)` -> `$items[] = $name`).
+#66 Positive.php:271:19-33 - php-pow-function: prefer the `**` operator over `pow()`, as it reads like the math it does (`pow($n + 1, 2)` -> `($n + 1) ** 2`).
+#67 Positive.php:272:9-279.10 - php-switch-to-match: prefer a `match` expression to a `switch` whose cases only return or assign a value, as `match` has no fallthrough and yields the value directly (`switch ($n)` -> `match ($n)`).
+#68 Positive.php:287:12-33 - change-narration-comment: comment describes the edit history instead of the code (`The former Cart class`).
+#69 Positive.php:287:53-66 - change-narration-comment: comment describes the edit history instead of the code (`the old logic`).
+#70 Positive.php:289:13-64 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`throw new InvalidArgumentException('Invalid input')`).
+#71 Positive.php:291:9-32 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`$this->assertTrue(true)`).
+#72 Positive.php:292:9-31 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`self::assertSame(1, 1)`).
+#73 Positive.php:293:16-47 - cheerful-message: chatty or celebratory string literal ("Oops", "Yay", "Great!", "successfully!") (`Whoops! Something went wrong.`).
+#74 Positive.php:296:1-3 - php-closing-tag: omit the closing `?>` tag at the end of a file that only holds PHP code, as any white space after it is sent as output.

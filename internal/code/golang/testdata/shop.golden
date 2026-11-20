@@ -1,0 +1,249 @@
+file internal/calc/calc.go go module=internal/calc
+  decl interface internal/calc.Adder L7:6 body=L7:22-L9:2
+  decl method internal/calc.Adder.Add L8:2 type=int
+  decl parameter internal/calc.Adder.Add->a L8:6 type=int
+  decl parameter internal/calc.Adder.Add->b L8:9 type=int
+  decl struct internal/calc.Calc L12:6 body=L12:18-L14:2
+  decl field internal/calc.Calc.total L13:2 type=int
+  decl type internal/calc.Celsius L17:6 type=float64
+  decl function internal/calc.New L20:6 body=L20:18-L20:36 type=*Calc
+  decl parameter internal/calc.Calc.Add->c L23:7 type=*Calc
+  decl method internal/calc.Calc.Add L23:16 body=L23:34-L26:2 type=int
+  decl parameter internal/calc.Calc.Add->a L23:20 type=int
+  decl parameter internal/calc.Calc.Add->b L23:23 type=int
+  decl parameter internal/calc.Calc.Sum->c L29:7 type=Calc
+  decl method internal/calc.Calc.Sum L29:15 body=L29:46-L34:2 type=(total int)
+  decl parameter internal/calc.Calc.Sum->values L29:19 type=...int
+  decl parameter internal/calc.Calc.Sum->total L29:35 type=int
+  decl variable internal/calc.Calc.Sum->v L30:9
+  decl function internal/calc.Map L37:6 body=L37:46-L43:2 type=[]R
+  decl type_parameter internal/calc.Map->E L37:10 type=any
+  decl type_parameter internal/calc.Map->R L37:13 type=any
+  decl parameter internal/calc.Map->xs L37:20 type=[]E
+  decl parameter internal/calc.Map->fn L37:28 type=func(E) R
+  decl variable internal/calc.Map->out L38:2
+  decl variable internal/calc.Map->x L39:9
+  decl type internal/calc.List L46:6 type=[]E
+  decl type_parameter internal/calc.List->E L46:11 type=any
+  decl parameter internal/calc.List.Len->l L49:7 type=List[E]
+  decl type_parameter internal/calc.List.Len->E L49:14
+  decl method internal/calc.List.Len L49:18 body=L49:28-L49:45 type=int
+  decl function internal/calc.shadow L51:6 body=L51:24-L59:2 type=int
+  decl parameter internal/calc.shadow->x L51:13 type=int
+  decl variable internal/calc.shadow->x L52:5
+  decl function internal/calc.shadow->square L55:2 body=L55:28-L55:44 type=int
+  decl parameter internal/calc.shadow->square->n L55:17 type=int
+  decl variable internal/calc.shadow->err L56:5
+  decl function internal/calc.describe L61:6 body=L61:29-L76:2 type=string
+  decl parameter internal/calc.describe->v L61:15 type=any
+  decl variable internal/calc.describe->t L64:10
+  decl parameter internal/calc.List.Each->l L79:7 type=List[E]
+  decl type_parameter internal/calc.List.Each->E L79:14
+  decl method internal/calc.List.Each L79:18 body=L79:48-L79:69 type=[]R
+  decl type_parameter internal/calc.List.Each->R L79:23 type=any
+  decl parameter internal/calc.List.Each->fn L79:30 type=func(E) R
+  decl interface internal/calc.ResetAdder L82:6 body=L82:27-L85:2 bases=Adder
+  decl method internal/calc.ResetAdder.Reset L84:2
+  ref L4:9 strconv import in=internal/calc -> ?
+  ref L8:11 int in=internal/calc.Adder -> ?
+  ref L8:16 int in=internal/calc.Adder -> ?
+  ref L13:8 int in=internal/calc.Calc -> ?
+  ref L17:14 float64 in=internal/calc -> ?
+  ref L20:13 Calc in=internal/calc.New -> internal/calc.Calc
+  ref L20:28 Calc in=internal/calc.New -> internal/calc.Calc
+  ref L23:10 Calc in=internal/calc.Calc.Add -> internal/calc.Calc
+  ref L23:25 int in=internal/calc.Calc.Add -> ?
+  ref L23:30 int in=internal/calc.Calc.Add -> ?
+  ref L24:2 c in=internal/calc.Calc.Add -> internal/calc.Calc.Add->c
+  ref L24:4 total in=internal/calc.Calc.Add -> internal/calc.Calc.total
+  ref L24:12 a in=internal/calc.Calc.Add -> internal/calc.Calc.Add->a
+  ref L24:16 b in=internal/calc.Calc.Add -> internal/calc.Calc.Add->b
+  ref L25:9 c in=internal/calc.Calc.Add -> internal/calc.Calc.Add->c
+  ref L25:11 total in=internal/calc.Calc.Add -> internal/calc.Calc.total
+  ref L29:9 Calc in=internal/calc.Calc.Sum -> internal/calc.Calc
+  ref L29:29 int in=internal/calc.Calc.Sum -> ?
+  ref L29:41 int in=internal/calc.Calc.Sum -> ?
+  ref L30:20 values in=internal/calc.Calc.Sum -> internal/calc.Calc.Sum->values
+  ref L31:3 total in=internal/calc.Calc.Sum -> internal/calc.Calc.Sum->total
+  ref L31:12 v in=internal/calc.Calc.Sum -> internal/calc.Calc.Sum->v
+  ref L33:9 total in=internal/calc.Calc.Sum -> internal/calc.Calc.Sum->total
+  ref L37:15 any in=internal/calc.Map -> ?
+  ref L37:25 E in=internal/calc.Map -> internal/calc.Map->E
+  ref L37:36 E in=internal/calc.Map -> internal/calc.Map->E
+  ref L37:39 R in=internal/calc.Map -> internal/calc.Map->R
+  ref L37:44 R in=internal/calc.Map -> internal/calc.Map->R
+  ref L38:9 make call in=internal/calc.Map -> ?
+  ref L38:16 R in=internal/calc.Map -> internal/calc.Map->R
+  ref L38:22 len call in=internal/calc.Map -> ?
+  ref L38:26 xs in=internal/calc.Map -> internal/calc.Map->xs
+  ref L39:20 xs in=internal/calc.Map -> internal/calc.Map->xs
+  ref L40:3 out in=internal/calc.Map -> internal/calc.Map->out
+  ref L40:9 append call in=internal/calc.Map -> ?
+  ref L40:16 out in=internal/calc.Map -> internal/calc.Map->out
+  ref L40:21 fn call in=internal/calc.Map -> internal/calc.Map->fn
+  ref L40:24 x in=internal/calc.Map -> internal/calc.Map->x
+  ref L42:9 out in=internal/calc.Map -> internal/calc.Map->out
+  ref L46:13 any in=internal/calc -> ?
+  ref L46:20 E in=internal/calc -> internal/calc.List->E
+  ref L49:9 List in=internal/calc.List.Len -> internal/calc.List
+  ref L49:24 int in=internal/calc.List.Len -> ?
+  ref L49:37 len call in=internal/calc.List.Len -> ?
+  ref L49:41 l in=internal/calc.List.Len -> internal/calc.List.Len->l
+  ref L51:15 int in=internal/calc.shadow -> ?
+  ref L51:20 int in=internal/calc.shadow -> ?
+  ref L52:10 x in=internal/calc.shadow -> internal/calc.shadow->x
+  ref L52:17 x in=internal/calc.shadow -> internal/calc.shadow->x
+  ref L53:10 x in=internal/calc.shadow -> internal/calc.shadow->x
+  ref L55:19 int in=internal/calc.shadow->square -> ?
+  ref L55:24 int in=internal/calc.shadow->square -> ?
+  ref L55:37 n in=internal/calc.shadow->square -> internal/calc.shadow->square->n
+  ref L55:41 n in=internal/calc.shadow->square -> internal/calc.shadow->square->n
+  ref L56:2 x in=internal/calc.shadow -> internal/calc.shadow->x
+  ref L56:12 square call in=internal/calc.shadow -> internal/calc.shadow->square
+  ref L56:19 x in=internal/calc.shadow -> internal/calc.shadow->x
+  ref L56:23 error call in=internal/calc.shadow -> ?
+  ref L57:6 err in=internal/calc.shadow -> internal/calc.shadow->err
+  ref L58:9 int call in=internal/calc.shadow -> ?
+  ref L58:13 Celsius call in=internal/calc.shadow -> internal/calc.Celsius
+  ref L58:21 x in=internal/calc.shadow -> internal/calc.shadow->x
+  ref L61:17 any in=internal/calc.describe -> ?
+  ref L61:22 string in=internal/calc.describe -> ?
+  ref L64:15 v in=internal/calc.describe -> internal/calc.describe->v
+  ref L65:8 int in=internal/calc.describe -> ?
+  ref L66:11 strconv in=internal/calc.describe -> ?
+  ref L66:19 Itoa call in=internal/calc.describe -> ?
+  ref L66:24 t in=internal/calc.describe -> internal/calc.describe->t
+  ref L67:8 string in=internal/calc.describe -> ?
+  ref L68:7 t in=internal/calc.describe -> internal/calc.describe->t
+  ref L71:11 t in=internal/calc.describe -> internal/calc.describe->t
+  ref L79:9 List in=internal/calc.List.Each -> internal/calc.List
+  ref L79:25 any in=internal/calc.List.Each -> ?
+  ref L79:38 E in=internal/calc.List.Each -> internal/calc.List.Each->E
+  ref L79:41 R in=internal/calc.List.Each -> internal/calc.List.Each->R
+  ref L79:46 R in=internal/calc.List.Each -> internal/calc.List.Each->R
+  ref L79:57 Map call in=internal/calc.List.Each -> internal/calc.Map
+  ref L79:61 l in=internal/calc.List.Each -> internal/calc.List.Each->l
+  ref L79:64 fn in=internal/calc.List.Each -> internal/calc.List.Each->fn
+  ref L83:2 Adder in=internal/calc.ResetAdder -> internal/calc.Adder
+file internal/calc/calc_test.go go module=internal/calc
+  decl function internal/calc.TestAdd L5:6 body=L5:28-L10:2
+  decl parameter internal/calc.TestAdd->t L5:14 type=*testing.T
+  decl variable internal/calc.TestAdd->c L6:2
+  decl variable internal/calc.TestAdd->got L7:5
+  ref L3:9 testing import in=internal/calc -> ?
+  ref L5:17 testing in=internal/calc.TestAdd -> ?
+  ref L5:25 T in=internal/calc.TestAdd -> ?
+  ref L6:7 New call in=internal/calc.TestAdd -> internal/calc.New (internal/calc/calc.go)
+  ref L7:12 c in=internal/calc.TestAdd -> internal/calc.TestAdd->c
+  ref L7:14 Add call in=internal/calc.TestAdd -> internal/calc.Calc.Add (internal/calc/calc.go)
+  ref L7:25 got in=internal/calc.TestAdd -> internal/calc.TestAdd->got
+  ref L7:37 c in=internal/calc.TestAdd -> internal/calc.TestAdd->c
+  ref L7:39 total in=internal/calc.TestAdd -> internal/calc.Calc.total (internal/calc/calc.go)
+  ref L8:3 t in=internal/calc.TestAdd -> internal/calc.TestAdd->t
+  ref L8:5 Errorf call in=internal/calc.TestAdd -> ?
+  ref L8:30 got in=internal/calc.TestAdd -> internal/calc.TestAdd->got
+file internal/calc/example_test.go go module=internal/calc_test
+  decl function internal/calc_test.ExampleMap L9:6 body=L9:19-L11:2
+  decl parameter internal/calc_test.ExampleMap->i L10:38 type=int
+  ref L4:3 fmt import in=internal/calc_test -> ?
+  ref L6:29 calc import in=internal/calc_test -> internal/calc (internal/calc/calc.go)
+  ref L10:2 fmt in=internal/calc_test.ExampleMap -> ?
+  ref L10:6 Println call in=internal/calc_test.ExampleMap -> ?
+  ref L10:14 calc in=internal/calc_test.ExampleMap -> internal/calc (internal/calc/calc.go)
+  ref L10:19 Map call in=internal/calc_test.ExampleMap -> internal/calc.Map (internal/calc/calc.go)
+  ref L10:25 int in=internal/calc_test.ExampleMap -> ?
+  ref L10:40 int in=internal/calc_test.ExampleMap -> ?
+  ref L10:45 string in=internal/calc_test.ExampleMap -> ?
+  ref L10:61 fmt in=internal/calc_test.ExampleMap -> ?
+  ref L10:65 Sprint call in=internal/calc_test.ExampleMap -> ?
+  ref L10:72 i in=internal/calc_test.ExampleMap -> internal/calc_test.ExampleMap->i
+file main.go go module=main
+  decl import main.money L9:2 type=github.com/acme/money
+  decl function main.main L12:6 body=L12:13-L20:2
+  decl variable main.main->c L13:2
+  decl variable main.main->b L14:2 type=store.Basket
+  decl variable main.main->total L16:2
+  decl variable main.main->a L18:6 type=calc.Adder
+  ref L5:3 fmt import in=main -> ?
+  ref L7:29 calc import in=main -> internal/calc (internal/calc/calc.go)
+  ref L8:20 store import in=main -> store (store/store.go)
+  ref L9:25 money import in=main -> ?
+  ref L13:7 calc in=main.main -> internal/calc (internal/calc/calc.go)
+  ref L13:12 New call in=main.main -> internal/calc.New (internal/calc/calc.go)
+  ref L14:8 store in=main.main -> store (store/store.go)
+  ref L14:14 Basket in=main.main -> store.Basket (store/store.go)
+  ref L14:21 Owner in=main.main -> store.Basket.Owner (store/store.go)
+  ref L15:2 b in=main.main -> main.main->b
+  ref L15:4 Add call in=main.main -> store.Basket.Add (store/store.go)
+  ref L15:8 store in=main.main -> store (store/store.go)
+  ref L15:14 Item in=main.main -> store.Item (store/store.go)
+  ref L15:19 Name in=main.main -> store.Item.Name (store/store.go)
+  ref L15:32 Price in=main.main -> store.Item.Price (store/store.go)
+  ref L16:11 c in=main.main -> main.main->c
+  ref L16:13 Sum call in=main.main -> internal/calc.Calc.Sum (internal/calc/calc.go)
+  ref L16:17 b in=main.main -> main.main->b
+  ref L16:19 Prices call in=main.main -> store.Basket.Prices (store/store.go)
+  ref L17:2 fmt in=main.main -> ?
+  ref L17:6 Println call in=main.main -> ?
+  ref L17:14 money in=main.main -> main.money
+  ref L17:20 Format call in=main.main -> ?
+  ref L17:27 total in=main.main -> main.main->total
+  ref L17:35 b in=main.main -> main.main->b
+  ref L17:37 Owner in=main.main -> store.Basket.Owner (store/store.go)
+  ref L17:44 b in=main.main -> main.main->b
+  ref L17:46 Sum call in=main.main -> internal/calc.Calc.Sum (internal/calc/calc.go)
+  ref L18:8 calc in=main.main -> internal/calc (internal/calc/calc.go)
+  ref L18:13 Adder in=main.main -> internal/calc.Adder (internal/calc/calc.go)
+  ref L18:21 c in=main.main -> main.main->c
+  ref L19:6 a in=main.main -> main.main->a
+  ref L19:8 Add call in=main.main -> internal/calc.Adder.Add (internal/calc/calc.go)
+file store/store.go go module=store
+  decl struct store.Item L6:6 body=L6:18-L9:2
+  decl field store.Item.Name L7:2 type=string
+  decl field store.Item.Price L8:2 type=int
+  decl struct store.Basket L12:6 body=L12:20-L16:2 bases=calc.Calc
+  decl field store.Basket.Calc L13:8 type=*calc.Calc
+  decl field store.Basket.Owner L14:2 type=string
+  decl field store.Basket.items L15:2 type=[]Item
+  decl parameter store.Basket.Add->b L19:7 type=*Basket
+  decl method store.Basket.Add L19:18 body=L19:31-L25:2
+  decl parameter store.Basket.Add->it L19:22 type=Item
+  decl parameter store.Basket.Prices->b L28:7 type=Basket
+  decl method store.Basket.Prices L28:17 body=L28:32-L30:2 type=[]int
+  decl parameter store.Basket.Prices->it L29:32 type=Item
+  ref L3:35 calc import in=store -> internal/calc (internal/calc/calc.go)
+  ref L7:8 string in=store.Item -> ?
+  ref L8:8 int in=store.Item -> ?
+  ref L13:3 calc in=store.Basket -> internal/calc (internal/calc/calc.go)
+  ref L13:8 Calc in=store.Basket -> internal/calc.Calc (internal/calc/calc.go)
+  ref L14:8 string in=store.Basket -> ?
+  ref L15:10 Item in=store.Basket -> store.Item
+  ref L19:10 Basket in=store.Basket.Add -> store.Basket
+  ref L19:25 Item in=store.Basket.Add -> store.Item
+  ref L20:5 b in=store.Basket.Add -> store.Basket.Add->b
+  ref L20:7 Calc in=store.Basket.Add -> store.Basket.Calc
+  ref L21:3 b in=store.Basket.Add -> store.Basket.Add->b
+  ref L21:5 Calc in=store.Basket.Add -> store.Basket.Calc
+  ref L21:12 calc in=store.Basket.Add -> internal/calc (internal/calc/calc.go)
+  ref L21:17 New call in=store.Basket.Add -> internal/calc.New (internal/calc/calc.go)
+  ref L23:2 b in=store.Basket.Add -> store.Basket.Add->b
+  ref L23:4 items in=store.Basket.Add -> store.Basket.items
+  ref L23:12 append call in=store.Basket.Add -> ?
+  ref L23:19 b in=store.Basket.Add -> store.Basket.Add->b
+  ref L23:21 items in=store.Basket.Add -> store.Basket.items
+  ref L23:28 it in=store.Basket.Add -> store.Basket.Add->it
+  ref L24:2 b in=store.Basket.Add -> store.Basket.Add->b
+  ref L24:4 Calc in=store.Basket.Add -> store.Basket.Calc
+  ref L24:9 Add call in=store.Basket.Add -> internal/calc.Calc.Add (internal/calc/calc.go)
+  ref L24:13 it in=store.Basket.Add -> store.Basket.Add->it
+  ref L24:16 Price in=store.Basket.Add -> store.Item.Price
+  ref L28:9 Basket in=store.Basket.Prices -> store.Basket
+  ref L28:28 int in=store.Basket.Prices -> ?
+  ref L29:9 calc in=store.Basket.Prices -> internal/calc (internal/calc/calc.go)
+  ref L29:14 Map call in=store.Basket.Prices -> internal/calc.Map (internal/calc/calc.go)
+  ref L29:18 b in=store.Basket.Prices -> store.Basket.Prices->b
+  ref L29:20 items in=store.Basket.Prices -> store.Basket.items
+  ref L29:35 Item in=store.Basket.Prices -> store.Item
+  ref L29:41 int in=store.Basket.Prices -> ?
+  ref L29:54 it in=store.Basket.Prices -> store.Basket.Prices->it
+  ref L29:57 Price in=store.Basket.Prices -> store.Item.Price

@@ -1,0 +1,26 @@
+file broken.c c module=broken
+  decl function broken.good L1:5 body=L1:16-L1:29 type=int
+  decl variable broken.bad L3:5 type=int
+  ref L3:13 x in=broken -> ?
+  ref L4:9 s in=broken -> ?
+  ref L5:10 good call in=broken -> broken.good
+  ref L8:8 S in=broken -> ?
+  ref L8:16 a in=broken -> ?
+  ref L9:8 after call in=broken -> ?
+  ref L9:29 good call in=broken -> broken.good
+file broken.cpp cpp module=broken
+  decl namespace broken.n L1:11 body=L1:13-L7:2
+  decl class broken.n.C L2:7 body=L2:18-L5:2
+  decl method broken.n.C.m L3:8 body=L3:12-L3:20 type=void
+  decl constructor broken.n.C.C L4:3
+  decl type_parameter broken.n.f->T L6:17
+  decl function broken.n.f L6:22 body=L6:29-L6:42 type=T
+  decl parameter broken.n.f->t L6:26 type=T
+  decl function broken.ok L9:5 body=L9:10-L9:29 type=int
+  decl variable broken.r L10:13 type=const char*
+  ref L3:14 x in=broken.n.C.m -> ?
+  ref L6:20 T in=broken.n.f -> broken.n.f->T
+  ref L6:24 T in=broken.n.f -> broken.n.f->T
+  ref L6:38 t in=broken.n.f -> broken.n.f->t
+  ref L9:19 n in=broken.ok -> broken.n
+  ref L9:22 f call in=broken.ok -> broken.n.f

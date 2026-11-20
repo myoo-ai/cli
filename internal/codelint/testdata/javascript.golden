@@ -1,0 +1,50 @@
+#1 positive.js:1:1-7.46 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#2 positive.js:7:1-46 - decorative-comment: use of banner or separator comments made of repeated characters.
+#3 positive.js:9:1-46 - redundant-docstring: documentation only restates the name of the declaration.
+#4 positive.js:11:3-43 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#5 positive.js:13:3-41 - narrating-comment: comment narrates what the code does instead of explaining why.
+#6 positive.js:19:3-41 - obvious-comment: comment repeats the code it is attached to.
+#7 positive.js:25:3-42 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#8 positive.js:27:3-43 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 positive.js:29:3-41 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#10 positive.js:34:3-37 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#11 positive.js:38:3-10 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#12 positive.js:42:16-17 - emoji-in-code: use of emoji in comments or string literals.
+#13 positive.js:43:18-19 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#14 positive.js:44:18-19 - emdash-in-code: use of emdash in comments or string literals.
+#15 positive.js:45:15-29 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#16 positive.js:46:15-27 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#17 positive.js:52:5-17 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#18 positive.js:55:5-57.4 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#19 positive.js:60:4-14 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#20 positive.js:62:4-28 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#21 positive.js:65:1-73.2 - excessive-comments: function body is dominated by comments (6 of 9 non-blank lines are comments).
+#22 positive.js:81:13-24 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#23 positive.js:91:1-176.2 - long-function: function has more than 80 lines of code (86 lines of code).
+#24 positive.js:190:34-200.2 - duplicated-block: block of code duplicates another block (first occurrence at positive.js:178:31, lines 178-188).
+#25 positive.js:203:17-35 - ts-missing-optional-chain-expression: prefer using an optional chain expression instead, as it's more concise and easier to read (`prev && prev.style` -> `prev?.style`).
+#26 positive.js:204:16-55 - ts-missing-optional-chain-expression: prefer using an optional chain expression instead, as it's more concise and easier to read (`list && list.first && list.first.name()` -> `list?.first?.name()`).
+#27 positive.js:205:16-31 - ts-missing-optional-chain-expression: prefer using an optional chain expression instead, as it's more concise and easier to read (`map && map[key]` -> `map?.[key]`).
+#28 positive.js:210:3-12 - ts-var-declaration: use `let` or `const` instead of `var`, as block-scoped declarations avoid hoisting surprises (`var count` -> `let count`).
+#29 positive.js:211:7-27 - ts-loose-equality: use `===` and `!==` instead of `==` and `!=`, as loose equality converts the operands in surprising ways (`count == rows.length` -> `count === rows.length`).
+#30 positive.js:212:5-14 - ts-debugger-statement: remove this `debugger` statement, as it pauses the program whenever developer tools are open.
+#31 positive.js:214:17-44 - ts-prefer-array-find: prefer `.find()` over taking the first element of `.filter()`, as it stops at the first match and states the intent (`rows.filter((r) => r.ok)[0]` -> `rows.find((r) => r.ok)`).
+#32 positive.js:215:16-51 - ts-prefer-array-some: prefer `.some()` over comparing the length of `.filter()`, as it stops at the first match and returns a boolean (`rows.filter((r) => r.ok).length > 0` -> `rows.some((r) => r.ok)`).
+#33 positive.js:216:16-54 - ts-prefer-array-some: prefer `.some()` over comparing the length of `.filter()`, as it stops at the first match and returns a boolean (`rows.filter((r) => r.bad).length === 0` -> `!rows.some((r) => r.bad)`).
+#34 positive.js:217:17-42 - ts-prefer-includes: prefer `.includes()` over comparing the result of `.indexOf()`, as it states the intent directly (`words.indexOf("x") !== -1` -> `words.includes("x")`).
+#35 positive.js:218:16-37 - ts-prefer-at: prefer `.at()` with a negative index over subtracting from `.length`, as it avoids repeating the receiver (`rows[rows.length - 1]` -> `rows.at(-1)`).
+#36 positive.js:219:15-63 - ts-prefer-object-has-own: prefer `Object.hasOwn()` over calling `hasOwnProperty` through the prototype, as it is shorter and easier to read (`Object.prototype.hasOwnProperty.call(user, "id")` -> `Object.hasOwn(user, "id")`).
+#37 positive.js:220:17-49 - ts-typeof-undefined: compare with `undefined` directly instead of using `typeof`, as it is shorter and easier to read (`typeof user.name === "undefined"` -> `user.name === undefined`).
+#38 positive.js:221:17-45 - ts-typeof-undefined: compare with `undefined` directly instead of using `typeof`, as it is shorter and easier to read (`"undefined" !== typeof count` -> `count !== undefined`).
+#39 positive.js:222:25-44 - ts-prefer-string-replace-all: prefer `.replaceAll()` over `.replace()` with a global regex, as it states the intent (`.replace(/-/g, "_")` -> `.replaceAll("-", "_")`).
+#40 positive.js:223:16-39 - ts-number-static-methods: prefer the static methods of `Number` over the global functions, as they keep number helpers in one namespace (`parseInt(user.size, 10)` -> `Number.parseInt(user.size, 10)`).
+#41 positive.js:224:25-40 - ts-prefer-node-protocol: prefer the `node:` protocol when importing a Node.js builtin module, as it makes clear that the module is a builtin (`"child_process"` -> `"node:child_process"`).
+#42 positive.js:225:28-41 - ts-prefer-node-protocol: prefer the `node:` protocol when importing a Node.js builtin module, as it makes clear that the module is a builtin (`"fs/promises"` -> `"node:fs/promises"`).
+#43 positive.js:230:8-13 - ts-var-declaration: use `let` or `const` instead of `var`, as block-scoped declarations avoid hoisting surprises (`var i` -> `let i` before the enclosing block, as later code uses it).
+#44 positive.js:237:3-8 - ts-var-declaration: use `let` or `const` instead of `var`, as block-scoped declarations avoid hoisting surprises (`var n` -> `let n`).
+#45 positive.js:239:5-10 - ts-var-declaration: use `let` or `const` instead of `var`, as block-scoped declarations avoid hoisting surprises (`var n` -> `n`, as the function already declares it).
+#46 positive.js:245:14-247.5 - ts-prefer-string-replace-all: prefer `.replaceAll()` over `.replace()` with a global regex, as it states the intent (`.replace(/[<>]/g, ...)` -> `.replaceAll(/[<>]/g, ...)`).
+#47 positive.js:250:23-41 - no-formatted-string-placeholders: formatted string without any placeholders (``no substitutions`` -> `"no substitutions"`).
+#48 positive.js:252:4-26 - change-narration-comment: comment describes the edit history instead of the code (`The old implementation`).
+#49 positive.js:257:3-15 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assert(true)`).
+#50 positive.js:258:10-56 - cheerful-message: chatty or celebratory string literal ("Oops", "Yay", "Great!", "successfully!") (`Congrats, the items were saved successfully!`).

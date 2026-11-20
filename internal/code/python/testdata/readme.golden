@@ -1,0 +1,13 @@
+file calculator.py python module=calculator
+  decl function calculator.calculate L2:5 body=L3:5-L4:17
+  decl parameter calculator.calculate->a L2:15
+  decl parameter calculator.calculate->b L2:18
+  ref L4:12 a in=calculator.calculate -> calculator.calculate->a
+  ref L4:16 b in=calculator.calculate -> calculator.calculate->b
+file main.py python module=main
+  ref L1:6 calculator import in=main -> calculator (calculator.py)
+  ref L1:24 calculate import in=main -> calculator.calculate (calculator.py)
+  ref L3:1 print call in=main -> ?
+  ref L3:7 calculate call in=main -> calculator.calculate (calculator.py)
+comment calculator.py L1:1 line "source for calculator"
+comment calculator.py L3:5 doc "sums `a` and `b`"

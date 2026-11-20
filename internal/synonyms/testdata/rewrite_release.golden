@@ -1,0 +1,3 @@
+HOW A [PUBLISH] (free, issue, liberation, ...) [OCCUR] (pass, take place, come about)
+After all six [make] (construct, physique, frame, ...) succeed → `gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes` — this [print] (issue, release, write) the [liberation] (freeing, handout, press release) with auto-generated notes. Only this job can write to the repo; everything else is read-only.
+It hasn't [go] (operate, work, function) on GitHub yet: the package doesn't exist there and this folder isn't a git repo.

@@ -1,0 +1,395 @@
+file com/shop/Broken.java java module=com.shop
+  decl class com.shop.Broken L3:14 body=L3:21-L10:1
+  decl method com.shop.Broken.unterminated L4:10 body=L4:24-L7:6 type=void
+  decl variable com.shop.Broken.unterminated->s L5:16 type=String
+  ref L5:9 String in=com.shop.Broken.unterminated -> ?
+  ref L6:13 x in=com.shop.Broken.unterminated -> ?
+file com/shop/model/Entity.java java module=com.shop.model
+  decl class com.shop.model.Entity L3:23 body=L3:30-L9:2
+  decl field com.shop.model.Entity.id L4:20 type=long
+  decl method com.shop.model.Entity.getId L6:17 body=L6:25-L8:6 type=long
+  ref L7:16 id in=com.shop.model.Entity.getId -> com.shop.model.Entity.id
+file com/shop/model/Item.java java module=com.shop.model
+  decl class com.shop.model.Item L4:15 body=L4:47-L14:2
+  decl field com.shop.model.Item.name L4:27 type=String
+  decl field com.shop.model.Item.price L4:40 type=double
+  decl constructor com.shop.model.Item.Item L5:12 body=L5:17-L9:6
+  decl method com.shop.model.Item.discounted L11:17 body=L11:43-L13:6 type=Item
+  decl parameter com.shop.model.Item.discounted->factor L11:35 type=double
+  ref L4:20 String in=com.shop.model.Item -> ?
+  ref L6:13 price in=com.shop.model.Item.Item -> com.shop.model.Item.price
+  ref L7:23 IllegalArgumentException call in=com.shop.model.Item.Item -> ?
+  ref L7:69 name in=com.shop.model.Item.Item -> com.shop.model.Item.name
+  ref L11:12 Item in=com.shop.model.Item.discounted -> com.shop.model.Item
+  ref L12:20 Item call in=com.shop.model.Item.discounted -> com.shop.model.Item
+  ref L12:25 name in=com.shop.model.Item.discounted -> com.shop.model.Item.name
+  ref L12:31 price in=com.shop.model.Item.discounted -> com.shop.model.Item.price
+  ref L12:39 factor in=com.shop.model.Item.discounted -> com.shop.model.Item.discounted->factor
+file com/shop/model/Order.java java module=com.shop.model
+  decl class com.shop.model.Order L7:14 body=L7:64-L54:2 bases=Entity,Comparable<Order>
+  decl field com.shop.model.Order.items L8:30 type=List<Item>
+  decl field com.shop.model.Order.customer L9:20 type=String
+  decl field com.shop.model.Order.created L10:16 type=int
+  decl field com.shop.model.Order.cancelled L10:29 type=int
+  decl constructor com.shop.model.Order.Order L12:12 body=L12:35-L15:6
+  decl parameter com.shop.model.Order.Order->customer L12:25 type=String
+  decl constructor com.shop.model.Order.Order L17:12 body=L17:20-L19:6
+  decl method com.shop.model.Order.add L21:17 body=L21:32-L23:6 type=void
+  decl parameter com.shop.model.Order.add->item L21:26 type=Item
+  decl method com.shop.model.Order.add L25:17 body=L25:48-L27:6 type=void
+  decl parameter com.shop.model.Order.add->name L25:28 type=String
+  decl parameter com.shop.model.Order.add->price L25:41 type=double
+  decl method com.shop.model.Order.total L29:19 body=L29:27-L35:6 type=double
+  decl variable com.shop.model.Order.total->sum L30:16 type=double
+  decl variable com.shop.model.Order.total->item L31:19 type=Item
+  decl method com.shop.model.Order.compareTo L38:16 body=L38:39-L40:6 type=int
+  decl parameter com.shop.model.Order.compareTo->other L38:32 type=Order
+  decl class com.shop.model.Order.Builder L42:25 body=L42:33-L53:6
+  decl field com.shop.model.Order.Builder.order L43:29 type=Order
+  decl method com.shop.model.Order.Builder.item L45:24 body=L45:56-L48:10 type=Builder
+  decl parameter com.shop.model.Order.Builder.item->name L45:36 type=String
+  decl parameter com.shop.model.Order.Builder.item->price L45:49 type=double
+  decl method com.shop.model.Order.Builder.build L50:22 body=L50:30-L52:10 type=Order
+  ref L3:8 java import in=com.shop.model -> ?
+  ref L3:13 util import in=com.shop.model -> ?
+  ref L3:18 ArrayList import in=com.shop.model -> ?
+  ref L4:8 java import in=com.shop.model -> ?
+  ref L4:13 util import in=com.shop.model -> ?
+  ref L4:18 List import in=com.shop.model -> ?
+  ref L7:28 Entity in=com.shop.model.Order -> com.shop.model.Entity (com/shop/model/Entity.java)
+  ref L7:46 Comparable in=com.shop.model.Order -> ?
+  ref L7:57 Order in=com.shop.model.Order -> com.shop.model.Order
+  ref L8:19 List in=com.shop.model.Order -> ?
+  ref L8:24 Item in=com.shop.model.Order -> com.shop.model.Item (com/shop/model/Item.java)
+  ref L8:42 ArrayList call in=com.shop.model.Order -> ?
+  ref L9:13 String in=com.shop.model.Order -> ?
+  ref L12:18 String in=com.shop.model.Order.Order -> ?
+  ref L13:14 customer in=com.shop.model.Order.Order -> com.shop.model.Order.customer
+  ref L13:25 customer in=com.shop.model.Order.Order -> com.shop.model.Order.Order->customer
+  ref L14:9 created in=com.shop.model.Order.Order -> com.shop.model.Order.created
+  ref L21:21 Item in=com.shop.model.Order.add -> com.shop.model.Item (com/shop/model/Item.java)
+  ref L22:9 items in=com.shop.model.Order.add -> com.shop.model.Order.items
+  ref L22:15 add call in=com.shop.model.Order.add -> ?
+  ref L22:19 item in=com.shop.model.Order.add -> com.shop.model.Order.add->item
+  ref L25:21 String in=com.shop.model.Order.add -> ?
+  ref L26:9 add call in=com.shop.model.Order.add -> com.shop.model.Order.add
+  ref L26:17 Item call in=com.shop.model.Order.add -> com.shop.model.Item (com/shop/model/Item.java)
+  ref L26:22 name in=com.shop.model.Order.add -> com.shop.model.Order.add->name
+  ref L26:28 price in=com.shop.model.Order.add -> com.shop.model.Order.add->price
+  ref L31:14 Item in=com.shop.model.Order.total -> com.shop.model.Item (com/shop/model/Item.java)
+  ref L31:26 items in=com.shop.model.Order.total -> com.shop.model.Order.items
+  ref L32:13 sum in=com.shop.model.Order.total -> com.shop.model.Order.total->sum
+  ref L32:20 item in=com.shop.model.Order.total -> com.shop.model.Order.total->item
+  ref L32:25 price call in=com.shop.model.Order.total -> com.shop.model.Item.price (com/shop/model/Item.java)
+  ref L34:16 sum in=com.shop.model.Order.total -> com.shop.model.Order.total->sum
+  ref L37:6 Override in=com.shop.model.Order -> ?
+  ref L38:26 Order in=com.shop.model.Order.compareTo -> com.shop.model.Order
+  ref L39:16 Double in=com.shop.model.Order.compareTo -> ?
+  ref L39:23 compare call in=com.shop.model.Order.compareTo -> ?
+  ref L39:31 total call in=com.shop.model.Order.compareTo -> com.shop.model.Order.total
+  ref L39:40 other in=com.shop.model.Order.compareTo -> com.shop.model.Order.compareTo->other
+  ref L39:46 total call in=com.shop.model.Order.compareTo -> com.shop.model.Order.total
+  ref L43:23 Order in=com.shop.model.Order.Builder -> com.shop.model.Order
+  ref L43:41 Order call in=com.shop.model.Order.Builder -> com.shop.model.Order
+  ref L45:16 Builder in=com.shop.model.Order.Builder.item -> com.shop.model.Order.Builder
+  ref L45:29 String in=com.shop.model.Order.Builder.item -> ?
+  ref L46:13 order in=com.shop.model.Order.Builder.item -> com.shop.model.Order.Builder.order
+  ref L46:19 add call in=com.shop.model.Order.Builder.item -> com.shop.model.Order.add
+  ref L46:23 name in=com.shop.model.Order.Builder.item -> com.shop.model.Order.Builder.item->name
+  ref L46:29 price in=com.shop.model.Order.Builder.item -> com.shop.model.Order.Builder.item->price
+  ref L50:16 Order in=com.shop.model.Order.Builder.build -> com.shop.model.Order
+  ref L51:20 order in=com.shop.model.Order.Builder.build -> com.shop.model.Order.Builder.order
+file com/shop/model/Status.java java module=com.shop.model
+  decl enum com.shop.model.Status L3:13 body=L3:20-L26:2
+  decl enum_member com.shop.model.Status.OPEN L4:5
+  decl enum_member com.shop.model.Status.PAID L5:5
+  decl method com.shop.model.Status.PAID->isFinal L7:24 body=L7:34-L9:10 type=boolean
+  decl enum_member com.shop.model.Status.CANCELLED L11:5
+  decl field com.shop.model.Status.label L13:26 type=String
+  decl constructor com.shop.model.Status.Status L15:5 body=L15:26-L17:6
+  decl parameter com.shop.model.Status.Status->label L15:19 type=String
+  decl method com.shop.model.Status.isFinal L19:20 body=L19:30-L21:6 type=boolean
+  decl method com.shop.model.Status.label L23:19 body=L23:27-L25:6 type=String
+  ref L6:10 Override in=com.shop.model.Status -> ?
+  ref L13:19 String in=com.shop.model.Status -> ?
+  ref L15:12 String in=com.shop.model.Status.Status -> ?
+  ref L16:14 label in=com.shop.model.Status.Status -> com.shop.model.Status.label
+  ref L16:22 label in=com.shop.model.Status.Status -> com.shop.model.Status.Status->label
+  ref L23:12 String in=com.shop.model.Status.label -> ?
+  ref L24:16 label in=com.shop.model.Status.label -> com.shop.model.Status.label
+file com/shop/service/AuditService.java java module=com.shop.service
+  decl class com.shop.service.AuditService L6:7 body=L6:41-L46:2 bases=OrderService
+  decl constructor com.shop.service.AuditService.AuditService L7:5 body=L7:20-L9:6
+  decl method com.shop.service.AuditService.checkout L12:18 body=L12:44-L20:6 type=Order
+  decl parameter com.shop.service.AuditService.checkout->customer L12:34 type=String
+  decl variable com.shop.service.AuditService.checkout->order L13:15 type=Order
+  decl variable com.shop.service.AuditService.checkout->builder L14:23 type=Order.Builder
+  decl variable com.shop.service.AuditService.checkout->done L16:17 type=boolean
+  decl variable com.shop.service.AuditService.checkout->item L18:29 type=com.shop.model.Item
+  decl method com.shop.service.AuditService.audit L22:10 body=L22:56-L31:6 type=void
+  decl parameter com.shop.service.AuditService.audit->order L22:22 type=Order
+  decl variable com.shop.service.AuditService.audit->in L23:18 type=java.io.StringReader
+  decl variable com.shop.service.AuditService.audit->out L23:58 type=java.io.StringWriter
+  decl parameter com.shop.service.AuditService.audit->e L26:67 type=IllegalStateException|IllegalArgumentException
+  decl class com.shop.service.AuditService.Local L33:18 body=L33:24-L45:6
+  decl method com.shop.service.AuditService.Local.run L34:14 body=L34:20-L44:10 type=void
+  decl class com.shop.service.AuditService.Local.run->Inner L35:19 body=L35:25-L39:14
+  decl method com.shop.service.AuditService.Local.run->Inner->depth L36:21 body=L36:29-L38:18 type=int
+  decl variable com.shop.service.AuditService.Local.run->inner L40:19 type=Inner
+  decl variable com.shop.service.AuditService.Local.run->café L42:17 type=int
+  ref L3:8 com import in=com.shop.service -> ?
+  ref L3:12 shop import in=com.shop.service -> ?
+  ref L3:17 model import in=com.shop.service -> ?
+  ref L3:23 Order import in=com.shop.service -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L4:8 com import in=com.shop.service -> ?
+  ref L4:12 shop import in=com.shop.service -> ?
+  ref L4:17 model import in=com.shop.service -> ?
+  ref L4:23 Status import in=com.shop.service -> com.shop.model.Status (com/shop/model/Status.java)
+  ref L6:28 OrderService in=com.shop.service.AuditService -> com.shop.service.OrderService (com/shop/service/OrderService.java)
+  ref L8:15 Repository in=com.shop.service.AuditService.AuditService -> com.shop.service.Repository (com/shop/service/Repository.java)
+  ref L8:26 inMemory call in=com.shop.service.AuditService.AuditService -> com.shop.service.Repository.inMemory (com/shop/service/Repository.java)
+  ref L11:6 Override in=com.shop.service.AuditService -> ?
+  ref L12:12 Order in=com.shop.service.AuditService.checkout -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L12:27 String in=com.shop.service.AuditService.checkout -> ?
+  ref L13:9 Order in=com.shop.service.AuditService.checkout -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L13:29 checkout call in=com.shop.service.AuditService.checkout -> com.shop.service.OrderService.checkout (com/shop/service/OrderService.java)
+  ref L13:38 customer in=com.shop.service.AuditService.checkout -> com.shop.service.AuditService.checkout->customer
+  ref L14:9 Order in=com.shop.service.AuditService.checkout -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L14:15 Builder in=com.shop.service.AuditService.checkout -> com.shop.model.Order.Builder (com/shop/model/Order.java)
+  ref L14:37 Order in=com.shop.service.AuditService.checkout -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L14:43 Builder call in=com.shop.service.AuditService.checkout -> com.shop.model.Order.Builder (com/shop/model/Order.java)
+  ref L15:9 builder in=com.shop.service.AuditService.checkout -> com.shop.service.AuditService.checkout->builder
+  ref L15:17 item call in=com.shop.service.AuditService.checkout -> com.shop.model.Order.Builder.item (com/shop/model/Order.java)
+  ref L15:34 build call in=com.shop.service.AuditService.checkout -> com.shop.model.Order.Builder.build (com/shop/model/Order.java)
+  ref L16:24 Status in=com.shop.service.AuditService.checkout -> com.shop.model.Status (com/shop/model/Status.java)
+  ref L16:31 PAID in=com.shop.service.AuditService.checkout -> com.shop.model.Status.PAID (com/shop/model/Status.java)
+  ref L16:36 isFinal call in=com.shop.service.AuditService.checkout -> com.shop.model.Status.isFinal (com/shop/model/Status.java)
+  ref L17:9 Repository in=com.shop.service.AuditService.checkout -> com.shop.service.Repository (com/shop/service/Repository.java)
+  ref L17:21 Order in=com.shop.service.AuditService.checkout -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L17:27 inMemory call in=com.shop.service.AuditService.checkout -> com.shop.service.Repository.inMemory (com/shop/service/Repository.java)
+  ref L17:38 save call in=com.shop.service.AuditService.checkout -> com.shop.service.Repository.save (com/shop/service/Repository.java)
+  ref L17:43 order in=com.shop.service.AuditService.checkout -> com.shop.service.AuditService.checkout->order
+  ref L18:9 com in=com.shop.service.AuditService.checkout -> ?
+  ref L18:13 shop in=com.shop.service.AuditService.checkout -> ?
+  ref L18:18 model in=com.shop.service.AuditService.checkout -> ?
+  ref L18:24 Item in=com.shop.service.AuditService.checkout -> com.shop.model.Item (com/shop/model/Item.java)
+  ref L18:40 com in=com.shop.service.AuditService.checkout -> ?
+  ref L18:44 shop in=com.shop.service.AuditService.checkout -> ?
+  ref L18:49 model in=com.shop.service.AuditService.checkout -> ?
+  ref L18:55 Item call in=com.shop.service.AuditService.checkout -> com.shop.model.Item (com/shop/model/Item.java)
+  ref L19:16 order in=com.shop.service.AuditService.checkout -> com.shop.service.AuditService.checkout->order
+  ref L22:16 Order in=com.shop.service.AuditService.audit -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L22:36 java in=com.shop.service.AuditService.audit -> ?
+  ref L22:41 io in=com.shop.service.AuditService.audit -> ?
+  ref L22:44 IOException in=com.shop.service.AuditService.audit -> ?
+  ref L23:27 java in=com.shop.service.AuditService.audit -> ?
+  ref L23:32 io in=com.shop.service.AuditService.audit -> ?
+  ref L23:35 StringReader call in=com.shop.service.AuditService.audit -> ?
+  ref L23:68 java in=com.shop.service.AuditService.audit -> ?
+  ref L23:73 io in=com.shop.service.AuditService.audit -> ?
+  ref L23:76 StringWriter call in=com.shop.service.AuditService.audit -> ?
+  ref L24:13 notify call in=com.shop.service.AuditService.audit -> com.shop.service.OrderService.notify (com/shop/service/OrderService.java)
+  ref L25:18 describe call in=com.shop.service.AuditService.audit -> com.shop.service.OrderService.describe (com/shop/service/OrderService.java)
+  ref L25:27 order in=com.shop.service.AuditService.audit -> com.shop.service.AuditService.audit->order
+  ref L26:18 IllegalStateException in=com.shop.service.AuditService.audit -> ?
+  ref L26:42 IllegalArgumentException in=com.shop.service.AuditService.audit -> ?
+  ref L27:23 java in=com.shop.service.AuditService.audit -> ?
+  ref L27:28 io in=com.shop.service.AuditService.audit -> ?
+  ref L27:31 IOException call in=com.shop.service.AuditService.audit -> ?
+  ref L27:43 e in=com.shop.service.AuditService.audit -> com.shop.service.AuditService.audit->e
+  ref L29:13 order in=com.shop.service.AuditService.audit -> com.shop.service.AuditService.audit->order
+  ref L29:19 add call in=com.shop.service.AuditService.audit -> com.shop.model.Order.add (com/shop/model/Order.java)
+  ref L40:13 Inner in=com.shop.service.AuditService.Local.run -> com.shop.service.AuditService.Local.run->Inner
+  ref L40:31 Inner call in=com.shop.service.AuditService.Local.run -> com.shop.service.AuditService.Local.run->Inner
+  ref L41:13 inner in=com.shop.service.AuditService.Local.run -> com.shop.service.AuditService.Local.run->inner
+  ref L41:19 depth call in=com.shop.service.AuditService.Local.run -> com.shop.service.AuditService.Local.run->Inner->depth
+  ref L43:13 café in=com.shop.service.AuditService.Local.run -> com.shop.service.AuditService.Local.run->café
+file com/shop/service/Notifier.java java module=com.shop.service
+  decl interface com.shop.service.Notifier L3:11 body=L3:20-L16:2
+  decl method com.shop.service.Notifier.notify L4:10 type=void
+  decl parameter com.shop.service.Notifier.notify->amount L4:24 type=double
+  decl method com.shop.service.Notifier.notify L6:18 body=L6:52-L15:6 type=void
+  decl parameter com.shop.service.Notifier.notify->message L6:32 type=String
+  decl parameter com.shop.service.Notifier.notify->level L6:45 type=int
+  decl variable com.shop.service.Notifier.notify->amount L7:13 type=int
+  decl variable com.shop.service.Notifier.notify->amount2 L9:17 type=int
+  decl variable com.shop.service.Notifier.notify->i L12:18 type=int
+  decl variable com.shop.service.Notifier.notify->n L12:25 type=int
+  ref L6:25 String in=com.shop.service.Notifier.notify -> ?
+  ref L7:22 level in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify->level
+  ref L9:27 amount in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify->amount
+  ref L10:13 notify call in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify
+  ref L10:20 amount2 in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify->amount2
+  ref L12:29 message in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify->message
+  ref L12:37 length call in=com.shop.service.Notifier.notify -> ?
+  ref L12:47 i in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify->i
+  ref L12:51 n in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify->n
+  ref L12:54 i in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify->i
+  ref L13:13 notify call in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify
+  ref L13:20 message in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify->message
+  ref L13:29 i in=com.shop.service.Notifier.notify -> com.shop.service.Notifier.notify->i
+file com/shop/service/OrderService.java java module=com.shop.service
+  decl class com.shop.service.OrderService L9:14 body=L9:47-L75:2 bases=Notifier
+  decl field com.shop.service.OrderService.repository L10:37 type=Repository<Order>
+  decl constructor com.shop.service.OrderService.OrderService L12:12 body=L12:55-L14:6
+  decl parameter com.shop.service.OrderService.OrderService->repository L12:43 type=Repository<Order>
+  decl method com.shop.service.OrderService.checkout L16:18 body=L16:44-L23:6 type=Order
+  decl parameter com.shop.service.OrderService.checkout->customer L16:34 type=String
+  decl variable com.shop.service.OrderService.checkout->order L17:15 type=Order
+  decl variable com.shop.service.OrderService.checkout->copy L18:13 type=Order
+  decl method com.shop.service.OrderService.describe L25:19 body=L25:42-L34:6 type=String
+  decl parameter com.shop.service.OrderService.describe->value L25:35 type=Object
+  decl variable com.shop.service.OrderService.describe->o L26:36 type=Order
+  decl variable com.shop.service.OrderService.describe->name L30:30 type=String
+  decl variable com.shop.service.OrderService.describe->price L30:43 type=double
+  decl variable com.shop.service.OrderService.describe->s L31:25 type=Status
+  decl method com.shop.service.OrderService.settled L36:20 body=L36:43-L44:6 type=boolean
+  decl parameter com.shop.service.OrderService.settled->status L36:35 type=Status
+  decl method com.shop.service.OrderService.byTotal L46:30 body=L46:40-L49:6 type=Comparator<Order>
+  decl variable com.shop.service.OrderService.byTotal->key L47:33 type=Function<Order,Double>
+  decl parameter com.shop.service.OrderService.byTotal->o L47:39
+  decl parameter com.shop.service.OrderService.byTotal->a L48:17
+  decl parameter com.shop.service.OrderService.byTotal->b L48:20
+  decl method com.shop.service.OrderService.task L51:21 body=L51:37-L66:6 type=Runnable
+  decl parameter com.shop.service.OrderService.task->count L51:30 type=int
+  decl variable com.shop.service.OrderService.task->total L52:13 type=int
+  decl field com.shop.service.OrderService.task->runs L54:25 type=int
+  decl method com.shop.service.OrderService.task->run L57:25 body=L57:31-L60:14 type=void
+  decl method com.shop.service.OrderService.task->log L62:26 body=L62:37-L64:14 type=void
+  decl parameter com.shop.service.OrderService.task->log->n L62:34 type=int
+  decl method com.shop.service.OrderService.notify L69:17 body=L69:39-L74:6 type=void
+  decl parameter com.shop.service.OrderService.notify->amount L69:31 type=double
+  decl variable com.shop.service.OrderService.notify->text L70:16 type=String
+  ref L3:8 com import in=com.shop.service -> ?
+  ref L3:12 shop import in=com.shop.service -> ?
+  ref L3:17 model import in=com.shop.service -> ?
+  ref L4:8 com import in=com.shop.service -> ?
+  ref L4:12 shop import in=com.shop.service -> ?
+  ref L4:17 model import in=com.shop.service -> ?
+  ref L4:23 Order import in=com.shop.service -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L4:29 Builder import in=com.shop.service -> com.shop.model.Order.Builder (com/shop/model/Order.java)
+  ref L5:15 com import in=com.shop.service -> ?
+  ref L5:19 shop import in=com.shop.service -> ?
+  ref L5:24 model import in=com.shop.service -> ?
+  ref L5:30 Status import in=com.shop.service -> com.shop.model.Status (com/shop/model/Status.java)
+  ref L5:37 PAID import in=com.shop.service -> com.shop.model.Status.PAID (com/shop/model/Status.java)
+  ref L6:8 java import in=com.shop.service -> ?
+  ref L6:13 util import in=com.shop.service -> ?
+  ref L6:18 Comparator import in=com.shop.service -> ?
+  ref L7:8 java import in=com.shop.service -> ?
+  ref L7:13 util import in=com.shop.service -> ?
+  ref L7:18 function import in=com.shop.service -> ?
+  ref L7:27 Function import in=com.shop.service -> ?
+  ref L9:38 Notifier in=com.shop.service.OrderService -> com.shop.service.Notifier (com/shop/service/Notifier.java)
+  ref L10:19 Repository in=com.shop.service.OrderService -> com.shop.service.Repository (com/shop/service/Repository.java)
+  ref L10:30 Order in=com.shop.service.OrderService -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L12:25 Repository in=com.shop.service.OrderService.OrderService -> com.shop.service.Repository (com/shop/service/Repository.java)
+  ref L12:36 Order in=com.shop.service.OrderService.OrderService -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L13:14 repository in=com.shop.service.OrderService.OrderService -> com.shop.service.OrderService.repository
+  ref L13:27 repository in=com.shop.service.OrderService.OrderService -> com.shop.service.OrderService.OrderService->repository
+  ref L16:12 Order in=com.shop.service.OrderService.checkout -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L16:27 String in=com.shop.service.OrderService.checkout -> ?
+  ref L17:9 Order in=com.shop.service.OrderService.checkout -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L17:27 Builder call in=com.shop.service.OrderService.checkout -> com.shop.model.Order.Builder (com/shop/model/Order.java)
+  ref L17:37 item call in=com.shop.service.OrderService.checkout -> com.shop.model.Order.Builder.item (com/shop/model/Order.java)
+  ref L17:54 item call in=com.shop.service.OrderService.checkout -> com.shop.model.Order.Builder.item (com/shop/model/Order.java)
+  ref L17:69 build call in=com.shop.service.OrderService.checkout -> com.shop.model.Order.Builder.build (com/shop/model/Order.java)
+  ref L18:24 Order call in=com.shop.service.OrderService.checkout -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L18:30 customer in=com.shop.service.OrderService.checkout -> com.shop.service.OrderService.checkout->customer
+  ref L19:9 copy in=com.shop.service.OrderService.checkout -> com.shop.service.OrderService.checkout->copy
+  ref L19:14 add call in=com.shop.service.OrderService.checkout -> com.shop.model.Order.add (com/shop/model/Order.java)
+  ref L20:9 repository in=com.shop.service.OrderService.checkout -> com.shop.service.OrderService.repository
+  ref L20:20 save call in=com.shop.service.OrderService.checkout -> com.shop.service.Repository.save (com/shop/service/Repository.java)
+  ref L20:25 order in=com.shop.service.OrderService.checkout -> com.shop.service.OrderService.checkout->order
+  ref L21:9 notify call in=com.shop.service.OrderService.checkout -> com.shop.service.OrderService.notify
+  ref L21:16 order in=com.shop.service.OrderService.checkout -> com.shop.service.OrderService.checkout->order
+  ref L21:22 total call in=com.shop.service.OrderService.checkout -> com.shop.model.Order.total (com/shop/model/Order.java)
+  ref L22:16 order in=com.shop.service.OrderService.checkout -> com.shop.service.OrderService.checkout->order
+  ref L25:12 String in=com.shop.service.OrderService.describe -> ?
+  ref L25:28 Object in=com.shop.service.OrderService.describe -> ?
+  ref L26:13 value in=com.shop.service.OrderService.describe -> com.shop.service.OrderService.describe->value
+  ref L26:30 Order in=com.shop.service.OrderService.describe -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L26:41 o in=com.shop.service.OrderService.describe -> com.shop.service.OrderService.describe->o
+  ref L26:43 total call in=com.shop.service.OrderService.describe -> com.shop.model.Order.total (com/shop/model/Order.java)
+  ref L27:35 o in=com.shop.service.OrderService.describe -> com.shop.service.OrderService.describe->o
+  ref L27:37 getId call in=com.shop.service.OrderService.describe -> com.shop.model.Entity.getId (com/shop/model/Entity.java)
+  ref L29:24 value in=com.shop.service.OrderService.describe -> com.shop.service.OrderService.describe->value
+  ref L30:18 Item in=com.shop.service.OrderService.describe -> com.shop.model.Item (com/shop/model/Item.java)
+  ref L30:23 String in=com.shop.service.OrderService.describe -> ?
+  ref L30:55 price in=com.shop.service.OrderService.describe -> com.shop.service.OrderService.describe->price
+  ref L30:68 name in=com.shop.service.OrderService.describe -> com.shop.service.OrderService.describe->name
+  ref L31:18 Status in=com.shop.service.OrderService.describe -> com.shop.model.Status (com/shop/model/Status.java)
+  ref L31:30 s in=com.shop.service.OrderService.describe -> com.shop.service.OrderService.describe->s
+  ref L31:32 label call in=com.shop.service.OrderService.describe -> com.shop.model.Status.label (com/shop/model/Status.java)
+  ref L36:28 Status in=com.shop.service.OrderService.settled -> com.shop.model.Status (com/shop/model/Status.java)
+  ref L37:17 status in=com.shop.service.OrderService.settled -> com.shop.service.OrderService.settled->status
+  ref L38:18 PAID in=com.shop.service.OrderService.settled -> com.shop.model.Status.PAID (com/shop/model/Status.java)
+  ref L40:18 CANCELLED in=com.shop.service.OrderService.settled -> com.shop.model.Status.CANCELLED (com/shop/model/Status.java)
+  ref L42:24 status in=com.shop.service.OrderService.settled -> com.shop.service.OrderService.settled->status
+  ref L42:34 PAID in=com.shop.service.OrderService.settled -> com.shop.model.Status.PAID (com/shop/model/Status.java)
+  ref L46:12 Comparator in=com.shop.service.OrderService.byTotal -> ?
+  ref L46:23 Order in=com.shop.service.OrderService.byTotal -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L47:9 Function in=com.shop.service.OrderService.byTotal -> ?
+  ref L47:18 Order in=com.shop.service.OrderService.byTotal -> com.shop.model.Order (com/shop/model/Order.java)
+  ref L47:25 Double in=com.shop.service.OrderService.byTotal -> ?
+  ref L47:44 o in=com.shop.service.OrderService.byTotal -> com.shop.service.OrderService.byTotal->o
+  ref L47:46 total call in=com.shop.service.OrderService.byTotal -> com.shop.model.Order.total (com/shop/model/Order.java)
+  ref L48:26 Double in=com.shop.service.OrderService.byTotal -> ?
+  ref L48:33 compare call in=com.shop.service.OrderService.byTotal -> ?
+  ref L48:41 key in=com.shop.service.OrderService.byTotal -> com.shop.service.OrderService.byTotal->key
+  ref L48:45 apply call in=com.shop.service.OrderService.byTotal -> ?
+  ref L48:51 a in=com.shop.service.OrderService.byTotal -> com.shop.service.OrderService.byTotal->a
+  ref L48:55 b in=com.shop.service.OrderService.byTotal -> com.shop.service.OrderService.byTotal->b
+  ref L48:57 total call in=com.shop.service.OrderService.byTotal -> com.shop.model.Order.total (com/shop/model/Order.java)
+  ref L51:12 Runnable in=com.shop.service.OrderService.task -> ?
+  ref L52:21 count in=com.shop.service.OrderService.task -> com.shop.service.OrderService.task->count
+  ref L53:20 Runnable call in=com.shop.service.OrderService.task -> ?
+  ref L56:14 Override in=com.shop.service.OrderService.task -> ?
+  ref L58:17 runs in=com.shop.service.OrderService.task->run -> com.shop.service.OrderService.task->runs
+  ref L59:17 log call in=com.shop.service.OrderService.task->run -> com.shop.service.OrderService.task->log
+  ref L59:21 total in=com.shop.service.OrderService.task->run -> com.shop.service.OrderService.task->total
+  ref L59:29 runs in=com.shop.service.OrderService.task->run -> com.shop.service.OrderService.task->runs
+  ref L63:17 notify call in=com.shop.service.OrderService.task->log -> com.shop.service.OrderService.notify
+  ref L63:24 n in=com.shop.service.OrderService.task->log -> com.shop.service.OrderService.task->log->n
+  ref L68:6 Override in=com.shop.service.OrderService -> ?
+  ref L70:9 String in=com.shop.service.OrderService.notify -> ?
+  ref L72:17 formatted call in=com.shop.service.OrderService.notify -> ?
+  ref L72:27 amount in=com.shop.service.OrderService.notify -> com.shop.service.OrderService.notify->amount
+  ref L73:9 System in=com.shop.service.OrderService.notify -> ?
+  ref L73:16 out in=com.shop.service.OrderService.notify -> ?
+  ref L73:20 println call in=com.shop.service.OrderService.notify -> ?
+  ref L73:28 text in=com.shop.service.OrderService.notify -> com.shop.service.OrderService.notify->text
+file com/shop/service/Repository.java java module=com.shop.service
+  decl interface com.shop.service.Repository L6:18 body=L6:32-L23:2
+  decl type_parameter com.shop.service.Repository.T L6:29
+  decl method com.shop.service.Repository.save L7:10 type=void
+  decl parameter com.shop.service.Repository.save->item L7:17 type=T
+  decl method com.shop.service.Repository.findAll L9:13 type=List<T>
+  decl type_parameter com.shop.service.Repository.inMemory->T L11:13
+  decl method com.shop.service.Repository.inMemory L11:30 body=L11:41-L22:6 type=Repository<T>
+  decl variable com.shop.service.Repository.inMemory->store L12:17 type=List<T>
+  decl method com.shop.service.Repository.inMemory->save L14:25 body=L14:38-L16:14 type=void
+  decl parameter com.shop.service.Repository.inMemory->save->item L14:32 type=T
+  decl method com.shop.service.Repository.inMemory->findAll L18:28 body=L18:38-L20:14 type=List<T>
+  ref L3:8 java import in=com.shop.service -> ?
+  ref L3:13 util import in=com.shop.service -> ?
+  ref L3:18 ArrayList import in=com.shop.service -> ?
+  ref L4:8 java import in=com.shop.service -> ?
+  ref L4:13 util import in=com.shop.service -> ?
+  ref L4:18 List import in=com.shop.service -> ?
+  ref L7:15 T in=com.shop.service.Repository -> com.shop.service.Repository.T
+  ref L9:5 List in=com.shop.service.Repository -> ?
+  ref L9:10 T in=com.shop.service.Repository -> com.shop.service.Repository.T
+  ref L11:16 Repository in=com.shop.service.Repository.inMemory -> com.shop.service.Repository
+  ref L11:27 T in=com.shop.service.Repository.inMemory -> com.shop.service.Repository.inMemory->T
+  ref L12:9 List in=com.shop.service.Repository.inMemory -> ?
+  ref L12:14 T in=com.shop.service.Repository.inMemory -> com.shop.service.Repository.inMemory->T
+  ref L12:29 ArrayList call in=com.shop.service.Repository.inMemory -> ?
+  ref L13:20 Repository call in=com.shop.service.Repository.inMemory -> com.shop.service.Repository
+  ref L14:30 T in=com.shop.service.Repository.inMemory->save -> com.shop.service.Repository.inMemory->T
+  ref L15:17 store in=com.shop.service.Repository.inMemory->save -> com.shop.service.Repository.inMemory->store
+  ref L15:23 add call in=com.shop.service.Repository.inMemory->save -> ?
+  ref L15:27 item in=com.shop.service.Repository.inMemory->save -> com.shop.service.Repository.inMemory->save->item
+  ref L18:20 List in=com.shop.service.Repository.inMemory->findAll -> ?
+  ref L18:25 T in=com.shop.service.Repository.inMemory->findAll -> com.shop.service.Repository.inMemory->T
+  ref L19:24 store in=com.shop.service.Repository.inMemory->findAll -> com.shop.service.Repository.inMemory->store

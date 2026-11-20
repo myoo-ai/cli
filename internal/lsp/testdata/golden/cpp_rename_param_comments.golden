@@ -1,0 +1,21 @@
+$ myoo lsp rename src/calc.shop.Calc.add->a x -c --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+src/calc.shop.Calc.add->x (src/calc.cpp:6:19)
+	int Calc::add(int x, int b) {
+	    total += x + b;
+	    return total;
+	}
+
+- src/calc.cpp (3 edits)
+[changed src/calc.cpp]
+#include "calc.h"
+
+namespace shop {
+
+// add adds x and b to the total.
+int Calc::add(int x, int b) {
+    total += x + b;
+    return total;
+}
+
+}  // namespace shop

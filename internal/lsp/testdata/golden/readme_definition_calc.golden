@@ -1,0 +1,12 @@
+$ myoo lsp definition main.py:calc --backend=builtin
+# format: (for each matching symbol) `<symbol>:<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<source, max. 50 lines counting from top to bottom>\n\n`
+calculator:calculator (calculator.py:1:1)
+	# source for calculator
+	def calculate(a, b):
+	    """sums `a` and `b`"""
+	    return a + b
+
+calculate:calculator.calculate (calculator.py:2:5)
+	def calculate(a, b):
+	    """sums `a` and `b`"""
+	    return a + b

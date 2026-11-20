@@ -1,0 +1,2 @@
+$ myoo lsp rename calculator.calculate 1x --backend=builtin
+[err] `1x` is not a valid python identifier (exit 1)

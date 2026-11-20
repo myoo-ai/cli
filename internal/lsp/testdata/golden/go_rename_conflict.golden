@@ -1,0 +1,2 @@
+$ myoo lsp rename calc.New Calc --backend=builtin
+[err] `calc.Calc` already exists (struct calc/calc.go:4:6), choose another name (exit 1)

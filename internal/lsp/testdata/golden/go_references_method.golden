@@ -1,0 +1,5 @@
+$ myoo lsp references !Add --backend=builtin
+# format: (for each matching symbol with one or more references) `<fqn>[-><local/temporary symbols>]\n- <reference fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)`
+calc.Calc.Add
+- main.main->Add (main.go:11:16)
+- main.main->Add (main.go:13:12)

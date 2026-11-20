@@ -1,0 +1,2 @@
+$ myoo lsp rename main.main->total func --backend=builtin
+[err] `func` is a reserved word in go, choose another name (exit 1)

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<?php /** @var \App\Models\User[] $users */ ?>
+<body>
+<ul>
+<?php foreach ($users as $user): ?>
+    <li class="user"><?= htmlspecialchars($user->email()) ?></li>
+<?php endforeach; ?>
+</ul>
+<?php // a comment that ends at the tag ?> <p>after</p>
+<?xml-stylesheet nothing="here"?>
+<?= $title ?? 'Untitled' ?>
+</body>
+</html>

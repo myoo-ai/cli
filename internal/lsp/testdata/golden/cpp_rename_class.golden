@@ -1,0 +1,49 @@
+$ myoo lsp rename include/calc.shop.Calc Counter --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+include/calc.shop.Counter (include/calc.h:6:7)
+	class Counter {
+	public:
+	    int add(int a, int b);
+	
+	private:
+	    int total = 0;
+	};
+
+- include/calc.h (1 edit)
+- src/calc.cpp (1 edit)
+- src/main.cpp (1 edit)
+[changed include/calc.h]
+#pragma once
+
+namespace shop {
+
+// Calc accumulates a total.
+class Counter {
+public:
+    int add(int a, int b);
+
+private:
+    int total = 0;
+};
+
+}  // namespace shop
+[changed src/calc.cpp]
+#include "calc.h"
+
+namespace shop {
+
+// add adds a and b to the total.
+int Counter::add(int a, int b) {
+    total += a + b;
+    return total;
+}
+
+}  // namespace shop
+[changed src/main.cpp]
+#include "calc.h"
+
+int main() {
+    shop::Counter calc;
+    int sum = calc.add(1, 2);
+    return calc.add(sum, 3);
+}

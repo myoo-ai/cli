@@ -1,0 +1,5 @@
+$ myoo lsp references src/math.ts:!Counter --backend=builtin
+# format: (for each matching symbol with one or more references) `<fqn>[-><local/temporary symbols>]\n- <reference fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)`
+src/math.Counter
+- src/index.Counter (src/index.ts:1:15)
+- src/index.Counter (src/index.ts:3:21)

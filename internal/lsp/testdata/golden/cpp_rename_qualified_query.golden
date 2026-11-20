@@ -1,0 +1,7 @@
+$ myoo lsp definition !shop::Calc::add --backend=builtin
+# format: (for each matching symbol) `<symbol>:<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<source, max. 50 lines counting from top to bottom>\n\n`
+add:src/calc.shop.Calc.add (src/calc.cpp:6:11)
+	int Calc::add(int a, int b) {
+	    total += a + b;
+	    return total;
+	}

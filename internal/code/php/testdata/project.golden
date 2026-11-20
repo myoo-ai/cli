@@ -1,0 +1,183 @@
+file src/Models/Model.php php module=
+  decl namespace App.Models L5:11
+  decl class App.Models.Model L10:16 body=L11:1-L28:2
+  decl property App.Models.Model.registry L12:29 type=array
+  decl constant App.Models.Model.TABLE_PREFIX L14:18
+  decl method App.Models.Model.table L16:30 type=string
+  decl method App.Models.Model.find L18:28 body=L19:5-L21:6 type=?static
+  decl parameter App.Models.Model.find->id L18:38 type=int
+  decl method App.Models.Model.save L23:21 body=L24:5-L27:6 type=static
+  ref L20:25 registry in=App.Models.Model.find -> App.Models.Model.registry
+  ref L20:35 id in=App.Models.Model.find -> App.Models.Model.find->id
+  ref L25:16 registry in=App.Models.Model.save -> App.Models.Model.registry
+  ref L25:25 spl_object_id call in=App.Models.Model.save -> ?
+file src/Models/Status.php php module=
+  decl namespace App.Models L3:11
+  decl enum App.Models.Status L5:6 body=L6:1-L19:2 type=string
+  decl enum_member App.Models.Status.Active L7:10
+  decl enum_member App.Models.Status.Banned L8:10
+  decl constant App.Models.Status.DEFAULT L10:11
+  decl method App.Models.Status.label L12:21 body=L13:5-L18:6 type=string
+  ref L10:27 Active in=App.Models.Status -> App.Models.Status.Active
+  ref L15:13 Status in=App.Models.Status.label -> App.Models.Status
+  ref L15:21 Active in=App.Models.Status.label -> App.Models.Status.Active
+  ref L16:19 Banned in=App.Models.Status.label -> App.Models.Status.Banned
+file src/Models/User.php php module=
+  decl namespace App.Models L5:11
+  decl class App.Models.User L11:13 body=L12:1-L46:2 bases=Model,JsonSerializable
+  decl property App.Models.User.nickname L15:20 type=string
+  decl constructor App.Models.User.__construct L17:21 body=L21:7-L23:6
+  decl parameter App.Models.User.__construct->id L18:30 type=int
+  decl property App.Models.User.id L18:30 type=int
+  decl parameter App.Models.User.__construct->email L19:25 type=string
+  decl property App.Models.User.email L19:25 type=string
+  decl parameter App.Models.User.__construct->status L20:28 type=?Status
+  decl property App.Models.User.status L20:28 type=?Status
+  decl method App.Models.User.table L25:21 body=L26:5-L28:6 type=string
+  decl method App.Models.User.email L30:21 body=L31:5-L33:6 type=string
+  decl method App.Models.User.jsonSerialize L35:21 body=L36:5-L38:6 type=array
+  decl property App.Models.User.displayName L40:20 type=string
+  decl parameter App.Models.User.displayName->value L42:21 type=string
+  ref L7:17 HasTimestamps import in=App.Models -> App.Support.HasTimestamps (src/Support/HasTimestamps.php)
+  ref L8:5 JsonSerializable import in=App.Models -> ?
+  ref L10:4 Attribute in=App.Models -> ?
+  ref L11:26 Model in=App.Models.User -> App.Models.Model (src/Models/Model.php)
+  ref L11:43 JsonSerializable in=App.Models.User -> ?
+  ref L13:9 HasTimestamps in=App.Models.User -> App.Support.HasTimestamps (src/Support/HasTimestamps.php)
+  ref L20:20 Status in=App.Models.User.__construct -> App.Models.Status (src/Models/Status.php)
+  ref L22:16 touch call in=App.Models.User.__construct -> App.Support.HasTimestamps.touch (src/Support/HasTimestamps.php)
+  ref L27:22 TABLE_PREFIX in=App.Models.User.table -> App.Models.Model.TABLE_PREFIX (src/Models/Model.php)
+  ref L32:23 email in=App.Models.User.email -> App.Models.User.email
+  ref L37:32 id in=App.Models.User.jsonSerialize -> App.Models.User.id
+  ref L37:55 status in=App.Models.User.jsonSerialize -> App.Models.User.status
+  ref L37:64 label call in=App.Models.User.jsonSerialize -> App.Models.Status.label (src/Models/Status.php)
+  ref L41:23 nickname in=App.Models.User -> App.Models.User.nickname
+  ref L41:48 nickname in=App.Models.User -> App.Models.User.nickname
+  ref L41:66 email in=App.Models.User -> App.Models.User.email
+  ref L43:20 nickname in=App.Models.User -> App.Models.User.nickname
+  ref L43:31 trim call in=App.Models.User -> ?
+  ref L43:37 value in=App.Models.User -> App.Models.User.displayName->value
+file src/Services/UserService.php php module=
+  decl namespace App.Services L5:11
+  decl import App.Services.State L7:33 type=App\Models\Status
+  decl class App.Services.UserService L12:7 body=L13:1-L59:2
+  decl property App.Services.UserService.users L14:20 type=array
+  decl constructor App.Services.UserService.__construct L16:21 body=L17:5-L18:6
+  decl parameter App.Services.UserService.__construct->clock L16:60 type=\Closure
+  decl property App.Services.UserService.clock L16:60 type=\Closure
+  decl method App.Services.UserService.register L20:21 body=L21:5-L35:6 type=User
+  decl parameter App.Services.UserService.register->id L20:35 type=int
+  decl parameter App.Services.UserService.register->email L20:47 type=string
+  decl variable App.Services.UserService.register->user L22:10
+  decl variable App.Services.UserService.register->count L26:10
+  decl variable App.Services.UserService.register->log L27:10
+  decl parameter App.Services.UserService.register->msg L27:34 type=string
+  decl variable App.Services.UserService.register->double L31:10
+  decl parameter App.Services.UserService.register->x L31:27 type=int
+  decl variable App.Services.UserService.register->first L32:11
+  decl variable App.Services.UserService.register->second L32:20
+  decl variable App.Services.UserService.register->third L33:22
+  decl method App.Services.UserService.report L37:21 body=L38:5-L58:6 type=string
+  decl variable config L39:17
+  decl variable App.Services.UserService.report->total L40:10
+  decl variable App.Services.UserService.report->key L41:35
+  decl variable App.Services.UserService.report->user L41:43
+  decl variable App.Services.UserService.report->label L44:10
+  decl variable App.Services.UserService.report->text L45:10
+  decl variable App.Services.UserService.report->raw L49:10
+  decl variable App.Services.UserService.report->found L53:14
+  decl variable App.Services.UserService.report->e L54:55
+  ref L7:17 User import in=App.Services -> App.Models.User (src/Models/User.php)
+  ref L7:23 Status import in=App.Services -> App.Models.Status (src/Models/Status.php)
+  ref L8:16 Model import in=App.Services -> App.Models.Model (src/Models/Model.php)
+  ref L9:26 format_price import in=App.Services -> App.Support.format_price (src/Support/helpers.php)
+  ref L10:23 CURRENCY import in=App.Services -> App.Support.CURRENCY (src/Support/helpers.php)
+  ref L16:51 Closure in=App.Services.UserService.__construct -> ?
+  ref L20:55 User in=App.Services.UserService.register -> App.Models.User (src/Models/User.php)
+  ref L22:21 User call in=App.Services.UserService.register -> App.Models.User (src/Models/User.php)
+  ref L22:27 id in=App.Services.UserService.register -> App.Services.UserService.register->id
+  ref L22:32 email in=App.Services.UserService.register -> App.Services.UserService.register->email
+  ref L22:39 State in=App.Services.UserService.register -> App.Services.State
+  ref L22:46 Active in=App.Services.UserService.register -> App.Models.Status.Active (src/Models/Status.php)
+  ref L23:10 user in=App.Services.UserService.register -> App.Services.UserService.register->user
+  ref L23:16 save call in=App.Services.UserService.register -> App.Models.Model.save (src/Models/Model.php)
+  ref L23:24 table call in=App.Services.UserService.register -> App.Models.Model.table (src/Models/Model.php)
+  ref L24:16 users in=App.Services.UserService.register -> App.Services.UserService.users
+  ref L24:23 id in=App.Services.UserService.register -> App.Services.UserService.register->id
+  ref L24:30 user in=App.Services.UserService.register -> App.Services.UserService.register->user
+  ref L26:18 count call in=App.Services.UserService.register -> ?
+  ref L26:31 users in=App.Services.UserService.register -> App.Services.UserService.users
+  ref L27:46 count in=App.Services.UserService.register -> App.Services.UserService.register->count
+  ref L27:54 user in=App.Services.UserService.register -> App.Services.UserService.register->user
+  ref L28:14 count in=App.Services.UserService.register -> App.Services.UserService.register->count
+  ref L29:23 user in=App.Services.UserService.register -> App.Services.UserService.register->user
+  ref L29:29 email call in=App.Services.UserService.register -> App.Models.User.email (src/Models/User.php)
+  ref L29:40 msg in=App.Services.UserService.register -> App.Services.UserService.register->msg
+  ref L29:46 count in=App.Services.UserService.register -> App.Services.UserService.register->count
+  ref L31:39 x in=App.Services.UserService.register -> App.Services.UserService.register->x
+  ref L31:48 count in=App.Services.UserService.register -> App.Services.UserService.register->count
+  ref L32:33 log call in=App.Services.UserService.register -> App.Services.UserService.register->log
+  ref L32:51 double call in=App.Services.UserService.register -> App.Services.UserService.register->double
+  ref L33:46 second in=App.Services.UserService.register -> App.Services.UserService.register->second
+  ref L34:17 user in=App.Services.UserService.register -> App.Services.UserService.register->user
+  ref L41:25 users in=App.Services.UserService.report -> App.Services.UserService.users
+  ref L42:14 total in=App.Services.UserService.report -> App.Services.UserService.report->total
+  ref L42:24 user in=App.Services.UserService.report -> App.Services.UserService.report->user
+  ref L42:30 id in=App.Services.UserService.report -> ?
+  ref L44:18 format_price call in=App.Services.UserService.report -> App.Support.format_price (src/Support/helpers.php)
+  ref L44:32 total in=App.Services.UserService.report -> App.Services.UserService.report->total
+  ref L44:39 CURRENCY in=App.Services.UserService.report -> App.Support.CURRENCY (src/Support/helpers.php)
+  ref L46:22 total in=App.Services.UserService.report -> App.Services.UserService.report->total
+  ref L46:30 label in=App.Services.UserService.report -> App.Services.UserService.report->label
+  ref L47:28 users in=App.Services.UserService.report -> App.Services.UserService.users
+  ref L47:38 nickname in=App.Services.UserService.report -> ?
+  ref L53:22 Model in=App.Services.UserService.report -> App.Models.Model (src/Models/Model.php)
+  ref L53:29 find call in=App.Services.UserService.report -> App.Models.Model.find (src/Models/Model.php)
+  ref L53:35 total in=App.Services.UserService.report -> App.Services.UserService.report->total
+  ref L54:19 RuntimeException in=App.Services.UserService.report -> ?
+  ref L54:39 LogicException in=App.Services.UserService.report -> ?
+  ref L55:21 e in=App.Services.UserService.report -> App.Services.UserService.report->e
+  ref L55:24 getMessage call in=App.Services.UserService.report -> ?
+  ref L57:17 text in=App.Services.UserService.report -> App.Services.UserService.report->text
+  ref L57:25 raw in=App.Services.UserService.report -> App.Services.UserService.report->raw
+  ref L57:33 config in=App.Services.UserService.report -> config
+  ref L57:49 compact call in=App.Services.UserService.report -> ?
+  ref L57:58 found in=App.Services.UserService.report -> App.Services.UserService.report->found
+  ref L57:67 label in=App.Services.UserService.report -> App.Services.UserService.report->label
+file src/Support/HasTimestamps.php php module=
+  decl namespace App.Support L3:11
+  decl class App.Support.HasTimestamps L5:7 body=L6:1-L13:2
+  decl property App.Support.HasTimestamps.updatedAt L7:18 type=?int
+  decl method App.Support.HasTimestamps.touch L9:21 body=L10:5-L12:6 type=void
+  ref L11:16 updatedAt in=App.Support.HasTimestamps.touch -> App.Support.HasTimestamps.updatedAt
+  ref L11:28 time call in=App.Support.HasTimestamps.touch -> ?
+file src/Support/helpers.php php module=
+  decl namespace App.Support L3:11
+  decl constant App.Support.CURRENCY L5:7
+  decl constant APP_VERSION L7:9
+  decl function App.Support.format_price L13:14 body=L14:5-L18:6 type=string
+  decl parameter App.Support.format_price->cents L13:32 type=int
+  decl parameter App.Support.format_price->currency L13:47 type=string
+  decl variable App.Support.format_price->calls L15:17
+  decl function App.Support.version L21:10 body=L22:1-L24:2 type=string
+  ref L7:1 define call in=App.Support -> ?
+  ref L9:6 function_exists call in=App.Support -> ?
+  ref L13:58 CURRENCY in=App.Support.format_price -> App.Support.CURRENCY
+  ref L16:10 calls in=App.Support.format_price -> App.Support.format_price->calls
+  ref L17:16 sprintf call in=App.Support.format_price -> ?
+  ref L17:37 currency in=App.Support.format_price -> App.Support.format_price->currency
+  ref L17:48 cents in=App.Support.format_price -> App.Support.format_price->cents
+  ref L23:12 APP_VERSION in=App.Support.version -> APP_VERSION
+  ref L23:33 PHP_VERSION in=App.Support.version -> ?
+file templates/view.phtml php module=
+  decl variable user L6:27
+  ref L6:17 users in= -> ?
+  ref L7:26 htmlspecialchars call in= -> ?
+  ref L7:44 user in= -> user
+  ref L7:50 email call in= -> ?
+  ref L12:6 title in= -> ?
+comment src/Models/Model.php L7:1 doc "Base class of the persisted models."
+comment src/Services/UserService.php L25:9 line "A hash comment, not an attribute."
+comment src/Support/helpers.php L10:5 doc "Formats cents with the currency symbol."
+comment templates/view.phtml L3:7 doc "@var \\App\\Models\\User[] $users"
+comment templates/view.phtml L10:7 line "a comment that ends at the tag"

@@ -1,0 +1,22 @@
+file broken.php php module=
+  decl namespace Broken.Code L3:11
+  decl class Broken.Code.Half L7:7 body=L7:20-L16:2
+  decl method Broken.Code.Half.method L8:21 body=L8:29-L11:6
+  decl variable Broken.Code.Half.method->x L9:10
+  decl method Broken.Code.Half.other L13:14 body=L13:28-L15:6 type=void
+  decl function Broken.Code.ok L18:10 body=L18:25-L18:47
+  decl parameter Broken.Code.ok->value L18:18 type=int
+  decl variable after L19:2
+  decl variable s L20:2
+  decl parameter a L23:5
+  decl variable z L26:2
+  decl variable y L27:2
+  ref L5:11 Partial import in=Broken.Code -> ?
+  ref L10:17 x in=Broken.Code.Half.method -> Broken.Code.Half.method->x
+  ref L14:16 method call in=Broken.Code.Half.other -> Broken.Code.Half.method
+  ref L18:35 value in=Broken.Code.ok -> Broken.Code.ok->value
+  ref L19:10 ok call in=Broken.Code -> Broken.Code.ok
+  ref L20:18 after in=Broken.Code -> after
+  ref L21:9 after in=Broken.Code -> after
+  ref L25:3 Attr in=Broken.Code -> ?
+  ref L26:22 after in=Broken.Code -> after

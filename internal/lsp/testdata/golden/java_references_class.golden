@@ -1,0 +1,5 @@
+$ myoo lsp references com/shop/Calc.java:!Calc --backend=builtin
+# format: (for each matching symbol with one or more references) `<fqn>[-><local/temporary symbols>]\n- <reference fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)`
+com.shop.Calc
+- com.shop.Main.main->Calc (com/shop/Main.java:5:9)
+- com.shop.Main.main->Calc (com/shop/Main.java:5:25)

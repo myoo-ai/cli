@@ -1,0 +1,2 @@
+$ myoo lsp definition main.py:!print --backend=builtin
+[err] symbols matching `!print` are defined outside the workspace: `print` (exit 1)

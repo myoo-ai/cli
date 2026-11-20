@@ -1,0 +1,117 @@
+file calc.c c module=calc
+  decl variable calc.counter L4:5 type=int
+  decl function calc.helper L7:12 body=L7:26-L9:2 type=int
+  decl parameter calc.helper->v L7:23 type=int
+  decl function calc.add L11:5 body=L11:23-L14:2 type=int
+  decl parameter calc.add->a L11:13 type=int
+  decl parameter calc.add->b L11:20 type=int
+  decl function calc.scale L16:5 body=L16:33-L24:2 type=int
+  decl parameter calc.scale->p L16:18 type=Point*
+  decl parameter calc.scale->factor L16:25 type=int
+  decl variable calc.scale->i L19:14 type=int
+  decl variable calc.scale->x L20:13 type=int
+  ref L1:11 calc.h import in=calc -> calc (calc.h)
+  ref L2:11 stdio.h import in=calc -> ?
+  ref L8:12 SQUARE call in=calc.helper -> calc.SQUARE (calc.h)
+  ref L8:19 v in=calc.helper -> calc.helper->v
+  ref L8:24 MAX_ITEMS in=calc.helper -> calc.MAX_ITEMS (calc.h)
+  ref L12:5 counter in=calc.add -> calc.counter
+  ref L13:12 a in=calc.add -> calc.add->a
+  ref L13:16 b in=calc.add -> calc.add->b
+  ref L13:20 helper call in=calc.add -> calc.helper
+  ref L13:27 a in=calc.add -> calc.add->a
+  ref L16:11 Point in=calc.scale -> calc.Point (calc.h)
+  ref L17:5 p in=calc.scale -> calc.scale->p
+  ref L17:8 x in=calc.scale -> calc.Point.x (calc.h)
+  ref L17:12 p in=calc.scale -> calc.scale->p
+  ref L17:15 x in=calc.scale -> calc.Point.x (calc.h)
+  ref L17:19 factor in=calc.scale -> calc.scale->factor
+  ref L18:5 p in=calc.scale -> calc.scale->p
+  ref L18:8 y in=calc.scale -> calc.Point.y (calc.h)
+  ref L18:13 factor in=calc.scale -> calc.scale->factor
+  ref L19:21 i in=calc.scale -> calc.scale->i
+  ref L19:25 factor in=calc.scale -> calc.scale->factor
+  ref L19:33 i in=calc.scale -> calc.scale->i
+  ref L20:17 i in=calc.scale -> calc.scale->i
+  ref L21:9 counter in=calc.scale -> calc.counter
+  ref L21:20 x in=calc.scale -> calc.scale->x
+  ref L23:12 p in=calc.scale -> calc.scale->p
+  ref L23:15 x in=calc.scale -> calc.Point.x (calc.h)
+file calc.h c module=calc
+  decl macro calc.CALC_H L2:9
+  decl macro calc.MAX_ITEMS L4:9
+  decl macro calc.SQUARE L5:9
+  decl parameter calc.SQUARE->x L5:16
+  decl macro calc.LOG L6:9
+  decl parameter calc.LOG->fmt L6:13
+  decl field calc.Point.x L11:9 type=int
+  decl field calc.Point.y L12:9 type=int
+  decl struct calc.Point L13:3 body=L10:16-L13:2
+  decl struct calc.node L15:16 body=L15:21-L18:2
+  decl field calc.node.value L16:9 type=int
+  decl field calc.node.next L17:18 type=struct node*
+  decl type calc.node_t L18:3 type=node
+  decl enum calc.color L20:6 body=L20:12-L20:36
+  decl enum_member calc.color.RED L20:14
+  decl enum_member calc.color.GREEN L20:19
+  decl enum_member calc.color.BLUE L20:30
+  decl variable calc.counter L22:12 type=int
+  decl function calc.add L24:5 type=int
+  decl parameter calc.add->a L24:13 type=int
+  decl parameter calc.add->b L24:20 type=int
+  decl function calc.scale L25:5 type=int
+  decl parameter calc.scale->p L25:18 type=Point*
+  decl parameter calc.scale->factor L25:25 type=int
+  decl type calc.binop L26:15 type=int*(int,int)
+  ref L1:9 CALC_H in=calc -> calc.CALC_H
+  ref L5:21 x in=calc.SQUARE -> calc.SQUARE->x
+  ref L5:27 x in=calc.SQUARE -> calc.SQUARE->x
+  ref L7:5 printf call in=calc.LOG -> ?
+  ref L7:12 fmt in=calc.LOG -> calc.LOG->fmt
+  ref L17:12 node in=calc.node -> calc.node
+  ref L25:11 Point in=calc -> calc.Point
+file main.c c module=main
+  decl function main.helper L4:12 body=L4:25-L6:2 type=int
+  decl variable main.names L8:20 type=const char*[]
+  decl function main.main L10:5 body=L10:33-L27:2 type=int
+  decl parameter main.main->argc L10:14 type=int
+  decl parameter main.main->argv L10:27 type=char**
+  decl variable main.main->pt L11:11 type=Point
+  decl variable main.main->n L12:12 type=node_t
+  decl variable main.main->op L15:11 type=binop
+  decl variable main.main->total L16:9 type=int
+  decl variable main.main->ptr L16:28 type=int*
+  decl variable main.main->c L17:16 type=enum color
+  decl variable main.main->total L19:13 type=int
+  decl variable main.main->s L23:17 type=const char*
+  decl variable main.main->q L24:10 type=char
+  ref L1:11 calc.h import in=main -> calc (calc.h)
+  ref L2:11 stdio.h import in=main -> ?
+  ref L11:5 Point in=main.main -> calc.Point (calc.h)
+  ref L12:5 node_t in=main.main -> calc.node_t (calc.h)
+  ref L13:5 n in=main.main -> main.main->n
+  ref L13:7 value in=main.main -> calc.node.value (calc.h)
+  ref L13:15 add call in=main.main -> calc.add (calc.c)
+  ref L13:19 pt in=main.main -> main.main->pt
+  ref L13:22 x in=main.main -> calc.Point.x (calc.h)
+  ref L13:25 helper call in=main.main -> main.helper
+  ref L14:5 n in=main.main -> main.main->n
+  ref L14:7 next in=main.main -> calc.node.next (calc.h)
+  ref L15:5 binop in=main.main -> calc.binop (calc.h)
+  ref L15:16 add in=main.main -> calc.add (calc.c)
+  ref L16:17 op call in=main.main -> main.main->op
+  ref L16:35 total in=main.main -> main.main->total
+  ref L17:10 color in=main.main -> calc.color (calc.h)
+  ref L17:20 GREEN in=main.main -> calc.color.GREEN (calc.h)
+  ref L20:9 LOG call in=main.main -> calc.LOG (calc.h)
+  ref L20:24 total in=main.main -> main.main->total
+  ref L20:32 ptr in=main.main -> main.main->ptr
+  ref L25:5 printf call in=main.main -> ?
+  ref L25:29 s in=main.main -> main.main->s
+  ref L25:32 q in=main.main -> main.main->q
+  ref L25:35 c in=main.main -> main.main->c
+  ref L25:38 names in=main.main -> main.names
+  ref L26:12 scale call in=main.main -> calc.scale (calc.c)
+  ref L26:19 pt in=main.main -> main.main->pt
+  ref L26:23 argc in=main.main -> main.main->argc
+  ref L26:31 total in=main.main -> main.main->total

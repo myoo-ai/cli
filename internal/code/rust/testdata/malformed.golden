@@ -1,0 +1,16 @@
+file broken.rs rust module=malformed.broken
+  decl function malformed.broken.ok L1:4 body=L1:22-L1:27 type=i32
+  decl parameter malformed.broken.ok->a L1:7 type=i32
+  decl function malformed.broken.missing_paren L3:4 body=L3:24-L5:2
+  decl parameter malformed.broken.missing_paren->x L3:18
+  decl struct malformed.broken.Half L7:8 body=L7:13-L9:2
+  decl field malformed.broken.Half.a L8:5 type=Vec<Vec<u8>,
+  decl function malformed.broken.after_half L11:4 body=L11:23-L11:63 type=u8
+  decl variable malformed.broken.after_half->y L11:29
+  decl method malformed.broken.m L14:8 body=L14:20-L14:29
+  ref L1:24 a in=malformed.broken.ok -> malformed.broken.ok->a
+  ref L4:5 x in=malformed.broken.missing_paren -> malformed.broken.missing_paren->x
+  ref L8:8 Vec in=malformed.broken.Half -> ?
+  ref L8:12 Vec in=malformed.broken.Half -> ?
+  ref L11:60 y in=malformed.broken.after_half -> malformed.broken.after_half->y
+comment broken.rs L17:1 block "unterminated /* nested */ comment\nfn after() { let s = \"abc; }"

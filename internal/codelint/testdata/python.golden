@@ -1,0 +1,79 @@
+#1 maze.py:2:1-10.4 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#2 positive.py:2:1-7.4 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#3 positive.py:10:1-22 - decorative-comment: use of banner or separator comments made of repeated characters.
+#4 positive.py:14:5-49 - redundant-docstring: documentation only restates the name of the declaration.
+#5 positive.py:15:5-51 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#6 positive.py:17:5-45 - narrating-comment: comment narrates what the code does instead of explaining why.
+#7 positive.py:23:5-42 - obvious-comment: comment repeats the code it is attached to.
+#8 positive.py:29:5-45 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 positive.py:30:12-21 - py-open-without-with: prefer opening files in a `with` statement, as it closes the file even when an exception is raised (`open("x")` -> `with open("x") as f:`).
+#10 positive.py:31:5-47 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#11 positive.py:33:5-42 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#12 positive.py:38:5-30 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#13 positive.py:42:11-17 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#14 positive.py:45:1-52.13 - excessive-comments: function body is dominated by comments (6 of 7 non-blank lines are comments).
+#15 positive.py:56:12-13 - emoji-in-code: use of emoji in comments or string literals.
+#16 positive.py:57:17-18 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#17 positive.py:58:16-17 - emdash-in-code: use of emdash in comments or string literals.
+#18 positive.py:59:11-19 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#19 positive.py:60:11-23 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#20 positive.py:66:5-67.13 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#21 positive.py:70:5-71.24 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#22 positive.py:75:32-44 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#23 positive.py:76:21-25 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#24 positive.py:80:5-16 - import-inside-function: import statement inside a function body.
+#25 positive.py:89:21-30 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#26 positive.py:96:1-180.17 - long-function: function has more than 80 lines of code (84 lines of code).
+#27 positive.py:195:5-202.27 - duplicated-block: block of code duplicates another block (first occurrence at positive.py:184:5, lines 184-191).
+#28 positive.py:205:1-22 - py-wildcard-import: prefer importing the needed names, as a wildcard import hides where names come from and can shadow local ones.
+#29 positive.py:208:1-25 - py-lambda-assignment: prefer a `def` statement to assigning a lambda, as a named function shows its name in tracebacks and can have a docstring (`square = lambda x: x * x` -> `def square(x): return x * x`).
+#30 positive.py:209:1-40 - py-lambda-assignment: prefer a `def` statement to assigning a lambda, as a named function shows its name in tracebacks and can have a docstring (`cube: object = lambda value: value ** 3` -> `def cube(value): return value ** 3`).
+#31 positive.py:210:1-17 - py-lambda-assignment: prefer a `def` statement to assigning a lambda, as a named function shows its name in tracebacks and can have a docstring (`zero = lambda: 0` -> `def zero(): return 0`).
+#32 positive.py:214:8-17 - py-none-equality: prefer `is None` to `== None`, as None is a singleton and `==` can be overridden (`a == None` -> `a is None`).
+#33 positive.py:214:21-30 - py-none-equality: prefer `is None` to `== None`, as None is a singleton and `==` can be overridden (`None != b` -> `b is not None`).
+#34 positive.py:215:16-30 - py-none-equality: prefer `is None` to `== None`, as None is a singleton and `==` can be overridden (`a.size != None` -> `a.size is not None`).
+#35 positive.py:220:8-16 - py-identity-with-literal: prefer `==` to `is` for literals and new objects, as their identity is not guaranteed (`a is "x"` -> `a == "x"`).
+#36 positive.py:220:20-30 - py-identity-with-literal: prefer `==` to `is` for literals and new objects, as their identity is not guaranteed (`b is not 1` -> `b != 1`).
+#37 positive.py:220:34-41 - py-identity-with-literal: prefer `==` to `is` for literals and new objects, as their identity is not guaranteed (`a is -1` -> `a == -1`).
+#38 positive.py:220:45-53 - py-identity-with-literal: prefer `==` to `is` for literals and new objects, as their identity is not guaranteed (`"y" is b` -> `"y" == b`).
+#39 positive.py:221:16-23 - py-identity-with-literal: prefer `==` to `is` for literals and new objects, as their identity is not guaranteed (`a is []` -> `a == []`).
+#40 positive.py:221:27-38 - py-identity-with-literal: prefer `==` to `is` for literals and new objects, as their identity is not guaranteed (`b is (1, 2)` -> `b == (1, 2)`).
+#41 positive.py:221:42-49 - py-identity-with-literal: prefer `==` to `is` for literals and new objects, as their identity is not guaranteed (`a is {}` -> `a == {}`).
+#42 positive.py:225:17-25 - py-mutable-default-argument: prefer `None` as the default of this parameter, as a mutable default is created once and shared by every call (`items=[]` -> `items=None`).
+#43 positive.py:225:27-34 - py-mutable-default-argument: prefer `None` as the default of this parameter, as a mutable default is created once and shared by every call (`opts={}` -> `opts=None`).
+#44 positive.py:225:36-48 - py-mutable-default-argument: prefer `None` as the default of this parameter, as a mutable default is created once and shared by every call (`names=list()` -> `names=None`).
+#45 positive.py:225:50-60 - py-mutable-default-argument: prefer `None` as the default of this parameter, as a mutable default is created once and shared by every call (`seen=set()` -> `seen=None`).
+#46 positive.py:225:65-81 - py-mutable-default-argument: prefer `None` as the default of this parameter, as a mutable default is created once and shared by every call (`extra: dict = {}` -> `extra: dict | None = None`).
+#47 positive.py:230:12-26 - py-type-comparison: prefer `isinstance()` to comparing `type()` results, as it also accepts subclasses (`type(a) == int` -> `isinstance(a, int)`).
+#48 positive.py:230:30-46 - py-type-comparison: prefer `isinstance()` to comparing `type()` results, as it also accepts subclasses (`type(b) != Point` -> `not isinstance(b, Point)`).
+#49 positive.py:230:50-64 - py-type-comparison: prefer `isinstance()` to comparing `type()` results, as it also accepts subclasses (`str == type(a)` -> `isinstance(a, str)`).
+#50 positive.py:236:15-27 - py-redundant-keys-call: prefer testing membership on the dict itself, as `.keys()` adds a call and a view for nothing (`table.keys()` -> `table`).
+#51 positive.py:236:42-55 - py-redundant-keys-call: prefer testing membership on the dict itself, as `.keys()` adds a call and a view for nothing (`counts.keys()` -> `counts`).
+#52 positive.py:236:66-79 - py-redundant-keys-call: prefer testing membership on the dict itself, as `.keys()` adds a call and a view for nothing (`CONFIG.keys()` -> `CONFIG`).
+#53 positive.py:237:32-45 - py-redundant-keys-call: prefer testing membership on the dict itself, as `.keys()` adds a call and a view for nothing (`kwargs.keys()` -> `kwargs`).
+#54 positive.py:238:16-28 - py-redundant-keys-call: prefer testing membership on the dict itself, as `.keys()` adds a call and a view for nothing (`table.keys()` -> `table`).
+#55 positive.py:240:44-61 - py-redundant-keys-call: prefer testing membership on the dict itself, as `.keys()` adds a call and a view for nothing (`os.environ.keys()` -> `os.environ`).
+#56 positive.py:244:5-32 - py-range-len-loop: prefer `enumerate()` to `range(len())`, as it yields the index and the element together (`for i in range(len(items)):` -> `for i, item in enumerate(items):`).
+#57 positive.py:246:5-37 - py-range-len-loop: prefer `enumerate()` to `range(len())`, as it yields the index and the element together (`for i in range(len(opts.names)):` -> `for i, item in enumerate(opts.names):`).
+#58 positive.py:250:11-27 - py-sorted-for-min-max: prefer `min()` or `max()` to indexing a `sorted()` result, as they find the value without sorting the whole input (`sorted(items)[0]` -> `min(items)`).
+#59 positive.py:251:12-38 - py-sorted-for-min-max: prefer `min()` or `max()` to indexing a `sorted()` result, as they find the value without sorting the whole input (`sorted(words, key=len)[-1]` -> `max(words, key=len)`).
+#60 positive.py:252:11-50 - py-sorted-for-min-max: prefer `min()` or `max()` to indexing a `sorted()` result, as they find the value without sorting the whole input (`sorted(words, key=len, reverse=True)[0]` -> `max(words, key=len)`).
+#61 positive.py:253:14-45 - py-sorted-for-min-max: prefer `min()` or `max()` to indexing a `sorted()` result, as they find the value without sorting the whole input (`sorted(items, reverse=True)[-1]` -> `min(items)`).
+#62 positive.py:254:36-50 - py-list-first-element: prefer `next(iter(x))` to `list(x)[0]`, as it reads one element instead of copying the whole iterable (`list(words)[0]` -> `next(iter(words))`).
+#63 positive.py:258:8-76 - py-startswith-tuple: prefer one `startswith()` or `endswith()` call with a tuple, as it is shorter and scans the string once (`name.startswith("x") or name.startswith("y") or name.startswith("z")` -> `name.startswith(("x", "y", "z"))`).
+#64 positive.py:260:12-71 - py-startswith-tuple: prefer one `startswith()` or `endswith()` call with a tuple, as it is shorter and scans the string once (`path.suffix.endswith(".py") or path.suffix.endswith(".pyi")` -> `path.suffix.endswith((".py", ".pyi"))`).
+#65 positive.py:265:24-34 - py-open-without-with: prefer opening files in a `with` statement, as it closes the file even when an exception is raised (`open(path)` -> `with open(path) as f:`).
+#66 positive.py:270:14-24 - py-open-without-with: prefer opening files in a `with` statement, as it closes the file even when an exception is raised (`stream = open(path)` -> `with open(path) as stream:`).
+#67 positive.py:277:16-33 - no-formatted-string-placeholders: formatted string without any placeholders (`f"no fields here"` -> `"no fields here"`).
+#68 positive.py:278:23-39 - no-formatted-string-placeholders: formatted string without any placeholders (`"plain".format()` -> `"plain"`).
+#69 positive.py:278:42-51 - no-formatted-string-placeholders: formatted string without any placeholders (`"fixed"` has no conversion for the `%` operator).
+#70 positive.py:282:7-30 - change-narration-comment: comment describes the edit history instead of the code (`Fixed after code review`).
+#71 positive.py:282:30-31 - comment-prose: comment contains a prose pattern that reads as AI generated (colon-inbetween-sentences `:`).
+#72 positive.py:282:43-59 - change-narration-comment: comment describes the edit history instead of the code (`used to be named`).
+#73 positive.py:283:7-31 - demo-grade-comment: comment admits that the code is a simplification or a stub (`In production, you would`).
+#74 positive.py:285:9-42 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`raise ValueError("Invalid value")`).
+#75 positive.py:286:5-16 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assert True`).
+#76 positive.py:287:5-18 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assert 1 == 1`).
+#77 positive.py:288:12-53 - cheerful-message: chatty or celebratory string literal ("Oops", "Yay", "Great!", "successfully!") (`Hooray! Payment processed successfully!`).
+#78 positive.py:293:9-30 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`self.assertTrue(True)`).
+#79 positive.py:294:9-35 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`self.assertEqual("a", "a")`).

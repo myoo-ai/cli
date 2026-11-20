@@ -1,0 +1,31 @@
+#1 positive.c:1:1-4.4 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#2 positive.c:8:1-41 - decorative-comment: use of banner or separator comments made of repeated characters.
+#3 positive.c:10:1-45 - redundant-docstring: documentation only restates the name of the declaration.
+#4 positive.c:13:5-48 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#5 positive.c:15:5-44 - narrating-comment: comment narrates what the code does instead of explaining why.
+#6 positive.c:21:5-43 - obvious-comment: comment repeats the code it is attached to.
+#7 positive.c:28:5-43 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#8 positive.c:30:5-43 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 positive.c:36:5-12 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#10 positive.c:41:5-23 - no-formatted-string-placeholders: formatted string without any placeholders (`printf("✅ done\n")` -> `fputs("✅ done\n", stdout)`).
+#11 positive.c:41:13-14 - emoji-in-code: use of emoji in comments or string literals.
+#12 positive.c:42:5-22 - no-formatted-string-placeholders: formatted string without any placeholders (`printf("a → b\n")` -> `fputs("a → b\n", stdout)`).
+#13 positive.c:42:15-16 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#14 positive.c:43:5-22 - no-formatted-string-placeholders: formatted string without any placeholders (`printf("x — y\n")` -> `fputs("x — y\n", stdout)`).
+#15 positive.c:43:15-16 - emdash-in-code: use of emdash in comments or string literals.
+#16 positive.c:44:5-27 - no-formatted-string-placeholders: formatted string without any placeholders (`printf("==========\n")` -> `fputs("==========\n", stdout)`).
+#17 positive.c:44:12-26 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#18 positive.c:47:1-42 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#19 positive.c:48:36-42 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#20 positive.c:50:1-59.2 - excessive-comments: function body is dominated by comments (6 of 9 non-blank lines are comments).
+#21 positive.c:68:21-33 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#22 positive.c:79:1-165.2 - long-function: function has more than 80 lines of code (86 lines of code).
+#23 positive.c:181:1-191.2 - duplicated-block: block of code duplicates another block (first occurrence at positive.c:168:1, lines 168-178).
+#24 positive.c:196:5-15 - c-insecure-function: prefer a bounded alternative to this function, as it writes past the end of the buffer when the input is longer than expected (`gets` -> `fgets`).
+#25 positive.c:197:5-21 - c-insecure-function: prefer a bounded alternative to this function, as it writes past the end of the buffer when the input is longer than expected (`strcpy` -> `snprintf`).
+#26 positive.c:198:5-22 - c-insecure-function: prefer a bounded alternative to this function, as it writes past the end of the buffer when the input is longer than expected (`strcat` -> `snprintf`).
+#27 positive.c:199:5-28 - c-insecure-function: prefer a bounded alternative to this function, as it writes past the end of the buffer when the input is longer than expected (`sprintf` -> `snprintf`).
+#28 positive.c:204:12-22 - c-atoi: prefer strtol or strtod instead, as atoi cannot report invalid input or overflow (`atoi` -> `strtol`).
+#29 positive.c:204:30-40 - c-atoi: prefer strtol or strtod instead, as atoi cannot report invalid input or overflow (`atof` -> `strtod`).
+#30 positive.c:207:5-19 - c-void-parameter-list: prefer declaring an empty parameter list as `(void)` instead, as `()` declares a function without a prototype that accepts any arguments (`no_prototype()` -> `no_prototype(void)`).
+#31 positive.c:209:5-19 - c-void-parameter-list: prefer declaring an empty parameter list as `(void)` instead, as `()` declares a function without a prototype that accepts any arguments (`no_prototype()` -> `no_prototype(void)`).

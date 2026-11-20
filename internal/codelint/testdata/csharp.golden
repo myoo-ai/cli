@@ -1,0 +1,51 @@
+#1 Positive.cs:1:1-2.33 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#2 Positive.cs:10:9-40 - decorative-comment: use of banner or separator comments made of repeated characters.
+#3 Positive.cs:13:9-68 - redundant-docstring: documentation only restates the name of the declaration.
+#4 Positive.cs:16:13-52 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#5 Positive.cs:18:13-53 - narrating-comment: comment narrates what the code does instead of explaining why.
+#6 Positive.cs:24:13-51 - obvious-comment: comment repeats the code it is attached to.
+#7 Positive.cs:31:13-55 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#8 Positive.cs:33:13-52 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 Positive.cs:37:38-73 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#10 Positive.cs:41:13-20 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#11 Positive.cs:46:32-33 - emoji-in-code: use of emoji in comments or string literals.
+#12 Positive.cs:47:32-33 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#13 Positive.cs:48:34-35 - emdash-in-code: use of emdash in comments or string literals.
+#14 Positive.cs:49:31-50 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#15 Positive.cs:50:31-43 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#16 Positive.cs:59:13-61.14 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#17 Positive.cs:66:13-69.14 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#18 Positive.cs:72:1-31 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#19 Positive.cs:73:10-45 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#20 Positive.cs:78:9-87.10 - excessive-comments: function body is dominated by comments (6 of 9 non-blank lines are comments).
+#21 Positive.cs:99:29-100.30 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#22 Positive.cs:110:9-196.10 - long-function: function has more than 80 lines of code (86 lines of code).
+#23 Positive.cs:216:9-230.10 - duplicated-block: block of code duplicates another block (first occurrence at Positive.cs:199:9, lines 199-213).
+#24 Positive.cs:240:24-41 - cs-any-for-emptiness: prefer `Any()` to test a sequence for emptiness, as `Count()` may enumerate the whole sequence (`items.Count() > 0` -> `items.Any()`).
+#25 Positive.cs:241:24-61 - cs-any-for-emptiness: prefer `Any()` to test a sequence for emptiness, as `Count()` may enumerate the whole sequence (`0 == others.Where(x => x > 2).Count()` -> `!others.Where(x => x > 2).Any()`).
+#26 Positive.cs:241:35-61 - cs-simplify-linq: prefer passing the predicate to the method directly instead of calling `Where` first, as it's more concise (`.Where(x => x > 2).Count()` -> `.Count(x => x > 2)`).
+#27 Positive.cs:242:36-53 - cs-any-for-emptiness: prefer `Any()` to test a sequence for emptiness, as `Count()` may enumerate the whole sequence (`items.Count() < 1` -> `!items.Any()`).
+#28 Positive.cs:247:22-47 - cs-simplify-linq: prefer passing the predicate to the method directly instead of calling `Where` first, as it's more concise (`.Where(x => x > 10).Any()` -> `.Any(x => x > 10)`).
+#29 Positive.cs:249:29-65 - cs-simplify-linq: prefer passing the predicate to the method directly instead of calling `Where` first, as it's more concise (`.Where(x => x > 10).FirstOrDefault()` -> `.FirstOrDefault(x => x > 10)`).
+#30 Positive.cs:256:17-27 - cs-string-is-null-or-empty: prefer `string.IsNullOrEmpty` to comparing with an empty string, as it states the intent and also covers null (`name == ""` -> `string.IsNullOrEmpty(name)`).
+#31 Positive.cs:256:31-52 - cs-string-is-null-or-empty: prefer `string.IsNullOrEmpty` to comparing with an empty string, as it states the intent and also covers null (`string.Empty != title` -> `!string.IsNullOrEmpty(title)`).
+#32 Positive.cs:260:20-36 - cs-string-is-null-or-empty: prefer `string.IsNullOrEmpty` to comparing with an empty string, as it states the intent and also covers null (`title.Equals("")` -> `string.IsNullOrEmpty(title)`).
+#33 Positive.cs:272:17-29 - cs-explicit-rethrow: prefer `throw;` to rethrowing the caught exception by name, as `throw e;` resets its stack trace (`throw error;` -> `throw;`).
+#34 Positive.cs:278:25-39 - cs-blocking-async-call: prefer `await` to blocking on a task in an async method, as blocking wastes a thread and can deadlock (`pending.Result` -> `await pending`).
+#35 Positive.cs:279:13-37 - cs-blocking-async-call: prefer `await` to blocking on a task in an async method, as blocking wastes a thread and can deadlock (`FetchAsync(first).Wait()` -> `await FetchAsync(first)`).
+#36 Positive.cs:280:26-68 - cs-blocking-async-call: prefer `await` to blocking on a task in an async method, as blocking wastes a thread and can deadlock (`FetchAsync(first).GetAwaiter().GetResult()` -> `await FetchAsync(first)`).
+#37 Positive.cs:289:17-31 - cs-string-concat-in-loop: prefer a `StringBuilder` to concatenating strings in a loop, as each concatenation copies the whole string (`joined += part` -> `joinedBuilder.Append(part)`).
+#38 Positive.cs:290:17-38 - cs-string-concat-in-loop: prefer a `StringBuilder` to concatenating strings in a loop, as each concatenation copies the whole string (`joined = joined + ","` -> `joinedBuilder.Append(",")`).
+#39 Positive.cs:295:16-34 - cs-async-void: prefer returning `Task` from an async method, as callers cannot await an `async void` method and its exceptions crash the process (`async void Refresh` -> `async Task Refresh`).
+#40 Positive.cs:302:17-32 - cs-duplicate-cast: prefer a declaration pattern to a type test followed by a cast, as the pattern tests and casts once (`shape is Circle` -> `shape is Circle circle`).
+#41 Positive.cs:306:17-32 - cs-duplicate-cast: prefer a declaration pattern to a type test followed by a cast, as the pattern tests and casts once (`shape is Square` -> `shape is Square square`).
+#42 Positive.cs:317:49-55 - cs-nameof: prefer `nameof` to a string literal holding a parameter name, as it stays correct when the parameter is renamed (`"name"` -> `nameof(name)`).
+#43 Positive.cs:321:69-77 - cs-nameof: prefer `nameof` to a string literal holding a parameter name, as it stays correct when the parameter is renamed (`"length"` -> `nameof(length)`).
+#44 Positive.cs:333:25-336.33 - cs-simplify-linq: prefer passing the predicate to the method directly instead of calling `Where` first, as it's more concise (`.Where(...).SingleOrDefault()` -> `.SingleOrDefault(...)`).
+#45 Positive.cs:343:31-39 - no-formatted-string-placeholders: formatted string without any placeholders (`$"plain"` -> `"plain"`).
+#46 Positive.cs:343:42-64 - no-formatted-string-placeholders: formatted string without any placeholders (`string.Format("fixed")` -> `"fixed"`).
+#47 Positive.cs:348:8-25 - reviewer-addressed-comment: comment speaks to the reviewer or the person who asked for the change (`Per your feedback`).
+#48 Positive.cs:351:24-79 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`throw new InvalidOperationException("Unexpected error")`).
+#49 Positive.cs:352:9-26 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`Assert.True(true)`).
+#50 Positive.cs:353:9-30 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`Assert.AreEqual(3, 3)`).
+#51 Positive.cs:354:16-32 - cheerful-message: chatty or celebratory string literal ("Oops", "Yay", "Great!", "successfully!") (`Awesome! Paid.`).

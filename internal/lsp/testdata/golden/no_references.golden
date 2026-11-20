@@ -1,0 +1,2 @@
+$ myoo lsp references !main --backend=builtin
+[err] no references to `main.main` found (exit 1)

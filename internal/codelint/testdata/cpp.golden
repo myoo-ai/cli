@@ -1,0 +1,57 @@
+#1 positive.cpp:1:1-2.21 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#2 positive.cpp:9:1-23 - decorative-comment: use of banner or separator comments made of repeated characters.
+#3 positive.cpp:11:1-43 - redundant-docstring: documentation only restates the name of the declaration.
+#4 positive.cpp:14:5-45 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#5 positive.cpp:16:5-45 - narrating-comment: comment narrates what the code does instead of explaining why.
+#6 positive.cpp:22:5-43 - obvious-comment: comment repeats the code it is attached to.
+#7 positive.cpp:29:5-47 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#8 positive.cpp:31:5-41 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 positive.cpp:37:5-46 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#10 positive.cpp:42:5-12 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#11 positive.cpp:47:19-20 - emoji-in-code: use of emoji in comments or string literals.
+#12 positive.cpp:47:32-41 - cpp-std-endl: prefer writing `'\n'` instead of `std::endl`, as `std::endl` also flushes the stream on every line (`std::endl` -> `'\n'`).
+#13 positive.cpp:48:21-22 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#14 positive.cpp:48:29-38 - cpp-std-endl: prefer writing `'\n'` instead of `std::endl`, as `std::endl` also flushes the stream on every line (`std::endl` -> `'\n'`).
+#15 positive.cpp:49:21-22 - emdash-in-code: use of emdash in comments or string literals.
+#16 positive.cpp:49:29-38 - cpp-std-endl: prefer writing `'\n'` instead of `std::endl`, as `std::endl` also flushes the stream on every line (`std::endl` -> `'\n'`).
+#17 positive.cpp:50:23-38 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#18 positive.cpp:50:42-51 - cpp-std-endl: prefer writing `'\n'` instead of `std::endl`, as `std::endl` also flushes the stream on every line (`std::endl` -> `'\n'`).
+#19 positive.cpp:51:18-30 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#20 positive.cpp:51:34-43 - cpp-std-endl: prefer writing `'\n'` instead of `std::endl`, as `std::endl` also flushes the stream on every line (`std::endl` -> `'\n'`).
+#21 positive.cpp:58:7-59.6 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#22 positive.cpp:62:7-64.6 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#23 positive.cpp:63:34-43 - cpp-std-endl: prefer writing `'\n'` instead of `std::endl`, as `std::endl` also flushes the stream on every line (`std::endl` -> `'\n'`).
+#24 positive.cpp:67:1-31 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#25 positive.cpp:68:36-42 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#26 positive.cpp:70:1-79.2 - excessive-comments: function body is dominated by comments (6 of 9 non-blank lines are comments).
+#27 positive.cpp:88:21-33 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#28 positive.cpp:99:1-185.2 - long-function: function has more than 80 lines of code (86 lines of code).
+#29 positive.cpp:201:1-211.2 - duplicated-block: block of code duplicates another block (first occurrence at positive.cpp:188:1, lines 188-198).
+#30 positive.cpp:215:1-24 - cpp-macro-constant: prefer a `constexpr` variable instead of a macro to define a constant, as it has a type and a scope (`#define BUFFER_SIZE 512` -> `constexpr auto BUFFER_SIZE = 512;`).
+#31 positive.cpp:216:1-25 - cpp-macro-constant: prefer a `constexpr` variable instead of a macro to define a constant, as it has a type and a scope (`#define GREETING "hello"` -> `constexpr auto GREETING = "hello";`).
+#32 positive.cpp:217:1-31 - cpp-typedef: prefer a `using` alias instead of `typedef`, as it reads left to right and also works for templates (`typedef unsigned long Counter;` -> `using Counter = unsigned long;`).
+#33 positive.cpp:218:1-31 - cpp-typedef: prefer a `using` alias instead of `typedef`, as it reads left to right and also works for templates (`typedef` -> `using`).
+#34 positive.cpp:223:5-29 - c-insecure-function: prefer a bounded alternative to this function, as it writes past the end of the buffer when the input is longer than expected (`strcpy` -> `snprintf`).
+#35 positive.cpp:224:5-32 - c-insecure-function: prefer a bounded alternative to this function, as it writes past the end of the buffer when the input is longer than expected (`vsprintf` -> `vsnprintf`).
+#36 positive.cpp:225:13-22 - c-atoi: prefer strtol or strtod instead, as atoi cannot report invalid input or overflow (`atoi` -> `std::stoi`).
+#37 positive.cpp:226:18-35 - cpp-c-style-cast: prefer a named cast instead of a C-style cast, as it states the conversion and the compiler rejects the unsafe ones (`(char *)malloc(n)` -> `static_cast<char *>(malloc(n))`, or `reinterpret_cast` between unrelated types).
+#38 positive.cpp:226:26-35 - cpp-manual-memory: prefer containers and smart pointers instead of managing memory by hand, as a missed or doubled release leaks or corrupts memory (`malloc` -> `std::vector` or `std::make_unique`).
+#39 positive.cpp:227:5-15 - cpp-manual-memory: prefer containers and smart pointers instead of managing memory by hand, as a missed or doubled release leaks or corrupts memory (`free` -> an owning container).
+#40 positive.cpp:229:5-13 - cpp-manual-memory: prefer containers and smart pointers instead of managing memory by hand, as a missed or doubled release leaks or corrupts memory (`delete[]` -> a smart pointer or container).
+#41 positive.cpp:230:20-29 - cpp-c-style-cast: prefer a named cast instead of a C-style cast, as it states the conversion and the compiler rejects the unsafe ones (`(double)n` -> `static_cast<double>(n)`).
+#42 positive.cpp:231:25-39 - cpp-c-style-cast: prefer a named cast instead of a C-style cast, as it states the conversion and the compiler rejects the unsafe ones (`(std::size_t)n` -> `static_cast<std::size_t>(n)`).
+#43 positive.cpp:232:9-26 - cpp-size-empty: prefer using `empty()` instead of comparing `size()` with zero, as it states the intent and is constant time for every container (`items.size() == 0` -> `items.empty()`).
+#44 positive.cpp:233:52-61 - cpp-std-endl: prefer writing `'\n'` instead of `std::endl`, as `std::endl` also flushes the stream on every line (`std::endl` -> `'\n'`).
+#45 positive.cpp:235:9-26 - cpp-size-empty: prefer using `empty()` instead of comparing `size()` with zero, as it states the intent and is constant time for every container (`0 != items.size()` -> `!items.empty()`).
+#46 positive.cpp:236:9-43 - cpp-make-unique: prefer `std::make_unique` or `std::make_shared` instead of passing `new` to a smart pointer, as it is shorter and cannot leak when another argument throws (`w->child.reset(new Widget(n, src))` -> `w->child = std::make_unique<Widget>(n, src)` (`std::make_shared` for a shared_ptr)).
+#47 positive.cpp:238:18-56 - cpp-make-unique: prefer `std::make_unique` or `std::make_shared` instead of passing `new` to a smart pointer, as it is shorter and cannot leak when another argument throws (`std::unique_ptr<Widget>(new Widget(n))` -> `std::make_unique<Widget>(n)`).
+#48 positive.cpp:239:5-49 - cpp-make-unique: prefer `std::make_unique` or `std::make_shared` instead of passing `new` to a smart pointer, as it is shorter and cannot leak when another argument throws (`std::shared_ptr<Widget> second(new Widget())` -> `auto second = std::make_shared<Widget>()`).
+#49 positive.cpp:240:14-18 - cpp-nullptr: prefer using `nullptr` instead of `NULL`, as `NULL` is an integer constant that can select the wrong overload (`NULL` -> `nullptr`).
+#50 positive.cpp:249:21-25 - cpp-std-endl: prefer writing `'\n'` instead of `std::endl`, as `std::endl` also flushes the stream on every line (`endl` -> `'\n'`).
+#51 positive.cpp:254:32-48 - cpp-size-empty: prefer using `empty()` instead of comparing `size()` with zero, as it states the intent and is constant time for every container (`rows.size() == 0` -> `rows.empty()`).
+#52 positive.cpp:259:12-32 - no-formatted-string-placeholders: formatted string without any placeholders (`std::format("plain")` -> `std::string("plain")`).
+#53 positive.cpp:264:8-28 - reviewer-addressed-comment: comment speaks to the reviewer or the person who asked for the change (`you may want to tune`).
+#54 positive.cpp:266:9-51 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`throw std::runtime_error("internal error")`).
+#55 positive.cpp:268:5-22 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`EXPECT_TRUE(true)`).
+#56 positive.cpp:269:5-20 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`ASSERT_EQ(4, 4)`).
+#57 positive.hpp:4:1-21 - cpp-using-namespace-in-header: avoid `using namespace` at namespace scope in a header, as it leaks the names into every file that includes the header (`using namespace std;` -> qualified names).

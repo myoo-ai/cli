@@ -1,0 +1,10 @@
+$ myoo lsp definition main.go:L13:!total --backend=builtin
+# format: (for each matching symbol) `<symbol>:<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<source, max. 50 lines counting from top to bottom>\n\n`
+main:main.main->total (main.go:12:6)
+	func main() {
+		c := calc.New()
+		fmt.Println(c.Add(1, 2))
+		var total int
+		total = c.Add(total, 3)
+		fmt.Println(total)
+	}

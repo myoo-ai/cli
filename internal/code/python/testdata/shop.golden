@@ -1,0 +1,279 @@
+file main.py python module=main
+  decl variable main.order L4:1
+  decl variable main.i L7:5
+  decl variable main.line L7:8
+  decl variable main.n L13:20
+  ref L1:6 shop import in=main -> shop (src/shop/__init__.py)
+  ref L1:18 Order import in=main -> shop.models.Order (src/shop/models.py)
+  ref L1:25 Item import in=main -> shop.models.Item (src/shop/models.py)
+  ref L1:31 pricing import in=main -> shop.pricing (src/shop/pricing.py)
+  ref L2:6 shop import in=main -> shop (src/shop/__init__.py)
+  ref L2:11 models import in=main -> shop.models (src/shop/models.py)
+  ref L4:9 Order call in=main -> shop.models.Order (src/shop/models.py)
+  ref L4:22 add call in=main -> shop.models.Order.add (src/shop/models.py)
+  ref L4:26 Item call in=main -> shop.models.Item (src/shop/models.py)
+  ref L5:1 order in=main -> main.order
+  ref L5:7 add call in=main -> shop.models.Order.add (src/shop/models.py)
+  ref L5:11 Item call in=main -> shop.models.Item (src/shop/models.py)
+  ref L5:16 name in=main -> shop.models.Item.name (src/shop/models.py)
+  ref L5:29 price in=main -> shop.models.Item.price (src/shop/models.py)
+  ref L6:1 print call in=main -> ?
+  ref L6:7 pricing in=main -> shop.pricing (src/shop/pricing.py)
+  ref L6:15 discount call in=main -> shop.pricing.discount (src/shop/pricing.py)
+  ref L6:24 order in=main -> main.order
+  ref L6:31 rate in=main -> shop.pricing.discount->rate (src/shop/pricing.py)
+  ref L6:42 order in=main -> main.order
+  ref L6:48 status in=main -> shop.models.Order.status (src/shop/models.py)
+  ref L6:56 Status in=main -> shop.models.Status (src/shop/models.py)
+  ref L6:63 PAID in=main -> shop.models.Status.PAID (src/shop/models.py)
+  ref L7:16 enumerate call in=main -> ?
+  ref L7:26 order in=main -> main.order
+  ref L7:32 items in=main -> shop.models.Order.items (src/shop/models.py)
+  ref L8:5 print call in=main -> ?
+  ref L8:14 i in=main -> main.i
+  ref L8:19 line in=main -> main.line
+  ref L8:24 name in=main -> ?
+  ref L8:33 i in=main -> main.i
+  ref L8:38 order in=main -> main.order
+  ref L8:44 owner in=main -> shop.models.Order.owner (src/shop/models.py)
+  ref L10:7 order in=main -> main.order
+  ref L10:13 status in=main -> shop.models.Order.status (src/shop/models.py)
+  ref L11:10 Status in=main -> shop.models.Status (src/shop/models.py)
+  ref L11:17 NEW in=main -> shop.models.Status.NEW (src/shop/models.py)
+  ref L13:10 Item in=main -> shop.models.Item (src/shop/models.py)
+  ref L13:15 name in=main -> shop.models.Item.name (src/shop/models.py)
+  ref L13:25 Order in=main -> shop.models.Order (src/shop/models.py)
+  ref L13:31 owner in=main -> shop.models.Order.owner (src/shop/models.py)
+  ref L13:37 n in=main -> main.n
+  ref L14:9 print call in=main -> ?
+  ref L14:15 n in=main -> main.n
+file src/shop/__init__.py python module=shop
+  decl variable shop.__all__ L5:1
+  ref L2:7 models import in=shop -> shop.models (src/shop/models.py)
+  ref L2:21 Order import in=shop -> shop.models.Order (src/shop/models.py)
+  ref L2:28 Item import in=shop -> shop.models.Item (src/shop/models.py)
+  ref L3:15 pricing import in=shop -> shop.pricing (src/shop/pricing.py)
+file src/shop/models.py python module=shop.models
+  decl enum shop.models.Status L5:7 body=L6:5-L7:13 bases=Enum
+  decl enum_member shop.models.Status.NEW L6:5
+  decl enum_member shop.models.Status.PAID L7:5
+  decl class shop.models.Item L11:7 body=L12:5-L15:23
+  decl field shop.models.Item.name L14:5 type=str
+  decl field shop.models.Item.price L15:5 type=float
+  decl class shop.models.Base L18:7 body=L19:5-L20:35
+  decl method shop.models.Base.describe L19:9 body=L20:9-L20:35 type=str
+  decl parameter shop.models.Base.describe->self L19:18
+  decl class shop.models.Order L23:7 body=L24:5-L45:47 bases=Base
+  decl field shop.models.Order.TAX L24:5
+  decl constructor shop.models.Order.__init__ L26:9 body=L27:9-L29:33
+  decl parameter shop.models.Order.__init__->self L26:18
+  decl parameter shop.models.Order.__init__->owner L26:24 type=str
+  decl parameter shop.models.Order.__init__->items L26:36 type=list[Item] | None
+  decl field shop.models.Order.owner L27:14 type=str
+  decl field shop.models.Order.items L28:14
+  decl field shop.models.Order.status L29:14
+  decl property shop.models.Order.total L32:9 body=L33:9-L33:71 type=float
+  decl parameter shop.models.Order.total->self L32:15
+  decl variable shop.models.Order.total->item L33:35
+  decl method shop.models.Order.add L35:9 body=L36:9-L38:20 type="Order"
+  decl parameter shop.models.Order.add->self L35:13
+  decl parameter shop.models.Order.add->item L35:19 type=Item
+  decl field shop.models.Order.last L37:14 type=Item
+  decl method shop.models.Order.empty L41:9 body=L42:9-L42:26
+  decl parameter shop.models.Order.empty->cls L41:15
+  decl parameter shop.models.Order.empty->owner L41:20
+  decl method shop.models.Order.describe L44:9 body=L45:9-L45:47 type=str
+  decl parameter shop.models.Order.describe->self L44:18
+  decl type shop.models.Pair L48:6 type=tuple[T, T]
+  decl type_parameter shop.models.Pair->T L48:11
+  ref L1:6 dataclasses import in=shop.models -> ?
+  ref L1:25 dataclass import in=shop.models -> ?
+  ref L2:6 enum import in=shop.models -> ?
+  ref L2:18 Enum import in=shop.models -> ?
+  ref L5:14 Enum in=shop.models.Status -> ?
+  ref L10:2 dataclass in=shop.models -> ?
+  ref L14:11 str in=shop.models.Item -> ?
+  ref L15:12 float in=shop.models.Item -> ?
+  ref L19:27 str in=shop.models.Base.describe -> ?
+  ref L20:16 type call in=shop.models.Base.describe -> ?
+  ref L20:27 __name__ in=shop.models.Base.describe -> ?
+  ref L23:13 Base in=shop.models.Order -> shop.models.Base
+  ref L26:31 str in=shop.models.Order.__init__ -> ?
+  ref L26:43 list in=shop.models.Order.__init__ -> ?
+  ref L26:48 Item in=shop.models.Order.__init__ -> shop.models.Item
+  ref L27:22 owner in=shop.models.Order.__init__ -> shop.models.Order.__init__->owner
+  ref L28:22 items in=shop.models.Order.__init__ -> shop.models.Order.__init__->items
+  ref L29:23 Status in=shop.models.Order.__init__ -> shop.models.Status
+  ref L29:30 NEW in=shop.models.Order.__init__ -> shop.models.Status.NEW
+  ref L31:6 property in=shop.models.Order -> ?
+  ref L32:24 float in=shop.models.Order.total -> ?
+  ref L33:16 sum call in=shop.models.Order.total -> ?
+  ref L33:20 item in=shop.models.Order.total -> shop.models.Order.total->item
+  ref L33:25 price in=shop.models.Order.total -> ?
+  ref L33:48 items in=shop.models.Order.total -> shop.models.Order.items
+  ref L33:67 TAX in=shop.models.Order.total -> shop.models.Order.TAX
+  ref L35:25 Item in=shop.models.Order.add -> shop.models.Item
+  ref L36:14 items in=shop.models.Order.add -> shop.models.Order.items
+  ref L36:20 append call in=shop.models.Order.add -> ?
+  ref L36:27 item in=shop.models.Order.add -> shop.models.Order.add->item
+  ref L37:21 item in=shop.models.Order.add -> shop.models.Order.add->item
+  ref L40:6 classmethod in=shop.models.Order -> ?
+  ref L42:20 owner in=shop.models.Order.empty -> shop.models.Order.empty->owner
+  ref L44:27 str in=shop.models.Order.describe -> ?
+  ref L45:16 super call in=shop.models.Order.describe -> ?
+  ref L45:24 describe call in=shop.models.Order.describe -> shop.models.Base.describe
+  ref L45:42 owner in=shop.models.Order.describe -> shop.models.Order.owner
+  ref L48:16 tuple in=shop.models -> ?
+  ref L48:22 T in=shop.models -> shop.models.Pair->T
+  ref L48:25 T in=shop.models -> shop.models.Pair->T
+file src/shop/pricing.py python module=shop.pricing
+  decl import shop.pricing.LineItem L1:36 type=shop.models.Item
+  decl import shop.pricing.m L3:23 type=shop.models
+  decl constant shop.pricing.DISCOUNT L5:1
+  decl variable shop.pricing.counter L6:1
+  decl function shop.pricing.discount L9:5 body=L10:5-L14:24
+  decl parameter shop.pricing.discount->order L9:14 type=Order
+  decl parameter shop.pricing.discount->rate L9:28
+  decl variable shop.pricing.discount->total L12:5
+  decl variable shop.pricing.discount->lines L13:5
+  decl variable shop.pricing.discount->i L13:68
+  decl function shop.pricing.best L17:5 body=L18:5-L19:63
+  decl parameter shop.pricing.best->orders L17:10
+  decl variable shop.pricing.best->order L18:5
+  decl parameter shop.pricing.best->o L18:36
+  decl function shop.pricing.shadow L22:5 body=L23:5-L29:22
+  decl parameter shop.pricing.shadow->x L22:12
+  decl function shop.pricing.shadow->inner L23:9 body=L24:9-L26:17
+  decl variable shop.pricing.shadow->x L28:16
+  decl variable shop.pricing.shadow->y L28:34
+  ref L1:7 models import in=shop.pricing -> shop.models (src/shop/models.py)
+  ref L1:21 Order import in=shop.pricing -> shop.models.Order (src/shop/models.py)
+  ref L1:28 Item import in=shop.pricing -> shop.models.Item (src/shop/models.py)
+  ref L2:15 models import in=shop.pricing -> shop.models (src/shop/models.py)
+  ref L3:8 shop import in=shop.pricing -> shop (src/shop/__init__.py)
+  ref L3:13 models import in=shop.pricing -> shop.models (src/shop/models.py)
+  ref L9:21 Order in=shop.pricing.discount -> shop.models.Order (src/shop/models.py)
+  ref L9:33 DISCOUNT in=shop.pricing -> shop.pricing.DISCOUNT
+  ref L10:12 counter in=shop.pricing.discount -> shop.pricing.counter
+  ref L11:5 counter in=shop.pricing.discount -> shop.pricing.counter
+  ref L12:13 order in=shop.pricing.discount -> shop.pricing.discount->order
+  ref L12:19 total in=shop.pricing.discount -> shop.models.Order.total (src/shop/models.py)
+  ref L13:14 LineItem call in=shop.pricing.discount -> shop.pricing.LineItem
+  ref L13:23 name in=shop.pricing.discount -> shop.models.Item.name (src/shop/models.py)
+  ref L13:28 i in=shop.pricing.discount -> shop.pricing.discount->i
+  ref L13:30 name in=shop.pricing.discount -> ?
+  ref L13:36 price in=shop.pricing.discount -> shop.models.Item.price (src/shop/models.py)
+  ref L13:42 i in=shop.pricing.discount -> shop.pricing.discount->i
+  ref L13:44 price in=shop.pricing.discount -> ?
+  ref L13:57 rate in=shop.pricing.discount -> shop.pricing.discount->rate
+  ref L13:73 order in=shop.pricing.discount -> shop.pricing.discount->order
+  ref L13:79 items in=shop.pricing.discount -> shop.models.Order.items (src/shop/models.py)
+  ref L14:12 total in=shop.pricing.discount -> shop.pricing.discount->total
+  ref L14:19 lines in=shop.pricing.discount -> shop.pricing.discount->lines
+  ref L18:13 max call in=shop.pricing.best -> ?
+  ref L18:17 orders in=shop.pricing.best -> shop.pricing.best->orders
+  ref L18:25 key in=shop.pricing.best -> ?
+  ref L18:39 o in=shop.pricing.best -> shop.pricing.best->o
+  ref L18:41 total in=shop.pricing.best -> ?
+  ref L19:12 order in=shop.pricing.best -> shop.pricing.best->order
+  ref L19:18 owner in=shop.pricing.best -> ?
+  ref L19:25 models in=shop.pricing.best -> shop.models (src/shop/models.py)
+  ref L19:32 Status in=shop.pricing.best -> shop.models.Status (src/shop/models.py)
+  ref L19:39 PAID in=shop.pricing.best -> shop.models.Status.PAID (src/shop/models.py)
+  ref L19:45 m in=shop.pricing.best -> shop.pricing.m
+  ref L19:47 Order in=shop.pricing.best -> shop.models.Order (src/shop/models.py)
+  ref L19:53 empty call in=shop.pricing.best -> shop.models.Order.empty (src/shop/models.py)
+  ref L24:18 x in=shop.pricing.shadow->inner -> shop.pricing.shadow->x
+  ref L25:9 x in=shop.pricing.shadow->inner -> shop.pricing.shadow->x
+  ref L25:13 x in=shop.pricing.shadow->inner -> shop.pricing.shadow->x
+  ref L26:16 x in=shop.pricing.shadow->inner -> shop.pricing.shadow->x
+  ref L28:5 x in=shop.pricing.shadow -> shop.pricing.shadow->x
+  ref L28:10 x in=shop.pricing.shadow -> shop.pricing.shadow->x
+  ref L28:21 range call in=shop.pricing.shadow -> ?
+  ref L28:39 x in=shop.pricing.shadow -> shop.pricing.shadow->x
+  ref L29:12 inner call in=shop.pricing.shadow -> shop.pricing.shadow->inner
+  ref L29:21 y in=shop.pricing.shadow -> shop.pricing.shadow->y
+file src/shop/util.py python module=shop.util
+  decl function shop.util.log L5:5 body=L6:5-L6:14
+  decl parameter shop.util.log->fn L5:9
+  decl function shop.util.fetch L10:11 body=L11:5-L19:16 type=bytes
+  decl parameter shop.util.fetch->url L10:17
+  decl parameter shop.util.fetch->args L10:26
+  decl parameter shop.util.fetch->timeout L10:32 type=float
+  decl parameter shop.util.fetch->kw L10:56
+  decl variable shop.util.fetch->t L11:44
+  decl variable shop.util.fetch->data L14:9
+  decl variable shop.util.fetch->err L15:37
+  decl variable shop.util.fetch->fh L17:23
+  decl variable shop.util.fetch->other L17:40
+  decl function shop.util.parse L23:5 body=L23:27-L23:30 type=int
+  decl parameter shop.util.parse->x L23:11 type=int
+  decl function shop.util.parse L25:5 body=L25:27-L25:30 type=str
+  decl parameter shop.util.parse->x L25:11 type=str
+  decl function shop.util.parse L26:5 body=L27:5-L27:13
+  decl parameter shop.util.parse->x L26:11
+  decl class shop.util.Registry L30:7 body=L31:5-L36:29
+  decl field shop.util.Registry.names L31:5
+  decl variable shop.util.Registry->n L31:28
+  decl field shop.util.Registry.handlers L32:5
+  decl variable shop.util.Registry->k L32:26
+  decl variable shop.util.Registry->v L32:29
+  decl method shop.util.Registry.register L34:9 body=L35:9-L36:29
+  decl parameter shop.util.Registry.register->self L34:18
+  decl parameter shop.util.Registry.register->name L34:27
+  decl constant shop.util.MAX_SIZE L39:1
+  decl variable shop.util.total L40:1
+  decl variable shop.util->i L40:30
+  ref L1:8 asyncio import in=shop.util -> ?
+  ref L2:6 typing import in=shop.util -> ?
+  ref L2:20 overload import in=shop.util -> ?
+  ref L6:12 fn in=shop.util.log -> shop.util.log->fn
+  ref L9:2 log in=shop.util -> shop.util.log
+  ref L10:41 float in=shop.util.fetch -> ?
+  ref L10:63 bytes in=shop.util.fetch -> ?
+  ref L11:16 asyncio in=shop.util.fetch -> ?
+  ref L11:24 timeout call in=shop.util.fetch -> ?
+  ref L11:32 timeout in=shop.util.fetch -> shop.util.fetch->timeout
+  ref L14:22 asyncio in=shop.util.fetch -> ?
+  ref L14:30 sleep call in=shop.util.fetch -> ?
+  ref L15:13 OSError in=shop.util.fetch -> ?
+  ref L15:22 ValueError in=shop.util.fetch -> ?
+  ref L16:15 RuntimeError call in=shop.util.fetch -> ?
+  ref L16:28 url in=shop.util.fetch -> shop.util.fetch->url
+  ref L16:38 err in=shop.util.fetch -> shop.util.fetch->err
+  ref L17:10 open call in=shop.util.fetch -> ?
+  ref L17:15 url in=shop.util.fetch -> shop.util.fetch->url
+  ref L17:27 open call in=shop.util.fetch -> ?
+  ref L17:32 url in=shop.util.fetch -> shop.util.fetch->url
+  ref L18:9 data in=shop.util.fetch -> shop.util.fetch->data
+  ref L18:16 fh in=shop.util.fetch -> shop.util.fetch->fh
+  ref L18:19 read call in=shop.util.fetch -> ?
+  ref L18:28 other in=shop.util.fetch -> shop.util.fetch->other
+  ref L18:34 read call in=shop.util.fetch -> ?
+  ref L19:12 data in=shop.util.fetch -> shop.util.fetch->data
+  ref L22:2 overload in=shop.util -> ?
+  ref L23:14 int in=shop.util.parse -> ?
+  ref L23:22 int in=shop.util.parse -> ?
+  ref L24:2 overload in=shop.util -> ?
+  ref L25:14 str in=shop.util.parse -> ?
+  ref L25:22 str in=shop.util.parse -> ?
+  ref L27:12 x in=shop.util.parse -> shop.util.parse->x
+  ref L31:14 n in=shop.util.Registry -> shop.util.Registry->n
+  ref L31:16 upper call in=shop.util.Registry -> ?
+  ref L32:17 k in=shop.util.Registry -> shop.util.Registry->k
+  ref L32:20 v in=shop.util.Registry -> shop.util.Registry->v
+  ref L32:34 zip call in=shop.util.Registry -> ?
+  ref L32:38 names in=shop.util.Registry -> shop.util.Registry.names
+  ref L32:45 names in=shop.util.Registry -> shop.util.Registry.names
+  ref L35:14 names in=shop.util.Registry.register -> shop.util.Registry.names
+  ref L35:20 append call in=shop.util.Registry.register -> ?
+  ref L35:27 name in=shop.util.Registry.register -> shop.util.Registry.register->name
+  ref L36:16 parse call in=shop.util.Registry.register -> shop.util.parse
+  ref L36:22 x in=shop.util.Registry.register -> shop.util.parse->x
+  ref L36:24 name in=shop.util.Registry.register -> shop.util.Registry.register->name
+  ref L40:9 sum call in=shop.util -> ?
+  ref L40:13 i in=shop.util -> shop.util->i
+  ref L40:17 MAX_SIZE in=shop.util -> shop.util.MAX_SIZE
+  ref L40:35 range call in=shop.util -> ?
+comment src/shop/__init__.py L1:1 doc "Shop package."
+comment src/shop/models.py L12:5 doc "A line item."

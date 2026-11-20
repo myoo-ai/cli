@@ -1,0 +1,248 @@
+file src/app.ts typescript module=src/app
+  decl import src/app.Calculator L2:8
+  decl import src/app.plus L2:29
+  decl import src/app.lib L3:13
+  decl constant src/app.circle L7:7 type=Circle
+  decl constant src/app.calc L8:7 type=Calculator
+  decl function src/app.run L10:17 body=L10:46-L17:2 type=number
+  decl parameter src/app.run->shapes L10:21 type=Shape[]
+  decl variable src/app.run->total L11:7
+  decl constant src/app.run->shape L12:14
+  decl function src/app.shadowing L19:17 body=L19:39-L27:2
+  decl parameter src/app.shadowing->PI L19:27 type=number
+  decl constant src/app.shadowing->PI L21:11
+  decl variable src/app.shadowing->hoisted L24:7 type=number
+  decl function src/app.shadowing->inner L25:9
+  decl class src/app.Report L29:7 body=L29:14-L38:2
+  decl field src/app.Report.calc L30:11 type=lib.Calc
+  decl constructor src/app.Report.constructor L31:3 body=L31:38-L31:40
+  decl field src/app.Report.source L31:23 type=Shape
+  decl method src/app.Report.render L33:3 body=L33:20-L37:4 type=string
+  decl constant src/app.Report.render->c L34:11
+  decl constant src/app.Report.render->d L35:11
+  ref L2:22 add import in=src/app -> src/lib/math.add (src/lib/math.ts)
+  ref L2:35 PI import in=src/app -> src/lib/math.PI (src/lib/math.ts)
+  ref L4:10 Circle import in=src/app -> src/lib/shapes.Circle (src/lib/shapes.ts)
+  ref L4:18 Color import in=src/app -> src/lib/shapes.Color (src/lib/shapes.ts)
+  ref L4:25 Geometry import in=src/app -> src/lib/shapes.Geometry (src/lib/shapes.ts)
+  ref L4:40 Shape import in=src/app -> src/lib/shapes.Shape (src/lib/shapes.ts)
+  ref L5:10 readFileSync import in=src/app -> ?
+  ref L7:15 Circle in=src/app -> src/lib/shapes.Circle (src/lib/shapes.ts)
+  ref L7:24 Circle in=src/app -> src/lib/shapes.Circle (src/lib/shapes.ts)
+  ref L7:31 unit call in=src/app -> src/lib/shapes.Circle.unit (src/lib/shapes.ts)
+  ref L8:18 Calculator call in=src/app -> src/app.Calculator
+  ref L10:29 Shape in=src/app.run -> src/lib/shapes.Shape (src/lib/shapes.ts)
+  ref L11:15 plus call in=src/app.run -> src/app.plus
+  ref L11:20 PI in=src/app.run -> src/lib/math.PI (src/lib/math.ts)
+  ref L11:24 lib in=src/app.run -> src/app.lib
+  ref L11:28 sum call in=src/app.run -> src/lib/index.sum (src/lib/index.ts)
+  ref L12:23 shapes in=src/app.run -> src/app.run->shapes
+  ref L13:5 total in=src/app.run -> src/app.run->total
+  ref L13:14 shape in=src/app.run -> src/app.run->shape
+  ref L13:20 area call in=src/app.run -> ?
+  ref L15:3 calc in=src/app.run -> src/app.calc
+  ref L15:8 add call in=src/app.run -> src/lib/math.Calculator.add (src/lib/math.ts)
+  ref L15:12 total in=src/app.run -> src/app.run->total
+  ref L15:19 add call in=src/app.run -> ?
+  ref L15:23 circle in=src/app.run -> src/app.circle
+  ref L15:30 radius in=src/app.run -> src/lib/shapes.Circle.radius (src/lib/shapes.ts)
+  ref L16:10 lib in=src/app.run -> src/app.lib
+  ref L16:14 largest call in=src/app.run -> src/lib/shapes.largest (src/lib/shapes.ts)
+  ref L16:22 shapes in=src/app.run -> src/app.run->shapes
+  ref L16:31 area call in=src/app.run -> ?
+  ref L16:41 total in=src/app.run -> src/app.run->total
+  ref L22:5 hoisted in=src/app.shadowing -> src/app.shadowing->hoisted
+  ref L22:15 PI in=src/app.shadowing -> src/app.shadowing->PI
+  ref L25:23 PI in=src/app.shadowing->inner -> src/app.shadowing->PI
+  ref L25:28 hoisted in=src/app.shadowing->inner -> src/app.shadowing->hoisted
+  ref L26:10 inner call in=src/app.shadowing -> src/app.shadowing->inner
+  ref L30:22 lib in=src/app.Report -> src/app.lib
+  ref L30:26 Calc call in=src/app.Report -> src/lib/index.Calc (src/lib/index.ts)
+  ref L31:31 Shape in=src/app.Report.constructor -> src/lib/shapes.Shape (src/lib/shapes.ts)
+  ref L34:15 Color in=src/app.Report.render -> src/lib/shapes.Color (src/lib/shapes.ts)
+  ref L34:21 Green in=src/app.Report.render -> src/lib/shapes.Color.Green (src/lib/shapes.ts)
+  ref L35:15 Geometry in=src/app.Report.render -> src/lib/shapes.Geometry (src/lib/shapes.ts)
+  ref L35:24 distance call in=src/app.Report.render -> src/lib/shapes.Geometry.distance (src/lib/shapes.ts)
+  ref L35:33 Geometry in=src/app.Report.render -> src/lib/shapes.Geometry (src/lib/shapes.ts)
+  ref L35:42 origin in=src/app.Report.render -> src/lib/shapes.Geometry.origin (src/lib/shapes.ts)
+  ref L36:17 source in=src/app.Report.render -> src/app.Report.source
+  ref L36:24 name in=src/app.Report.render -> src/lib/shapes.Shape.name (src/lib/shapes.ts)
+  ref L36:36 calc in=src/app.Report.render -> src/app.Report.calc
+  ref L36:41 value in=src/app.Report.render -> src/lib/math.Calculator.value (src/lib/math.ts)
+  ref L36:49 c in=src/app.Report.render -> src/app.Report.render->c
+  ref L36:53 d in=src/app.Report.render -> src/app.Report.render->d
+  ref L40:5 Report call in=src/app -> src/app.Report
+  ref L40:12 circle in=src/app -> src/app.circle
+  ref L40:20 render call in=src/app -> src/app.Report.render
+  ref L41:1 readFileSync call in=src/app -> ?
+  ref L42:1 lib in=src/app -> src/app.lib
+  ref L42:5 math in=src/app -> src/lib/index.math (src/lib/index.ts)
+  ref L42:10 add call in=src/app -> src/lib/math.add (src/lib/math.ts)
+file src/legacy.js javascript module=src/legacy
+  decl import src/legacy.G L2:22
+  decl constant src/legacy.unit L4:14 type=Circle
+  decl function src/legacy.legacy L6:25 body=L6:34-L8:2
+  ref L1:10 Circle import in=src/legacy -> src/lib/shapes.Circle (src/lib/shapes.ts)
+  ref L2:10 Geometry import in=src/legacy -> src/lib/shapes.Geometry (src/lib/shapes.ts)
+  ref L4:25 Circle call in=src/legacy -> src/lib/shapes.Circle (src/lib/shapes.ts)
+  ref L7:10 unit in=src/legacy.legacy -> src/legacy.unit
+  ref L7:15 area call in=src/legacy.legacy -> src/lib/shapes.Circle.area (src/lib/shapes.ts)
+  ref L7:24 G in=src/legacy.legacy -> src/legacy.G
+  ref L7:26 distance call in=src/legacy.legacy -> src/lib/shapes.Geometry.distance (src/lib/shapes.ts)
+  ref L7:35 G in=src/legacy.legacy -> src/legacy.G
+  ref L7:37 origin in=src/legacy.legacy -> src/lib/shapes.Geometry.origin (src/lib/shapes.ts)
+  ref L7:45 G in=src/legacy.legacy -> src/legacy.G
+  ref L7:47 origin in=src/legacy.legacy -> src/lib/shapes.Geometry.origin (src/lib/shapes.ts)
+file src/lib/index.ts typescript module=src/lib/index
+  decl import src/lib/index.sum L2:17
+  decl import src/lib/index.Calc L2:33
+  decl import src/lib/index.math L3:13
+  ref L2:10 add import in=src/lib/index -> src/lib/math.add (src/lib/math.ts)
+  ref L4:10 scale import in=src/lib/index -> src/lib/math.scale (src/lib/math.ts)
+file src/lib/math.ts typescript module=src/lib/math
+  decl function src/lib/math.add L2:17 body=L2:51-L4:2 type=number
+  decl parameter src/lib/math.add->a L2:21 type=number
+  decl parameter src/lib/math.add->b L2:32 type=number
+  decl constant src/lib/math.PI L6:14
+  decl function src/lib/math.scale L8:17 type=number
+  decl parameter src/lib/math.scale->value L8:23 type=number
+  decl function src/lib/math.scale L9:17 type=string
+  decl parameter src/lib/math.scale->value L9:23 type=string
+  decl function src/lib/math.scale L10:17 body=L10:35-L12:2
+  decl parameter src/lib/math.scale->value L10:23 type=any
+  decl class src/lib/math.Calculator L14:22 body=L14:60-L31:2
+  decl type_parameter src/lib/math.Calculator.T L14:33
+  decl field src/lib/math.Calculator.total L15:11 type=T
+  decl field src/lib/math.Calculator.instances L16:10
+  decl constructor src/lib/math.Calculator.constructor L18:3 body=L18:74-L21:4
+  decl field src/lib/math.Calculator.precision L18:32 type=number
+  decl field src/lib/math.Calculator.label L18:58 type=string
+  decl method src/lib/math.Calculator.add L23:3 body=L23:19-L26:4 type=this
+  decl parameter src/lib/math.Calculator.add->x L23:7 type=T
+  decl property src/lib/math.Calculator.value L28:7 body=L28:23-L30:4 type=number
+  decl function src/lib/math.round L33:10 body=L33:39-L36:2
+  decl parameter src/lib/math.round->n L33:16 type=number
+  decl parameter src/lib/math.round->digits L33:27
+  decl constant src/lib/math.round->f L34:9
+  ref L3:10 a in=src/lib/math.add -> src/lib/math.add->a
+  ref L3:14 b in=src/lib/math.add -> src/lib/math.add->b
+  ref L11:10 value in=src/lib/math.scale -> src/lib/math.scale->value
+  ref L11:18 PI in=src/lib/math.scale -> src/lib/math.PI
+  ref L15:18 T in=src/lib/math.Calculator -> src/lib/math.Calculator.T
+  ref L19:10 total in=src/lib/math.Calculator.constructor -> src/lib/math.Calculator.total
+  ref L19:23 T in=src/lib/math.Calculator.constructor -> src/lib/math.Calculator.T
+  ref L20:5 Calculator in=src/lib/math.Calculator.constructor -> src/lib/math.Calculator
+  ref L20:16 instances in=src/lib/math.Calculator.constructor -> src/lib/math.Calculator.instances
+  ref L23:10 T in=src/lib/math.Calculator.add -> src/lib/math.Calculator.T
+  ref L24:10 total in=src/lib/math.Calculator.add -> src/lib/math.Calculator.total
+  ref L24:18 add call in=src/lib/math.Calculator.add -> src/lib/math.add
+  ref L24:27 total in=src/lib/math.Calculator.add -> src/lib/math.Calculator.total
+  ref L24:34 x in=src/lib/math.Calculator.add -> src/lib/math.Calculator.add->x
+  ref L24:40 T in=src/lib/math.Calculator.add -> src/lib/math.Calculator.T
+  ref L29:12 round call in=src/lib/math.Calculator.value -> src/lib/math.round
+  ref L29:23 total in=src/lib/math.Calculator.value -> src/lib/math.Calculator.total
+  ref L29:35 precision in=src/lib/math.Calculator.value -> src/lib/math.Calculator.precision
+  ref L34:19 digits in=src/lib/math.round -> src/lib/math.round->digits
+  ref L35:10 Math in=src/lib/math.round -> ?
+  ref L35:15 round call in=src/lib/math.round -> ?
+  ref L35:21 n in=src/lib/math.round -> src/lib/math.round->n
+  ref L35:25 f in=src/lib/math.round -> src/lib/math.round->f
+  ref L35:30 f in=src/lib/math.round -> src/lib/math.round->f
+file src/lib/shapes.ts typescript module=src/lib/shapes
+  decl interface src/lib/shapes.Shape L3:18 body=L3:24-L6:2
+  decl property src/lib/shapes.Shape.name L4:12 type=string
+  decl method src/lib/shapes.Shape.area L5:3 type=number
+  decl interface src/lib/shapes.Named L8:18 body=L8:41-L10:2 bases=Shape
+  decl type_parameter src/lib/shapes.Named.T L8:24
+  decl method src/lib/shapes.Named.rename L9:3 type=void
+  decl enum src/lib/shapes.Color L12:13 body=L12:19-L16:2
+  decl enum_member src/lib/shapes.Color.Red L13:3
+  decl enum_member src/lib/shapes.Color.Green L14:3
+  decl enum_member src/lib/shapes.Color.Blue L15:3
+  decl function src/lib/shapes.sealed L18:10 body=L18:35-L18:37
+  decl parameter src/lib/shapes.sealed->target L18:17 type=Function
+  decl class src/lib/shapes.Base L21:23 body=L21:45-L28:2 bases=Shape
+  decl field src/lib/shapes.Base.name L22:21 type=string
+  decl method src/lib/shapes.Base.area L23:12 type=number
+  decl method src/lib/shapes.Base.describe L25:3 body=L25:22-L27:4 type=string
+  decl class src/lib/shapes.Circle L30:14 body=L30:34-L51:2 bases=Base
+  decl field src/lib/shapes.Circle.name L31:12
+  decl field src/lib/shapes.Circle.color L32:3 type=Color
+  decl field src/lib/shapes.Circle.#cache L33:3 type=number
+  decl constructor src/lib/shapes.Circle.constructor L35:3 body=L35:38-L37:4
+  decl field src/lib/shapes.Circle.radius L35:22 type=number
+  decl method src/lib/shapes.Circle.area L39:3 body=L39:18-L42:4 type=number
+  decl method src/lib/shapes.Circle.unit L44:10 body=L44:25-L46:4 type=Circle
+  decl method src/lib/shapes.Circle.describe L48:3 body=L48:22-L50:4 type=string
+  decl namespace src/lib/shapes.Geometry L53:18 body=L53:27-L58:2
+  decl constant src/lib/shapes.Geometry.origin L54:16 type=Point
+  decl property src/lib/shapes.Geometry.origin.x L54:34
+  decl property src/lib/shapes.Geometry.origin.y L54:40
+  decl function src/lib/shapes.Geometry.distance L55:19 body=L55:56-L57:4 type=number
+  decl parameter src/lib/shapes.Geometry.distance->a L55:28 type=Point
+  decl parameter src/lib/shapes.Geometry.distance->b L55:38 type=Point
+  decl type src/lib/shapes.Point L60:13
+  decl property src/lib/shapes.Point.x L60:23 type=number
+  decl property src/lib/shapes.Point.y L60:34 type=number
+  decl type src/lib/shapes.Maybe L62:13
+  decl type_parameter src/lib/shapes.Maybe.T L62:19
+  decl function src/lib/shapes.largest L64:17 body=L64:70-L70:2 type=S | undefined
+  decl type_parameter src/lib/shapes.largest->S L64:25
+  decl parameter src/lib/shapes.largest->shapes L64:42 type=S[]
+  decl variable src/lib/shapes.largest->best L65:7 type=S | undefined
+  decl constant src/lib/shapes.largest->s L66:14
+  ref L1:10 PI import in=src/lib/shapes -> src/lib/math.PI (src/lib/math.ts)
+  ref L8:35 Shape in=src/lib/shapes -> src/lib/shapes.Shape
+  ref L9:16 T in=src/lib/shapes.Named -> src/lib/shapes.Named.T
+  ref L14:11 Red in=src/lib/shapes.Color -> src/lib/shapes.Color.Red
+  ref L18:25 Function in=src/lib/shapes.sealed -> ?
+  ref L20:2 sealed call in=src/lib/shapes -> src/lib/shapes.sealed
+  ref L21:39 Shape in=src/lib/shapes -> src/lib/shapes.Shape
+  ref L26:20 name in=src/lib/shapes.Base.describe -> src/lib/shapes.Base.name
+  ref L26:34 area call in=src/lib/shapes.Base.describe -> src/lib/shapes.Base.area
+  ref L26:41 toFixed call in=src/lib/shapes.Base.describe -> ?
+  ref L30:29 Base in=src/lib/shapes -> src/lib/shapes.Base
+  ref L32:10 Color in=src/lib/shapes.Circle -> src/lib/shapes.Color
+  ref L32:18 Color in=src/lib/shapes.Circle -> src/lib/shapes.Color
+  ref L32:24 Red in=src/lib/shapes.Circle -> src/lib/shapes.Color.Red
+  ref L40:10 #cache in=src/lib/shapes.Circle.area -> src/lib/shapes.Circle.#cache
+  ref L40:21 PI in=src/lib/shapes.Circle.area -> src/lib/math.PI (src/lib/math.ts)
+  ref L40:31 radius in=src/lib/shapes.Circle.area -> src/lib/shapes.Circle.radius
+  ref L41:17 #cache in=src/lib/shapes.Circle.area -> src/lib/shapes.Circle.#cache
+  ref L44:18 Circle in=src/lib/shapes.Circle.unit -> src/lib/shapes.Circle
+  ref L45:16 Circle call in=src/lib/shapes.Circle.unit -> src/lib/shapes.Circle
+  ref L49:30 describe call in=src/lib/shapes.Circle.describe -> src/lib/shapes.Base.describe
+  ref L54:24 Point in=src/lib/shapes.Geometry -> src/lib/shapes.Point
+  ref L55:31 Point in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Point
+  ref L55:41 Point in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Point
+  ref L56:12 Math in=src/lib/shapes.Geometry.distance -> ?
+  ref L56:17 hypot call in=src/lib/shapes.Geometry.distance -> ?
+  ref L56:23 a in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Geometry.distance->a
+  ref L56:25 x in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Point.x
+  ref L56:29 b in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Geometry.distance->b
+  ref L56:31 x in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Point.x
+  ref L56:34 a in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Geometry.distance->a
+  ref L56:36 y in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Point.y
+  ref L56:40 b in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Geometry.distance->b
+  ref L56:42 y in=src/lib/shapes.Geometry.distance -> src/lib/shapes.Point.y
+  ref L62:24 T in=src/lib/shapes -> src/lib/shapes.Maybe.T
+  ref L64:35 Shape in=src/lib/shapes.largest -> src/lib/shapes.Shape
+  ref L64:50 S in=src/lib/shapes.largest -> src/lib/shapes.largest->S
+  ref L64:56 S in=src/lib/shapes.largest -> src/lib/shapes.largest->S
+  ref L65:13 S in=src/lib/shapes.largest -> src/lib/shapes.largest->S
+  ref L66:19 shapes in=src/lib/shapes.largest -> src/lib/shapes.largest->shapes
+  ref L67:10 best in=src/lib/shapes.largest -> src/lib/shapes.largest->best
+  ref L67:18 s in=src/lib/shapes.largest -> src/lib/shapes.largest->s
+  ref L67:20 area call in=src/lib/shapes.largest -> ?
+  ref L67:29 best in=src/lib/shapes.largest -> src/lib/shapes.largest->best
+  ref L67:34 area call in=src/lib/shapes.largest -> ?
+  ref L67:42 best in=src/lib/shapes.largest -> src/lib/shapes.largest->best
+  ref L67:49 s in=src/lib/shapes.largest -> src/lib/shapes.largest->s
+  ref L69:10 best in=src/lib/shapes.largest -> src/lib/shapes.largest->best
+file src/types.d.ts typescript module=src/types
+  decl interface src/types.Window L2:13 body=L2:20-L4:4
+  decl property src/types.Window.appVersion L3:5 type=string
+  decl function src/types.track L5:12 type=void
+  decl parameter src/types.track->event L5:18 type=string
+  decl namespace src/types.virtual:config L8:16 body=L8:33-L10:2
+  decl constant src/types.virtual:config.mode L9:16 type=string

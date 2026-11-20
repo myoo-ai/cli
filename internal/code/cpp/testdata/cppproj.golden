@@ -1,0 +1,192 @@
+file include/geo/shape.h cpp module=include/geo/shape
+  decl namespace include/geo/shape.geo L5:11 body=L5:15-L51:2
+  decl class include/geo/shape.geo.Shape L8:7 body=L8:13-L18:2
+  decl constructor include/geo/shape.geo.Shape.Shape L10:14
+  decl parameter include/geo/shape.geo.Shape.Shape->name L10:32 type=std::string
+  decl method include/geo/shape.geo.Shape.~Shape L11:13
+  decl method include/geo/shape.geo.Shape.area L12:20 type=double
+  decl method include/geo/shape.geo.Shape.name L13:24 body=L13:37-L13:54 type=const std::string&
+  decl method include/geo/shape.geo.Shape.operator< L14:10 type=bool
+  decl parameter include/geo/shape.geo.Shape.operator<->other L14:33 type=const Shape&
+  decl field include/geo/shape.geo.Shape.name_ L17:17 type=std::string
+  decl class include/geo/shape.geo.Circle L20:7 body=L20:29-L28:2 bases=Shape
+  decl constructor include/geo/shape.geo.Circle.Circle L22:5
+  decl parameter include/geo/shape.geo.Circle.Circle->r L22:19 type=double
+  decl method include/geo/shape.geo.Circle.area L23:12 type=double
+  decl method include/geo/shape.geo.Circle.radius L24:12 body=L24:27-L24:46 type=double
+  decl field include/geo/shape.geo.Circle.radius_ L27:12 type=double
+  decl type_parameter include/geo/shape.geo.Box->T L30:20
+  decl class include/geo/shape.geo.Box L31:7 body=L31:11-L40:2
+  decl constructor include/geo/shape.geo.Box.Box L33:14 body=L33:35-L33:37
+  decl parameter include/geo/shape.geo.Box.Box->v L33:20 type=T
+  decl method include/geo/shape.geo.Box.get L34:7 type=T
+  decl type_parameter include/geo/shape.geo.Box.as->U L35:21
+  decl method include/geo/shape.geo.Box.as L36:7 body=L36:18-L36:52 type=U
+  decl field include/geo/shape.geo.Box.value_ L39:7 type=T
+  decl type_parameter include/geo/shape.geo.Box.get->T L42:20
+  decl method include/geo/shape.geo.Box.get L43:11 body=L43:23-L45:2 type=T
+  decl enum include/geo/shape.geo.Kind L47:12 body=L47:17-L47:34
+  decl enum_member include/geo/shape.geo.Kind.Round L47:19
+  decl enum_member include/geo/shape.geo.Kind.Square L47:26
+  decl function include/geo/shape.geo.total_area L49:8 type=double
+  decl parameter include/geo/shape.geo.total_area->shapes L49:46 type=const std::vector<Shape*>&
+  ref L2:11 string import in=include/geo/shape -> ?
+  ref L3:11 vector import in=include/geo/shape -> ?
+  ref L10:20 std in=include/geo/shape.geo.Shape -> ?
+  ref L10:25 string in=include/geo/shape.geo.Shape -> ?
+  ref L13:11 std in=include/geo/shape.geo.Shape.name -> ?
+  ref L13:16 string in=include/geo/shape.geo.Shape.name -> ?
+  ref L13:46 name_ in=include/geo/shape.geo.Shape.name -> include/geo/shape.geo.Shape.name_
+  ref L14:26 Shape in=include/geo/shape.geo.Shape -> include/geo/shape.geo.Shape
+  ref L17:5 std in=include/geo/shape.geo.Shape -> ?
+  ref L17:10 string in=include/geo/shape.geo.Shape -> ?
+  ref L20:23 Shape in=include/geo/shape.geo.Circle -> include/geo/shape.geo.Shape
+  ref L24:36 radius_ in=include/geo/shape.geo.Circle.radius -> include/geo/shape.geo.Circle.radius_
+  ref L33:18 T in=include/geo/shape.geo.Box.Box -> include/geo/shape.geo.Box->T
+  ref L33:25 value_ in=include/geo/shape.geo.Box.Box -> include/geo/shape.geo.Box.value_
+  ref L33:32 v in=include/geo/shape.geo.Box.Box -> include/geo/shape.geo.Box.Box->v
+  ref L34:5 T in=include/geo/shape.geo.Box -> include/geo/shape.geo.Box->T
+  ref L36:5 U in=include/geo/shape.geo.Box.as -> include/geo/shape.geo.Box.as->U
+  ref L36:39 U in=include/geo/shape.geo.Box.as -> include/geo/shape.geo.Box.as->U
+  ref L36:42 value_ in=include/geo/shape.geo.Box.as -> include/geo/shape.geo.Box.value_
+  ref L39:5 T in=include/geo/shape.geo.Box -> include/geo/shape.geo.Box->T
+  ref L43:1 T in=include/geo/shape.geo.Box.get -> include/geo/shape.geo.Box.get->T
+  ref L43:3 Box in=include/geo/shape.geo.Box.get -> include/geo/shape.geo.Box
+  ref L43:7 T in=include/geo/shape.geo.Box.get -> include/geo/shape.geo.Box.get->T
+  ref L44:12 value_ in=include/geo/shape.geo.Box.get -> include/geo/shape.geo.Box.value_
+  ref L49:25 std in=include/geo/shape.geo -> ?
+  ref L49:30 vector in=include/geo/shape.geo -> ?
+  ref L49:37 Shape in=include/geo/shape.geo -> include/geo/shape.geo.Shape
+file src/main.cpp cpp module=src/main
+  decl namespace src/main.app L6:11 body=L6:21-L8:2
+  decl namespace src/main.app.util L6:16 body=L6:21-L8:2
+  decl function src/main.app.util.clamp L7:12 body=L7:41-L7:82 type=int
+  decl parameter src/main.app.util.clamp->v L7:22 type=int
+  decl parameter src/main.app.util.clamp->lo L7:29 type=int
+  decl parameter src/main.app.util.clamp->hi L7:37 type=int
+  decl struct src/main.Counter L10:8 body=L10:16-L13:2
+  decl field src/main.Counter.count L11:16 type=int
+  decl method src/main.Counter.operator() L12:9 body=L12:30-L12:55 type=int
+  decl parameter src/main.Counter.operator()->step L12:24 type=int
+  decl field src/main.Counter.count L15:14 type=int
+  decl function src/main.main L17:5 body=L17:12-L32:2 type=int
+  decl variable src/main.main->c L18:10 type=std::unique_ptr<Circle>
+  decl variable src/main.main->plain L19:12 type=Circle
+  decl variable src/main.main->shapes L20:25 type=std::vector<Shape*>
+  decl variable src/main.main->a L21:12 type=double
+  decl variable src/main.main->box L22:14 type=Box<int>
+  decl variable src/main.main->grid L23:35 type=std::vector<std::vector<int>>
+  decl variable src/main.main->v L24:9 type=int
+  decl variable src/main.main->counter L25:13 type=Counter
+  decl variable src/main.main->lo L27:11
+  decl variable src/main.main->hi L27:15
+  decl variable src/main.main->raw L28:17 type=const char*
+  decl function src/main.main->add L29:10 body=L29:33-L29:50
+  decl parameter src/main.main->add->x L29:23 type=int
+  decl parameter src/main.main->add->y L29:30 type=int
+  decl variable src/main.main->k L30:10 type=Kind
+  ref L1:11 geo/shape.h import in=src/main -> include/geo/shape (include/geo/shape.h)
+  ref L2:11 memory import in=src/main -> ?
+  ref L4:17 geo in=src/main -> include/geo/shape.geo (include/geo/shape.h)
+  ref L7:50 v in=src/main.app.util.clamp -> src/main.app.util.clamp->v
+  ref L7:54 lo in=src/main.app.util.clamp -> src/main.app.util.clamp->lo
+  ref L7:59 lo in=src/main.app.util.clamp -> src/main.app.util.clamp->lo
+  ref L7:64 v in=src/main.app.util.clamp -> src/main.app.util.clamp->v
+  ref L7:68 hi in=src/main.app.util.clamp -> src/main.app.util.clamp->hi
+  ref L7:73 hi in=src/main.app.util.clamp -> src/main.app.util.clamp->hi
+  ref L7:78 v in=src/main.app.util.clamp -> src/main.app.util.clamp->v
+  ref L12:39 count in=src/main.Counter.operator() -> src/main.Counter.count
+  ref L12:48 step in=src/main.Counter.operator() -> src/main.Counter.operator()->step
+  ref L15:5 Counter in=src/main -> src/main.Counter
+  ref L18:14 std in=src/main.main -> ?
+  ref L18:19 make_unique call in=src/main.main -> ?
+  ref L18:31 Circle in=src/main.main -> include/geo/shape.geo.Circle (include/geo/shape.h)
+  ref L19:5 Circle in=src/main.main -> include/geo/shape.geo.Circle (include/geo/shape.h)
+  ref L20:5 std in=src/main.main -> ?
+  ref L20:10 vector in=src/main.main -> ?
+  ref L20:17 Shape in=src/main.main -> include/geo/shape.geo.Shape (include/geo/shape.h)
+  ref L20:32 c in=src/main.main -> src/main.main->c
+  ref L20:34 get call in=src/main.main -> ?
+  ref L20:42 plain in=src/main.main -> src/main.main->plain
+  ref L21:16 total_area call in=src/main.main -> src/shape.geo.total_area (src/shape.cpp)
+  ref L21:27 shapes in=src/main.main -> src/main.main->shapes
+  ref L21:37 plain in=src/main.main -> src/main.main->plain
+  ref L21:43 area call in=src/main.main -> src/shape.geo.Circle.area (src/shape.cpp)
+  ref L22:5 Box in=src/main.main -> include/geo/shape.geo.Box (include/geo/shape.h)
+  ref L23:5 std in=src/main.main -> ?
+  ref L23:10 vector in=src/main.main -> ?
+  ref L23:17 std in=src/main.main -> ?
+  ref L23:22 vector in=src/main.main -> ?
+  ref L24:13 box in=src/main.main -> src/main.main->box
+  ref L24:17 get call in=src/main.main -> include/geo/shape.geo.Box.get (include/geo/shape.h)
+  ref L24:25 app in=src/main.main -> src/main.app
+  ref L24:30 util in=src/main.main -> src/main.app.util
+  ref L24:36 clamp call in=src/main.main -> src/main.app.util.clamp
+  ref L25:5 Counter in=src/main.main -> src/main.Counter
+  ref L26:5 counter call in=src/main.main -> src/main.main->counter
+  ref L26:13 v in=src/main.main -> src/main.main->v
+  ref L27:21 std in=src/main.main -> ?
+  ref L27:26 pair call in=src/main.main -> ?
+  ref L29:42 x in=src/main.main->add -> src/main.main->add->x
+  ref L29:46 y in=src/main.main->add -> src/main.main->add->y
+  ref L30:5 Kind in=src/main.main -> include/geo/shape.geo.Kind (include/geo/shape.h)
+  ref L30:14 Kind in=src/main.main -> include/geo/shape.geo.Kind (include/geo/shape.h)
+  ref L30:20 Round in=src/main.main -> include/geo/shape.geo.Kind.Round (include/geo/shape.h)
+  ref L31:12 add call in=src/main.main -> src/main.main->add
+  ref L31:16 lo in=src/main.main -> src/main.main->lo
+  ref L31:20 hi in=src/main.main -> src/main.main->hi
+  ref L31:43 a in=src/main.main -> src/main.main->a
+  ref L31:48 c in=src/main.main -> src/main.main->c
+  ref L31:51 radius call in=src/main.main -> include/geo/shape.geo.Circle.radius (include/geo/shape.h)
+  ref L31:63 k in=src/main.main -> src/main.main->k
+  ref L31:68 Kind in=src/main.main -> include/geo/shape.geo.Kind (include/geo/shape.h)
+  ref L31:74 Square in=src/main.main -> include/geo/shape.geo.Kind.Square (include/geo/shape.h)
+file src/shape.cpp cpp module=src/shape
+  decl namespace src/shape.geo L5:11 body=L5:15-L32:2
+  decl constant src/shape.geo.kPi L8:18 type=double
+  decl constructor src/shape.geo.Shape.Shape L11:8 body=L11:57-L11:59
+  decl parameter src/shape.geo.Shape.Shape->name L11:26 type=std::string
+  decl method src/shape.geo.Shape.operator< L13:13 body=L13:49-L15:2 type=bool
+  decl parameter src/shape.geo.Shape.operator<->other L13:36 type=const Shape&
+  decl constructor src/shape.geo.Circle.Circle L17:9 body=L17:56-L17:58
+  decl parameter src/shape.geo.Circle.Circle->r L17:23 type=double
+  decl method src/shape.geo.Circle.area L19:16 body=L19:29-L21:2 type=double
+  decl function src/shape.geo.total_area L23:8 body=L23:54-L30:2 type=double
+  decl parameter src/shape.geo.total_area->shapes L23:46 type=const std::vector<Shape*>&
+  decl variable src/shape.geo.total_area->sum L24:12 type=double
+  decl variable src/shape.geo.total_area->s L25:22 type=const auto*
+  decl function src/shape.geo.total_area->twice L28:10 body=L28:35-L28:54
+  decl parameter src/shape.geo.total_area->twice->x L28:32 type=double
+  ref L1:11 geo/shape.h import in=src/shape -> include/geo/shape (include/geo/shape.h)
+  ref L3:11 algorithm import in=src/shape -> ?
+  ref L11:1 Shape in=src/shape.geo.Shape.Shape -> include/geo/shape.geo.Shape (include/geo/shape.h)
+  ref L11:14 std in=src/shape.geo.Shape.Shape -> ?
+  ref L11:19 string in=src/shape.geo.Shape.Shape -> ?
+  ref L11:34 name_ in=src/shape.geo.Shape.Shape -> include/geo/shape.geo.Shape.name_ (include/geo/shape.h)
+  ref L11:40 std in=src/shape.geo.Shape.Shape -> ?
+  ref L11:45 move call in=src/shape.geo.Shape.Shape -> ?
+  ref L11:50 name in=src/shape.geo.Shape.Shape -> src/shape.geo.Shape.Shape->name
+  ref L13:6 Shape in=src/shape.geo.Shape.operator< -> include/geo/shape.geo.Shape (include/geo/shape.h)
+  ref L13:29 Shape in=src/shape.geo.Shape.operator< -> include/geo/shape.geo.Shape (include/geo/shape.h)
+  ref L14:12 area call in=src/shape.geo.Shape.operator< -> include/geo/shape.geo.Shape.area (include/geo/shape.h)
+  ref L14:21 other in=src/shape.geo.Shape.operator< -> src/shape.geo.Shape.operator<->other
+  ref L14:27 area call in=src/shape.geo.Shape.operator< -> include/geo/shape.geo.Shape.area (include/geo/shape.h)
+  ref L17:1 Circle in=src/shape.geo.Circle.Circle -> include/geo/shape.geo.Circle (include/geo/shape.h)
+  ref L17:28 Shape in=src/shape.geo.Circle.Circle -> include/geo/shape.geo.Shape (include/geo/shape.h)
+  ref L17:45 radius_ in=src/shape.geo.Circle.Circle -> include/geo/shape.geo.Circle.radius_ (include/geo/shape.h)
+  ref L17:53 r in=src/shape.geo.Circle.Circle -> src/shape.geo.Circle.Circle->r
+  ref L19:8 Circle in=src/shape.geo.Circle.area -> include/geo/shape.geo.Circle (include/geo/shape.h)
+  ref L20:12 kPi in=src/shape.geo.Circle.area -> src/shape.geo.kPi
+  ref L20:18 radius_ in=src/shape.geo.Circle.area -> include/geo/shape.geo.Circle.radius_ (include/geo/shape.h)
+  ref L20:34 radius_ in=src/shape.geo.Circle.area -> include/geo/shape.geo.Circle.radius_ (include/geo/shape.h)
+  ref L23:25 std in=src/shape.geo.total_area -> ?
+  ref L23:30 vector in=src/shape.geo.total_area -> ?
+  ref L23:37 Shape in=src/shape.geo.total_area -> include/geo/shape.geo.Shape (include/geo/shape.h)
+  ref L25:26 shapes in=src/shape.geo.total_area -> src/shape.geo.total_area->shapes
+  ref L26:9 sum in=src/shape.geo.total_area -> src/shape.geo.total_area->sum
+  ref L26:16 s in=src/shape.geo.total_area -> src/shape.geo.total_area->s
+  ref L26:19 area call in=src/shape.geo.total_area -> include/geo/shape.geo.Shape.area (include/geo/shape.h)
+  ref L28:20 sum in=src/shape.geo.total_area -> src/shape.geo.total_area->sum
+  ref L28:44 sum in=src/shape.geo.total_area->twice -> src/shape.geo.total_area->sum
+  ref L28:50 x in=src/shape.geo.total_area->twice -> src/shape.geo.total_area->twice->x
+  ref L29:12 twice call in=src/shape.geo.total_area -> src/shape.geo.total_area->twice

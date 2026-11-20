@@ -1,0 +1,8 @@
+$ myoo lsp references main.py:alcu --backend=builtin
+# format: (for each matching symbol with one or more references) `<fqn>[-><local/temporary symbols>]\n- <reference fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)`
+calculator
+- main.calculator (main.py:1:6)
+
+calculator.calculate
+- main.calculate (main.py:1:24)
+- main.calculate (main.py:3:7)

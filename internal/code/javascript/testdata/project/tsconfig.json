@@ -1,0 +1,12 @@
+{
+  // Comments and trailing commas are allowed in tsconfig files.
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    /* path aliases */
+    "paths": {
+      "@lib/*": ["src/lib/*"],
+      "@shapes": ["src/lib/shapes.ts"],
+    },
+  },
+}

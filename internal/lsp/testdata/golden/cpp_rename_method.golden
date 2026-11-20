@@ -1,0 +1,46 @@
+$ myoo lsp rename src/calc.shop.Calc.add sum --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+src/calc.shop.Calc.sum (src/calc.cpp:6:11)
+	int Calc::sum(int a, int b) {
+	    total += a + b;
+	    return total;
+	}
+
+- include/calc.h (1 edit)
+- src/calc.cpp (1 edit)
+- src/main.cpp (2 edits)
+[changed include/calc.h]
+#pragma once
+
+namespace shop {
+
+// Calc accumulates a total.
+class Calc {
+public:
+    int sum(int a, int b);
+
+private:
+    int total = 0;
+};
+
+}  // namespace shop
+[changed src/calc.cpp]
+#include "calc.h"
+
+namespace shop {
+
+// add adds a and b to the total.
+int Calc::sum(int a, int b) {
+    total += a + b;
+    return total;
+}
+
+}  // namespace shop
+[changed src/main.cpp]
+#include "calc.h"
+
+int main() {
+    shop::Calc calc;
+    int sum = calc.sum(1, 2);
+    return calc.sum(sum, 3);
+}

@@ -1,0 +1,12 @@
+$ myoo lsp definition com/shop/Main.java:add --backend=builtin
+# format: (for each matching symbol) `<symbol>:<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<source, max. 50 lines counting from top to bottom>\n\n`
+add:com.shop.Calc.add (com/shop/Calc.java:8:16)
+	    public int add(int a, int b) {
+	        total += a + b;
+	        return total;
+	    }
+
+add:com.shop.Calc.add (com/shop/Calc.java:13:16)
+	    public int add(int a) {
+	        return add(a, 0);
+	    }

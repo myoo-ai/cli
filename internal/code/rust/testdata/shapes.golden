@@ -1,0 +1,351 @@
+file src/extra/strings.rs rust module=shapes_kit.text
+  decl function shapes_kit.text.shout L1:8 body=L1:33-L3:2 type=String
+  decl parameter shapes_kit.text.shout->s L1:14 type=&str
+  ref L1:26 String in=shapes_kit.text.shout -> ?
+  ref L2:5 s in=shapes_kit.text.shout -> shapes_kit.text.shout->s
+  ref L2:7 to_uppercase call in=shapes_kit.text.shout -> ?
+file src/geo/mod.rs rust module=shapes_kit.geo
+  decl interface shapes_kit.geo.Shape L4:11 body=L4:17-L11:2
+  decl type shapes_kit.geo.Shape.Unit L5:10
+  decl constant shapes_kit.geo.Shape.SIDES L6:11 type=u32
+  decl method shapes_kit.geo.Shape.area L7:8 type=f64
+  decl method shapes_kit.geo.Shape.describe L8:8 body=L8:34-L10:6 type=String
+  decl namespace shapes_kit.geo.circle L13:9 body=L13:16-L36:2
+  decl struct shapes_kit.geo.circle.Circle L17:16 body=L17:23-L20:6 bases=Shape
+  decl field shapes_kit.geo.circle.Circle.center L18:13 type=Point
+  decl field shapes_kit.geo.circle.Circle.radius L19:13 type=f64
+  decl type shapes_kit.geo.circle.Circle.Unit L23:14 type=f64
+  decl method shapes_kit.geo.circle.Circle.area L24:12 body=L24:31-L26:10 type=f64
+  decl method shapes_kit.geo.circle.Circle.shifted L30:16 body=L30:50-L34:10 type=Circle
+  decl parameter shapes_kit.geo.circle.Circle.shifted->by L30:31 type=f64
+  decl variable shapes_kit.geo.circle.Circle.shifted->c L31:17
+  ref L1:9 point import in=shapes_kit.geo -> shapes_kit.geo.point (src/geo/point.rs)
+  ref L8:27 String in=shapes_kit.geo.Shape.describe -> ?
+  ref L9:9 format call in=shapes_kit.geo.Shape.describe -> ?
+  ref L9:44 SIDES in=shapes_kit.geo.Shape.describe -> shapes_kit.geo.Shape.SIDES
+  ref L9:56 area call in=shapes_kit.geo.Shape.describe -> shapes_kit.geo.Shape.area
+  ref L14:16 Shape import in=shapes_kit.geo.circle -> shapes_kit.geo.Shape
+  ref L15:16 point import in=shapes_kit.geo.circle -> shapes_kit.geo.point (src/geo/point.rs)
+  ref L15:23 Point import in=shapes_kit.geo.circle -> shapes_kit.geo.point.Point (src/geo/point.rs)
+  ref L18:21 Point in=shapes_kit.geo.circle.Circle -> shapes_kit.geo.point.Point (src/geo/point.rs)
+  ref L22:10 Shape in=shapes_kit.geo.circle -> shapes_kit.geo.Shape
+  ref L22:20 Circle in=shapes_kit.geo.circle -> shapes_kit.geo.circle.Circle
+  ref L25:13 std in=shapes_kit.geo.circle.Circle.area -> ?
+  ref L25:18 f64 in=shapes_kit.geo.circle.Circle.area -> ?
+  ref L25:23 consts in=shapes_kit.geo.circle.Circle.area -> ?
+  ref L25:31 PI in=shapes_kit.geo.circle.Circle.area -> ?
+  ref L25:41 radius in=shapes_kit.geo.circle.Circle.area -> shapes_kit.geo.circle.Circle.radius
+  ref L25:55 radius in=shapes_kit.geo.circle.Circle.area -> shapes_kit.geo.circle.Circle.radius
+  ref L29:10 Circle in=shapes_kit.geo.circle -> shapes_kit.geo.circle.Circle
+  ref L30:43 Circle in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.circle.Circle
+  ref L31:21 Circle in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.circle.Circle
+  ref L31:30 center in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.circle.Circle.center
+  ref L31:43 center in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.circle.Circle.center
+  ref L31:50 moved call in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.point.Point.moved (src/geo/point.rs)
+  ref L31:56 by in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.circle.Circle.shifted->by
+  ref L32:13 c in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.circle.Circle.shifted->c
+  ref L32:15 center in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.circle.Circle.center
+  ref L32:22 norm call in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.point.Point.norm (src/geo/point.rs)
+  ref L33:13 c in=shapes_kit.geo.circle.Circle.shifted -> shapes_kit.geo.circle.Circle.shifted->c
+file src/geo/point.rs rust module=shapes_kit.geo.point
+  decl struct shapes_kit.geo.point.Point L4:12 body=L4:18-L7:2 bases=Add
+  decl field shapes_kit.geo.point.Point.x L5:9 type=f64
+  decl field shapes_kit.geo.point.Point.y L6:9 type=f64
+  decl struct shapes_kit.geo.point.Origin L9:12 bases=Send
+  decl method shapes_kit.geo.point.Point.new L12:12 body=L12:40-L14:6 type=Self
+  decl parameter shapes_kit.geo.point.Point.new->x L12:16 type=f64
+  decl parameter shapes_kit.geo.point.Point.new->y L12:24 type=f64
+  decl method shapes_kit.geo.point.Point.norm L16:12 body=L16:31-L18:6 type=f64
+  decl method shapes_kit.geo.point.Point.moved L20:12 body=L20:42-L22:6 type=Point
+  decl parameter shapes_kit.geo.point.Point.moved->by L20:24 type=f64
+  decl type shapes_kit.geo.point.Point.Output L26:10 type=Point
+  decl method shapes_kit.geo.point.Point.add L27:8 body=L27:37-L29:6 type=Point
+  decl parameter shapes_kit.geo.point.Point.add->o L27:18 type=Point
+  decl function shapes_kit.geo.point.origin L34:21 body=L34:39-L36:2 type=Point
+  decl function shapes_kit.geo.point.abs L39:8 type=i32
+  decl parameter shapes_kit.geo.point.abs->v L39:12 type=i32
+  decl function shapes_kit.geo.point.raw_abs L42:21 body=L42:44-L44:2 type=i32
+  decl parameter shapes_kit.geo.point.raw_abs->v L42:29 type=i32
+  ref L1:5 std import in=shapes_kit.geo.point -> ?
+  ref L1:10 ops import in=shapes_kit.geo.point -> ?
+  ref L1:15 Add import in=shapes_kit.geo.point -> ?
+  ref L11:6 Point in=shapes_kit.geo.point -> shapes_kit.geo.point.Point
+  ref L13:16 x in=shapes_kit.geo.point.Point.new -> shapes_kit.geo.point.Point.new->x
+  ref L13:19 y in=shapes_kit.geo.point.Point.new -> shapes_kit.geo.point.Point.new->y
+  ref L17:15 x in=shapes_kit.geo.point.Point.norm -> shapes_kit.geo.point.Point.x
+  ref L17:24 x in=shapes_kit.geo.point.Point.norm -> shapes_kit.geo.point.Point.x
+  ref L17:33 y in=shapes_kit.geo.point.Point.norm -> shapes_kit.geo.point.Point.y
+  ref L17:42 y in=shapes_kit.geo.point.Point.norm -> shapes_kit.geo.point.Point.y
+  ref L17:45 sqrt call in=shapes_kit.geo.point.Point.norm -> ?
+  ref L20:36 Point in=shapes_kit.geo.point.Point.moved -> shapes_kit.geo.point.Point
+  ref L21:9 Point in=shapes_kit.geo.point.Point.moved -> shapes_kit.geo.point.Point
+  ref L21:16 new call in=shapes_kit.geo.point.Point.moved -> shapes_kit.geo.point.Point.new
+  ref L21:25 x in=shapes_kit.geo.point.Point.moved -> shapes_kit.geo.point.Point.x
+  ref L21:29 by in=shapes_kit.geo.point.Point.moved -> shapes_kit.geo.point.Point.moved->by
+  ref L21:38 y in=shapes_kit.geo.point.Point.moved -> shapes_kit.geo.point.Point.y
+  ref L21:42 by in=shapes_kit.geo.point.Point.moved -> shapes_kit.geo.point.Point.moved->by
+  ref L25:6 Add in=shapes_kit.geo.point -> ?
+  ref L25:14 Point in=shapes_kit.geo.point -> shapes_kit.geo.point.Point
+  ref L26:19 Point in=shapes_kit.geo.point.Point.Output -> shapes_kit.geo.point.Point
+  ref L27:21 Point in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point
+  ref L27:31 Point in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point
+  ref L28:9 Point in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point
+  ref L28:17 x in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point.x
+  ref L28:25 x in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point.x
+  ref L28:29 o in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point.add->o
+  ref L28:31 x in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point.x
+  ref L28:34 y in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point.y
+  ref L28:42 y in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point.y
+  ref L28:46 o in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point.add->o
+  ref L28:48 y in=shapes_kit.geo.point.Point.add -> shapes_kit.geo.point.Point.y
+  ref L32:13 Send in=shapes_kit.geo.point -> ?
+  ref L32:22 Origin in=shapes_kit.geo.point -> shapes_kit.geo.point.Origin
+  ref L34:33 Point in=shapes_kit.geo.point.origin -> shapes_kit.geo.point.Point
+  ref L35:5 Point in=shapes_kit.geo.point.origin -> shapes_kit.geo.point.Point
+  ref L35:13 x in=shapes_kit.geo.point.origin -> shapes_kit.geo.point.Point.x
+  ref L35:21 y in=shapes_kit.geo.point.origin -> shapes_kit.geo.point.Point.y
+  ref L43:14 abs call in=shapes_kit.geo.point.raw_abs -> shapes_kit.geo.point.abs
+  ref L43:18 v in=shapes_kit.geo.point.raw_abs -> shapes_kit.geo.point.raw_abs->v
+file src/lib.rs rust module=shapes_kit
+  decl import shapes_kit.Zero L9:39
+  decl function shapes_kit.total_area L15:8 body=L15:53-L17:2 type=f64
+  decl parameter shapes_kit.total_area->shapes L15:19 type=&[Box<dyn Shape>]
+  decl parameter shapes_kit.total_area->s L16:24
+  decl struct shapes_kit.Labeled L20:12 body=L20:41-L23:2 bases=Display
+  decl type_parameter shapes_kit.Labeled->T L20:24
+  decl field shapes_kit.Labeled.label L21:9 type=&'a str
+  decl field shapes_kit.Labeled.value L22:9 type=T
+  decl constant shapes_kit.Labeled.KIND L26:15 type=&'static str
+  decl method shapes_kit.Labeled.new L28:12 body=L28:50-L30:6 type=Self
+  decl parameter shapes_kit.Labeled.new->label L28:16 type=&'a str
+  decl parameter shapes_kit.Labeled.new->value L28:32 type=T
+  decl method shapes_kit.Labeled.render L32:12 body=L32:36-L35:6 type=String
+  decl variable shapes_kit.Labeled.render->type L33:13
+  decl method shapes_kit.Labeled.fmt L39:8 body=L39:62-L41:6 type=fmt::Result
+  decl parameter shapes_kit.Labeled.fmt->f L39:19 type=&mut fmt::Formatter<'_>
+  decl enum shapes_kit.Event L44:10 body=L44:16-L48:2
+  decl enum_member shapes_kit.Event.Click L45:5
+  decl field shapes_kit.Event.Click.x L45:13 type=i32
+  decl field shapes_kit.Event.Click.y L45:21 type=i32
+  decl enum_member shapes_kit.Event.Key L46:5
+  decl enum_member shapes_kit.Event.Quit L47:5
+  decl function shapes_kit.describe L50:8 body=L50:38-L56:2 type=String
+  decl parameter shapes_kit.describe->e L50:17 type=&Event
+  decl variable shapes_kit.describe->x L52:24
+  decl variable shapes_kit.describe->row L52:30
+  decl variable shapes_kit.describe->c L53:20
+  decl function shapes_kit.shadow L58:8 body=L58:42-L76:2 type=u32
+  decl parameter shapes_kit.shadow->input L58:15 type=Option<u32>
+  decl variable shapes_kit.shadow->x L59:9
+  decl variable shapes_kit.shadow->x L60:9
+  decl variable shapes_kit.shadow->v L61:14
+  decl variable shapes_kit.shadow->w L62:17
+  decl parameter shapes_kit.shadow->n L62:36
+  decl variable shapes_kit.shadow->i L65:18
+  decl variable shapes_kit.shadow->item L65:21
+  decl variable shapes_kit.shadow->k L66:24
+  decl variable shapes_kit.shadow->add L74:9
+  decl parameter shapes_kit.shadow->a L74:21 type=u32
+  decl parameter shapes_kit.shadow->b L74:29
+  decl macro shapes_kit.square L78:14 body=L78:21-L82:2
+  decl struct shapes_kit.Bits L84:11 body=L84:16-L87:2
+  decl field shapes_kit.Bits.i L85:9 type=u32
+  decl field shapes_kit.Bits.f L86:9 type=f32
+  decl variable shapes_kit.COUNTER L89:16 type=u64
+  decl type shapes_kit.Area L90:10 type=f64
+  decl function shapes_kit.squared L92:8 body=L92:35-L96:2 type=Area
+  decl parameter shapes_kit.squared->p L92:16 type=&Point
+  decl variable shapes_kit.squared->z L93:9
+  decl variable shapes_kit.squared->q L94:9
+  decl import shapes_kit.kernel L98:22
+  decl function shapes_kit.largest L101:8 body=L104:1-L113:2 type=Option<&T>
+  decl type_parameter shapes_kit.largest->T L101:16
+  decl parameter shapes_kit.largest->items L101:19 type=&[T]
+  decl variable shapes_kit.largest->best L105:13
+  decl variable shapes_kit.largest->it L106:9
+  decl variable shapes_kit.largest->_unit L111:9 type=Circle
+  ref L4:9 geo import in=shapes_kit -> shapes_kit.geo (src/geo/mod.rs)
+  ref L5:5 util import in=shapes_kit -> shapes_kit.util (src/util.rs)
+  ref L7:5 text import in=shapes_kit -> shapes_kit.text (src/extra/strings.rs)
+  ref L9:9 geo import in=shapes_kit -> shapes_kit.geo (src/geo/mod.rs)
+  ref L9:14 point import in=shapes_kit -> shapes_kit.geo.point (src/geo/point.rs)
+  ref L9:22 Point import in=shapes_kit -> shapes_kit.geo.point.Point (src/geo/point.rs)
+  ref L9:29 Origin import in=shapes_kit -> shapes_kit.geo.point.Origin (src/geo/point.rs)
+  ref L10:12 geo import in=shapes_kit -> shapes_kit.geo (src/geo/mod.rs)
+  ref L10:24 Shape import in=shapes_kit -> shapes_kit.geo.Shape (src/geo/mod.rs)
+  ref L11:5 std import in=shapes_kit -> ?
+  ref L11:10 fmt import in=shapes_kit -> ?
+  ref L11:22 Display import in=shapes_kit -> ?
+  ref L15:29 Box in=shapes_kit.total_area -> ?
+  ref L15:37 Shape in=shapes_kit.total_area -> shapes_kit.geo.Shape (src/geo/mod.rs)
+  ref L16:5 shapes in=shapes_kit.total_area -> shapes_kit.total_area->shapes
+  ref L16:12 iter call in=shapes_kit.total_area -> ?
+  ref L16:19 map call in=shapes_kit.total_area -> ?
+  ref L16:27 s in=shapes_kit.total_area -> shapes_kit.total_area->s
+  ref L16:29 area call in=shapes_kit.total_area -> ?
+  ref L16:37 sum call in=shapes_kit.total_area -> ?
+  ref L20:27 Display in=shapes_kit.Labeled -> ?
+  ref L22:16 T in=shapes_kit.Labeled -> shapes_kit.Labeled->T
+  ref L25:13 Display in=shapes_kit -> ?
+  ref L25:22 Labeled in=shapes_kit -> shapes_kit.Labeled
+  ref L25:34 T in=shapes_kit -> ?
+  ref L28:39 T in=shapes_kit.Labeled.new -> ?
+  ref L29:9 Labeled in=shapes_kit.Labeled.new -> shapes_kit.Labeled
+  ref L29:19 label in=shapes_kit.Labeled.new -> shapes_kit.Labeled.new->label
+  ref L29:26 value in=shapes_kit.Labeled.new -> shapes_kit.Labeled.new->value
+  ref L32:29 String in=shapes_kit.Labeled.render -> ?
+  ref L33:28 KIND in=shapes_kit.Labeled.render -> shapes_kit.Labeled.KIND
+  ref L34:9 format call in=shapes_kit.Labeled.render -> ?
+  ref L34:37 label in=shapes_kit.Labeled.render -> shapes_kit.Labeled.label
+  ref L34:49 value in=shapes_kit.Labeled.render -> shapes_kit.Labeled.value
+  ref L34:56 type in=shapes_kit.Labeled.render -> shapes_kit.Labeled.render->type
+  ref L38:9 Display in=shapes_kit -> ?
+  ref L38:18 Display in=shapes_kit -> ?
+  ref L38:30 Labeled in=shapes_kit -> shapes_kit.Labeled
+  ref L38:42 T in=shapes_kit -> ?
+  ref L39:27 fmt in=shapes_kit.Labeled.fmt -> ?
+  ref L39:32 Formatter in=shapes_kit.Labeled.fmt -> ?
+  ref L39:50 fmt in=shapes_kit.Labeled.fmt -> ?
+  ref L39:55 Result in=shapes_kit.Labeled.fmt -> ?
+  ref L40:9 write call in=shapes_kit.Labeled.fmt -> ?
+  ref L40:16 f in=shapes_kit.Labeled.fmt -> shapes_kit.Labeled.fmt->f
+  ref L40:30 render call in=shapes_kit.Labeled.fmt -> shapes_kit.Labeled.render
+  ref L50:21 Event in=shapes_kit.describe -> shapes_kit.Event
+  ref L50:31 String in=shapes_kit.describe -> ?
+  ref L51:11 e in=shapes_kit.describe -> shapes_kit.describe->e
+  ref L52:9 Event in=shapes_kit.describe -> shapes_kit.Event
+  ref L52:16 Click in=shapes_kit.describe -> shapes_kit.Event.Click
+  ref L52:27 y in=shapes_kit.describe -> shapes_kit.Event.Click.y
+  ref L52:40 x in=shapes_kit.describe -> shapes_kit.describe->x
+  ref L52:49 format call in=shapes_kit.describe -> ?
+  ref L53:9 Event in=shapes_kit.describe -> shapes_kit.Event
+  ref L53:16 Key in=shapes_kit.describe -> shapes_kit.Event.Key
+  ref L53:38 c in=shapes_kit.describe -> shapes_kit.describe->c
+  ref L53:40 to_string call in=shapes_kit.describe -> ?
+  ref L54:9 Event in=shapes_kit.describe -> shapes_kit.Event
+  ref L54:16 Key in=shapes_kit.describe -> shapes_kit.Event.Key
+  ref L54:25 Event in=shapes_kit.describe -> shapes_kit.Event
+  ref L54:32 Quit in=shapes_kit.describe -> shapes_kit.Event.Quit
+  ref L54:40 String in=shapes_kit.describe -> ?
+  ref L54:48 from call in=shapes_kit.describe -> ?
+  ref L58:22 Option in=shapes_kit.shadow -> ?
+  ref L60:13 x in=shapes_kit.shadow -> shapes_kit.shadow->x
+  ref L61:9 Some in=shapes_kit.shadow -> ?
+  ref L61:19 input in=shapes_kit.shadow -> shapes_kit.shadow->input
+  ref L61:39 x in=shapes_kit.shadow -> shapes_kit.shadow->x
+  ref L62:12 Some in=shapes_kit.shadow -> ?
+  ref L62:22 input in=shapes_kit.shadow -> shapes_kit.shadow->input
+  ref L62:28 filter call in=shapes_kit.shadow -> ?
+  ref L62:40 n in=shapes_kit.shadow -> shapes_kit.shadow->n
+  ref L63:16 w in=shapes_kit.shadow -> shapes_kit.shadow->w
+  ref L63:20 v in=shapes_kit.shadow -> shapes_kit.shadow->v
+  ref L65:40 iter call in=shapes_kit.shadow -> ?
+  ref L65:47 enumerate call in=shapes_kit.shadow -> ?
+  ref L66:19 Some in=shapes_kit.shadow -> ?
+  ref L66:29 input in=shapes_kit.shadow -> shapes_kit.shadow->input
+  ref L67:16 k in=shapes_kit.shadow -> shapes_kit.shadow->k
+  ref L67:22 item in=shapes_kit.shadow -> shapes_kit.shadow->item
+  ref L70:21 i in=shapes_kit.shadow -> shapes_kit.shadow->i
+  ref L74:32 a in=shapes_kit.shadow -> shapes_kit.shadow->a
+  ref L74:36 b in=shapes_kit.shadow -> shapes_kit.shadow->b
+  ref L74:40 x in=shapes_kit.shadow -> shapes_kit.shadow->x
+  ref L75:5 add call in=shapes_kit.shadow -> shapes_kit.shadow->add
+  ref L75:9 v in=shapes_kit.shadow -> shapes_kit.shadow->v
+  ref L92:20 Point in=shapes_kit.squared -> shapes_kit.geo.point.Point (src/geo/point.rs)
+  ref L92:30 Area in=shapes_kit.squared -> shapes_kit.Area
+  ref L93:13 Zero in=shapes_kit.squared -> shapes_kit.Zero
+  ref L94:13 Point in=shapes_kit.squared -> shapes_kit.geo.point.Point (src/geo/point.rs)
+  ref L94:20 new call in=shapes_kit.squared -> shapes_kit.geo.point.Point.new (src/geo/point.rs)
+  ref L94:24 p in=shapes_kit.squared -> shapes_kit.squared->p
+  ref L94:26 x in=shapes_kit.squared -> shapes_kit.geo.point.Point.x (src/geo/point.rs)
+  ref L94:29 p in=shapes_kit.squared -> shapes_kit.squared->p
+  ref L94:31 y in=shapes_kit.squared -> shapes_kit.geo.point.Point.y (src/geo/point.rs)
+  ref L95:5 square call in=shapes_kit.squared -> shapes_kit.square
+  ref L95:13 q in=shapes_kit.squared -> shapes_kit.squared->q
+  ref L95:15 norm call in=shapes_kit.squared -> shapes_kit.geo.point.Point.norm (src/geo/point.rs)
+  ref L95:25 util in=shapes_kit.squared -> shapes_kit.util (src/util.rs)
+  ref L95:31 helper call in=shapes_kit.squared -> shapes_kit.util.helper (src/util.rs)
+  ref L95:38 z in=shapes_kit.squared -> shapes_kit.squared->z
+  ref L95:45 text in=shapes_kit.squared -> shapes_kit.text (src/extra/strings.rs)
+  ref L95:51 shout call in=shapes_kit.squared -> shapes_kit.text.shout (src/extra/strings.rs)
+  ref L95:62 len call in=shapes_kit.squared -> ?
+  ref L98:14 core import in=shapes_kit -> ?
+  ref L99:11 geo import in=shapes_kit -> shapes_kit.geo (src/geo/mod.rs)
+  ref L99:16 circle import in=shapes_kit -> shapes_kit.geo.circle (src/geo/mod.rs)
+  ref L101:28 T in=shapes_kit.largest -> shapes_kit.largest->T
+  ref L101:35 Option in=shapes_kit.largest -> ?
+  ref L101:43 T in=shapes_kit.largest -> shapes_kit.largest->T
+  ref L103:5 T in=shapes_kit.largest -> shapes_kit.largest->T
+  ref L103:8 PartialOrd in=shapes_kit.largest -> ?
+  ref L103:21 kernel in=shapes_kit.largest -> shapes_kit.kernel
+  ref L103:29 fmt in=shapes_kit.largest -> ?
+  ref L103:34 Debug in=shapes_kit.largest -> ?
+  ref L105:20 items in=shapes_kit.largest -> shapes_kit.largest->items
+  ref L105:26 first call in=shapes_kit.largest -> ?
+  ref L106:15 items in=shapes_kit.largest -> shapes_kit.largest->items
+  ref L107:12 it in=shapes_kit.largest -> shapes_kit.largest->it
+  ref L107:17 best in=shapes_kit.largest -> shapes_kit.largest->best
+  ref L108:13 best in=shapes_kit.largest -> shapes_kit.largest->best
+  ref L108:20 it in=shapes_kit.largest -> shapes_kit.largest->it
+  ref L111:16 Circle in=shapes_kit.largest -> shapes_kit.geo.circle.Circle (src/geo/mod.rs)
+  ref L111:25 todo call in=shapes_kit.largest -> ?
+  ref L112:5 Some call in=shapes_kit.largest -> ?
+  ref L112:10 best in=shapes_kit.largest -> shapes_kit.largest->best
+file src/main.rs rust module=shapes_kit
+  decl function shapes_kit.main L4:4 body=L4:11-L8:2
+  decl variable shapes_kit.main->c L5:9
+  decl variable shapes_kit.main->shifted L6:9
+  ref L1:5 shapes_kit import in=shapes_kit -> shapes_kit (src/lib.rs)
+  ref L1:17 geo import in=shapes_kit -> shapes_kit.geo (src/geo/mod.rs)
+  ref L1:22 circle import in=shapes_kit -> shapes_kit.geo.circle (src/geo/mod.rs)
+  ref L1:30 Circle import in=shapes_kit -> shapes_kit.geo.circle.Circle (src/geo/mod.rs)
+  ref L2:5 shapes_kit import in=shapes_kit -> shapes_kit (src/lib.rs)
+  ref L2:18 total_area import in=shapes_kit -> shapes_kit.total_area (src/lib.rs)
+  ref L2:30 Point import in=shapes_kit -> shapes_kit.geo.point.Point (src/geo/point.rs)
+  ref L5:13 Circle in=shapes_kit.main -> shapes_kit.geo.circle.Circle (src/geo/mod.rs)
+  ref L5:22 center in=shapes_kit.main -> shapes_kit.geo.circle.Circle.center (src/geo/mod.rs)
+  ref L5:30 Point in=shapes_kit.main -> shapes_kit.geo.point.Point (src/geo/point.rs)
+  ref L5:37 new call in=shapes_kit.main -> shapes_kit.geo.point.Point.new (src/geo/point.rs)
+  ref L5:52 radius in=shapes_kit.main -> shapes_kit.geo.circle.Circle.radius (src/geo/mod.rs)
+  ref L6:19 c in=shapes_kit.main -> shapes_kit.main->c
+  ref L6:21 shifted call in=shapes_kit.main -> shapes_kit.geo.circle.Circle.shifted (src/geo/mod.rs)
+  ref L7:5 println call in=shapes_kit.main -> ?
+  ref L7:20 total_area call in=shapes_kit.main -> shapes_kit.total_area (src/lib.rs)
+  ref L7:33 Box in=shapes_kit.main -> ?
+  ref L7:38 new call in=shapes_kit.main -> ?
+  ref L7:42 shifted in=shapes_kit.main -> shapes_kit.main->shifted
+file src/util.rs rust module=shapes_kit.util
+  decl function shapes_kit.util.helper L3:15 body=L3:37-L11:2 type=f64
+  decl parameter shapes_kit.util.helper->v L3:22 type=f64
+  decl variable shapes_kit.util.helper->p L4:9
+  decl variable shapes_kit.util.helper->bytes L5:9
+  decl variable shapes_kit.util.helper->c L6:9
+  decl variable shapes_kit.util.helper->raw L7:9
+  decl variable shapes_kit.util.helper->ch L8:9
+  decl variable shapes_kit.util.helper->lifetime_like L9:9 type=&'static str
+  decl namespace shapes_kit.util.tests L14:5 body=L14:11-L21:2
+  decl function shapes_kit.util.tests.helper_adds L18:8 body=L18:22-L20:6
+  ref L1:12 geo import in=shapes_kit.util -> shapes_kit.geo (src/geo/mod.rs)
+  ref L1:17 point import in=shapes_kit.util -> shapes_kit.geo.point (src/geo/point.rs)
+  ref L1:24 origin import in=shapes_kit.util -> shapes_kit.geo.point.origin (src/geo/point.rs)
+  ref L4:13 origin call in=shapes_kit.util.helper -> shapes_kit.geo.point.origin (src/geo/point.rs)
+  ref L10:5 v in=shapes_kit.util.helper -> shapes_kit.util.helper->v
+  ref L10:9 p in=shapes_kit.util.helper -> shapes_kit.util.helper->p
+  ref L10:11 x in=shapes_kit.util.helper -> shapes_kit.geo.point.Point.x (src/geo/point.rs)
+  ref L10:15 bytes in=shapes_kit.util.helper -> shapes_kit.util.helper->bytes
+  ref L10:21 len call in=shapes_kit.util.helper -> ?
+  ref L10:36 c in=shapes_kit.util.helper -> shapes_kit.util.helper->c
+  ref L10:38 count_bytes call in=shapes_kit.util.helper -> ?
+  ref L10:61 raw in=shapes_kit.util.helper -> shapes_kit.util.helper->raw
+  ref L10:65 len call in=shapes_kit.util.helper -> ?
+  ref L10:80 ch in=shapes_kit.util.helper -> shapes_kit.util.helper->ch
+  ref L10:83 len_utf8 call in=shapes_kit.util.helper -> ?
+  ref L10:103 lifetime_like in=shapes_kit.util.helper -> shapes_kit.util.helper->lifetime_like
+  ref L10:117 len call in=shapes_kit.util.helper -> ?
+  ref L19:9 assert_eq call in=shapes_kit.util.tests.helper_adds -> ?
+  ref L19:20 helper call in=shapes_kit.util.tests.helper_adds -> shapes_kit.util.helper
+comment src/geo/mod.rs L3:1 doc "Anything with an area."
+comment src/lib.rs L1:1 doc "Geometry primitives for the shapes kit."
+comment src/lib.rs L13:1 block "An outer /* nested */ block comment."
+comment src/lib.rs L14:1 doc "Documents the area function."
+comment src/lib.rs L19:1 doc "A wrapper with a lifetime."

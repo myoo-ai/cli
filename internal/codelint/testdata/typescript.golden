@@ -1,0 +1,58 @@
+#1 positive.ts:1:1-4.4 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#2 positive.ts:5:30-34 - ts-prefer-node-protocol: prefer the `node:` protocol when importing a Node.js builtin module, as it makes clear that the module is a builtin (`"fs"` -> `"node:fs"`).
+#3 positive.ts:7:1-17 - decorative-comment: use of banner or separator comments made of repeated characters.
+#4 positive.ts:9:1-47 - redundant-docstring: documentation only restates the name of the declaration.
+#5 positive.ts:11:3-42 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#6 positive.ts:13:3-43 - narrating-comment: comment narrates what the code does instead of explaining why.
+#7 positive.ts:18:3-43 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#8 positive.ts:20:3-39 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 positive.ts:26:3-39 - obvious-comment: comment repeats the code it is attached to.
+#10 positive.ts:32:3-26 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#11 positive.ts:36:16-17 - emoji-in-code: use of emoji in comments or string literals.
+#12 positive.ts:37:16-17 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#13 positive.ts:38:18-19 - emdash-in-code: use of emdash in comments or string literals.
+#14 positive.ts:39:15-29 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#15 positive.ts:45:5-47.4 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#16 positive.ts:50:4-20 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#17 positive.ts:53:1-61.2 - excessive-comments: function body is dominated by comments (6 of 9 non-blank lines are comments).
+#18 positive.ts:68:11-26 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#19 positive.ts:80:1-165.2 - long-function: function has more than 80 lines of code (86 lines of code).
+#20 positive.ts:179:67-189.2 - duplicated-block: block of code duplicates another block (first occurrence at positive.ts:167:63, lines 167-177).
+#21 positive.ts:192:17-34 - ts-missing-optional-chain-expression: prefer using an optional chain expression instead, as it's more concise and easier to read (`prev && prev.name` -> `prev?.name`).
+#22 positive.ts:193:17-60 - ts-missing-optional-chain-expression: prefer using an optional chain expression instead, as it's more concise and easier to read (`list && list[key] && list[key].label.trim()` -> `list?.[key]?.label.trim()`).
+#23 positive.ts:197:36-39 - ts-explicit-any: specify a different type instead of `any`, as `any` turns off type checking for every value it reaches.
+#24 positive.ts:197:81-84 - ts-explicit-any: specify a different type instead of `any`, as `any` turns off type checking for every value it reaches.
+#25 positive.ts:198:3-12 - ts-var-declaration: use `let` or `const` instead of `var`, as block-scoped declarations avoid hoisting surprises (`var count` -> `let count`).
+#26 positive.ts:199:7-27 - ts-loose-equality: use `===` and `!==` instead of `==` and `!=`, as loose equality converts the operands in surprising ways (`count == rows.length` -> `count === rows.length`).
+#27 positive.ts:200:5-14 - ts-debugger-statement: remove this `debugger` statement, as it pauses the program whenever developer tools are open.
+#28 positive.ts:202:16-48 - ts-prefer-array-find: prefer `.find()` over taking the first element of `.filter()`, as it stops at the first match and states the intent (`rows.filter((r) => r.ok).shift()` -> `rows.find((r) => r.ok)`).
+#29 positive.ts:203:16-46 - ts-prefer-array-find: prefer `.find()` over taking the first element of `.filter()`, as it stops at the first match and states the intent (`rows.filter((r) => r.ok).at(0)` -> `rows.find((r) => r.ok)`).
+#30 positive.ts:204:16-53 - ts-prefer-array-some: prefer `.some()` over comparing the length of `.filter()`, as it stops at the first match and returns a boolean (`rows.filter((r) => r.ok).length !== 0` -> `rows.some((r) => r.ok)`).
+#31 positive.ts:205:19-41 - ts-prefer-includes: prefer `.includes()` over comparing the result of `.indexOf()`, as it states the intent directly (`words.indexOf("x") < 0` -> `!words.includes("x")`).
+#32 positive.ts:206:16-39 - ts-prefer-at: prefer `.at()` with a negative index over subtracting from `.length`, as it avoids repeating the receiver (`words[words.length - 2]` -> `words.at(-2)`).
+#33 positive.ts:207:15-49 - ts-prefer-object-has-own: prefer `Object.hasOwn()` over calling `hasOwnProperty` through the prototype, as it is shorter and easier to read (`{}.hasOwnProperty.call(user, "id")` -> `Object.hasOwn(user, "id")`).
+#34 positive.ts:208:17-49 - ts-typeof-undefined: compare with `undefined` directly instead of using `typeof`, as it is shorter and easier to read (`typeof user.name !== "undefined"` -> `user.name !== undefined`).
+#35 positive.ts:209:31-52 - ts-prefer-string-replace-all: prefer `.replaceAll()` over `.replace()` with a global regex, as it states the intent (`.replace(/\s+/g, " ")` -> `.replaceAll(/\s+/g, " ")`).
+#36 positive.ts:210:15-38 - ts-number-static-methods: prefer the static methods of `Number` over the global functions, as they keep number helpers in one namespace (`isNaN(user.size as any)` -> `Number.isNaN(user.size as any)`).
+#37 positive.ts:210:34-37 - ts-explicit-any: specify a different type instead of `any`, as `any` turns off type checking for every value it reaches.
+#38 positive.ts:211:30-45 - ts-prefer-node-protocol: prefer the `node:` protocol when importing a Node.js builtin module, as it makes clear that the module is a builtin (`"child_process"` -> `"node:child_process"`).
+#39 positive.ts:212:17-28 - ts-non-null-assertion: avoid non-null assertions, as they hide possible null and undefined values from the compiler.
+#40 positive.ts:212:38-46 - ts-non-null-assertion: avoid non-null assertions, as they hide possible null and undefined values from the compiler.
+#41 positive.ts:216:30-48 - no-formatted-string-placeholders: formatted string without any placeholders (``no substitutions`` -> `"no substitutions"`).
+#42 positive.ts:218:5-28 - change-narration-comment: comment describes the edit history instead of the code (`Same behavior as before`).
+#43 positive.ts:218:30-42 - change-narration-comment: comment describes the edit history instead of the code (`Renamed from`).
+#44 positive.ts:220:6-18 - reviewer-addressed-comment: comment speaks to the reviewer or the person who asked for the change (`As requested`).
+#45 positive.ts:220:42-54 - comment-prose: comment contains a prose pattern that reads as AI generated (chatbot-phrases `Feel free to`).
+#46 positive.ts:220:42-54 - reviewer-addressed-comment: comment speaks to the reviewer or the person who asked for the change (`Feel free to`).
+#47 positive.ts:221:6-55 - demo-grade-comment: comment admits that the code is a simplification or a stub (`This is just a placeholder implementation for now`).
+#48 positive.ts:222:24-27 - ts-explicit-any: specify a different type instead of `any`, as `any` turns off type checking for every value it reaches.
+#49 positive.ts:223:20-38 - ts-double-type-assertion: avoid asserting a value through `unknown` or `any` to another type, as the double assertion turns off the check that the 2 types overlap (`as unknown as User`).
+#50 positive.ts:224:14-53 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`throw new Error("Something went wrong")`).
+#51 positive.ts:225:15-54 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`throw new TypeError("Invalid argument")`).
+#52 positive.ts:226:26-54 - placeholder-data: sample data left in a string literal (`lorem ipsum`, `John Doe`, an API key placeholder) (`Lorem ipsum`).
+#53 positive.ts:226:64-93 - cheerful-message: chatty or celebratory string literal ("Oops", "Yay", "Great!", "successfully!") (`Oops! Something went wrong.`).
+#54 positive.ts:230:3-20 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`expect(1).toBe(1)`).
+#55 positive.ts:231:3-27 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`expect("a").toEqual('a')`).
+#56 positive.ts:232:3-28 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`expect(true).toBeTruthy()`).
+#57 positive.ts:233:3-18 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assert.ok(true)`).
+#58 positive.ts:234:3-29 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assert.strictEqual(-1, -1)`).

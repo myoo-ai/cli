@@ -1,0 +1,49 @@
+#1 Positive.java:1:1-4.4 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#2 Positive.java:10:5-26 - decorative-comment: use of banner or separator comments made of repeated characters.
+#3 Positive.java:13:5-48 - redundant-docstring: documentation only restates the name of the declaration.
+#4 Positive.java:15:9-55 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#5 Positive.java:17:9-48 - narrating-comment: comment narrates what the code does instead of explaining why.
+#6 Positive.java:22:9-47 - obvious-comment: comment repeats the code it is attached to.
+#7 Positive.java:28:9-46 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#8 Positive.java:30:9-47 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 Positive.java:35:9-71 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#10 Positive.java:39:9-27 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#11 Positive.java:43:29-30 - emoji-in-code: use of emoji in comments or string literals.
+#12 Positive.java:44:32-33 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#13 Positive.java:45:31-32 - emdash-in-code: use of emdash in comments or string literals.
+#14 Positive.java:46:28-42 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#15 Positive.java:47:28-40 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#16 Positive.java:53:11-54.10 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#17 Positive.java:57:11-59.10 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#18 Positive.java:58:13-32 - java-print-stack-trace: prefer logging the exception over `printStackTrace()`, as the trace goes to standard error without a level or context (`t.printStackTrace()` -> `log.error("...", t)`).
+#19 Positive.java:62:5-35 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#20 Positive.java:67:5-75.6 - excessive-comments: function body is dominated by comments (6 of 9 non-blank lines are comments).
+#21 Positive.java:82:25-41 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#22 Positive.java:93:5-178.6 - long-function: function has more than 80 lines of code (86 lines of code).
+#23 Positive.java:192:64-202.6 - duplicated-block: block of code duplicates another block (first occurrence at Positive.java:180:60, lines 180-190).
+#24 Positive.java:209:13-29 - java-collection-is-empty: prefer `isEmpty()` over comparing the size or length to zero, as it states the intent and can be cheaper (`list.size() == 0` -> `list.isEmpty()`).
+#25 Positive.java:212:16-33 - java-collection-is-empty: prefer `isEmpty()` over comparing the size or length to zero, as it states the intent and can be cheaper (`0 < text.length()` -> `!text.isEmpty()`).
+#26 Positive.java:212:37-52 - java-collection-is-empty: prefer `isEmpty()` over comparing the size or length to zero, as it states the intent and can be cheaper (`list.size() > 0` -> `!list.isEmpty()`).
+#27 Positive.java:216:16-31 - java-string-reference-equality: strings should be compared with `equals()` instead of `==`, as `==` compares references and fails for equal strings built at runtime (`role == "admin"` -> `"admin".equals(role)`).
+#28 Positive.java:216:35-49 - java-string-reference-equality: strings should be compared with `equals()` instead of `==`, as `==` compares references and fails for equal strings built at runtime (`"root" != role` -> `!"root".equals(role)`).
+#29 Positive.java:220:9-28 - java-print-stack-trace: prefer logging the exception over `printStackTrace()`, as the trace goes to standard error without a level or context (`e.printStackTrace()` -> `log.error("...", e)`).
+#30 Positive.java:224:24-41 - java-wrapper-constructor: prefer `valueOf()` or a literal over constructing a wrapper or string, as the constructors are deprecated and always allocate a new object (`new Boolean(true)` -> `Boolean.valueOf(true)`).
+#31 Positive.java:225:23-41 - java-wrapper-constructor: prefer `valueOf()` or a literal over constructing a wrapper or string, as the constructors are deprecated and always allocate a new object (`new String("copy")` -> `"copy"`).
+#32 Positive.java:226:16-30 - java-wrapper-constructor: prefer `valueOf()` or a literal over constructing a wrapper or string, as the constructors are deprecated and always allocate a new object (`new Integer(n)` -> `Integer.valueOf(n)`).
+#33 Positive.java:236:17-31 - java-try-with-resources: prefer try-with-resources over closing a resource in `finally`, as it closes the resource in every case and keeps suppressed exceptions (`reader.close()` in finally -> `try (... reader = new ...)`).
+#34 Positive.java:242:21-41 - java-replace-all-literal: prefer `replace()` over `replaceAll()` when the pattern has no regular expression syntax, as it skips compiling a pattern (`replaceAll("/", "_")` -> `replace("/", "_")`).
+#35 Positive.java:248:13-27 - java-string-concat-in-loop: prefer a `StringBuilder` over concatenating strings in a loop, as each `+=` copies the whole string built so far (`result += part` -> `resultBuilder.append(part)`).
+#36 Positive.java:255:27-42 - java-entry-set-iteration: prefer iterating `entrySet()` over looking up each key of `keySet()`, as it saves a map lookup per entry (`counts.keySet()` with `counts.get(key)` -> `counts.entrySet()`).
+#37 Positive.java:262:13-34 - java-instanceof-pattern: prefer a pattern variable in `instanceof` over casting after the test, as it is more concise and cannot cast to the wrong type (`shape instanceof Rect` -> `shape instanceof Rect rect`).
+#38 Positive.java:269:16-38 - java-empty-collection-constant: prefer `Collections.emptyList()` and its siblings over the raw `EMPTY_` constants, as the methods are type safe (`Collections.EMPTY_LIST` -> `Collections.emptyList()`).
+#39 Positive.java:275:28-44 - java-synchronized-legacy-class: prefer the unsynchronized collections over `Vector`, `Hashtable`, `Stack` and `StringBuffer`, as their locking costs time and rarely makes compound actions thread safe (`new StringBuffer` -> `new StringBuilder`).
+#40 Positive.java:283:9-35 - no-formatted-string-placeholders: formatted string without any placeholders (`System.out.printf("ready")` -> `System.out.print("ready")`).
+#41 Positive.java:284:16-38 - no-formatted-string-placeholders: formatted string without any placeholders (`String.format("plain")` -> `"plain"`).
+#42 Positive.java:284:41-60 - no-formatted-string-placeholders: formatted string without any placeholders (`"fixed".formatted()` -> `"fixed"`).
+#43 Positive.java:289:8-26 - reviewer-addressed-comment: comment speaks to the reviewer or the person who asked for the change (`Note for reviewers`).
+#44 Positive.java:289:26-27 - comment-prose: comment contains a prose pattern that reads as AI generated (label-colon `:`).
+#45 Positive.java:292:13-67 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`throw new IllegalArgumentException("Invalid argument")`).
+#46 Positive.java:294:9-25 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assertTrue(true)`).
+#47 Positive.java:295:9-42 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`Assertions.assertEquals("x", "x")`).
+#48 Positive.java:296:9-35 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assertThat(5).isEqualTo(5)`).
+#49 Positive.java:297:16-44 - cheerful-message: chatty or celebratory string literal ("Oops", "Yay", "Great!", "successfully!") (`Success! Payment received.`).

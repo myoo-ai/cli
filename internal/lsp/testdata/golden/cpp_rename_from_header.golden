@@ -1,0 +1,8 @@
+$ myoo lsp rename include/calc.shop.Calc.add sum --dry-run --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+include/calc.shop.Calc.sum (include/calc.h:8:9)
+	    int sum(int a, int b);
+
+- include/calc.h (1 edit)
+- src/calc.cpp (1 edit)
+- src/main.cpp (2 edits)

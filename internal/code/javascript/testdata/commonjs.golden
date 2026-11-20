@@ -1,0 +1,86 @@
+file lib/counter.js javascript module=lib/counter
+  decl import lib/counter.EventEmitter L1:7
+  decl class lib/counter.Counter L3:7 body=L3:36-L16:2 bases=EventEmitter
+  decl constructor lib/counter.Counter.constructor L4:3 body=L4:22-L9:4
+  decl parameter lib/counter.Counter.constructor->start L4:15
+  decl field lib/counter.Counter.count L6:10
+  decl field lib/counter.Counter.step L7:10
+  decl method lib/counter.Counter.increment L11:3 body=L11:15-L15:4
+  ref L1:22 require call in=lib/counter -> ?
+  ref L3:23 EventEmitter in=lib/counter -> lib/counter.EventEmitter
+  ref L6:18 start in=lib/counter.Counter.constructor -> lib/counter.Counter.constructor->start
+  ref L8:10 increment in=lib/counter.Counter.constructor -> lib/counter.Counter.increment
+  ref L8:27 increment in=lib/counter.Counter.constructor -> lib/counter.Counter.increment
+  ref L8:37 bind call in=lib/counter.Counter.constructor -> ?
+  ref L12:10 count in=lib/counter.Counter.increment -> lib/counter.Counter.count
+  ref L12:24 step in=lib/counter.Counter.increment -> lib/counter.Counter.step
+  ref L13:10 emit call in=lib/counter.Counter.increment -> ?
+  ref L13:30 count in=lib/counter.Counter.increment -> lib/counter.Counter.count
+  ref L18:1 module in=lib/counter -> ?
+  ref L18:8 exports in=lib/counter -> ?
+  ref L18:18 Counter in=lib/counter -> lib/counter.Counter
+file lib/math.js javascript module=lib/math
+  decl function lib/math.add L3:10 body=L3:20-L5:2
+  decl parameter lib/math.add->a L3:14
+  decl parameter lib/math.add->b L3:17
+  decl function lib/math.multiply L7:9 body=L7:36-L9:2
+  decl parameter lib/math.multiply->a L7:30
+  decl parameter lib/math.multiply->b L7:33
+  decl variable lib/math.VERSION L11:16
+  decl function lib/math.square L16:3 body=L16:13-L18:4
+  decl parameter lib/math.square->x L16:10
+  ref L4:10 a in=lib/math.add -> lib/math.add->a
+  ref L4:14 b in=lib/math.add -> lib/math.add->b
+  ref L7:1 exports in=lib/math -> ?
+  ref L8:10 a in=lib/math.multiply -> lib/math.multiply->a
+  ref L8:14 b in=lib/math.multiply -> lib/math.multiply->b
+  ref L11:1 module in=lib/math -> ?
+  ref L11:8 exports in=lib/math -> ?
+  ref L13:1 module in=lib/math -> ?
+  ref L13:8 exports in=lib/math -> ?
+  ref L14:3 add in=lib/math -> lib/math.add
+  ref L15:8 add in=lib/math -> lib/math.add
+  ref L17:12 exports in=lib/math.square -> ?
+  ref L17:20 multiply call in=lib/math.square -> lib/math.multiply
+  ref L17:29 x in=lib/math.square -> lib/math.square->x
+  ref L17:32 x in=lib/math.square -> lib/math.square->x
+file main.js javascript module=main
+  decl import main.math L1:7
+  decl import main.sq L2:22
+  decl import main.Counter L3:7
+  decl import main.path L4:7
+  decl variable main.counter L6:5 type=Counter
+  decl function main.main L9:10 body=L9:21-L15:2
+  decl parameter main.main->argv L9:15
+  decl variable main.main->result L10:7
+  decl variable main.main->result L12:9
+  decl variable main->hidden L20:7
+  ref L1:14 require call in=main -> ?
+  ref L2:9 add import in=main -> lib/math.add (lib/math.js)
+  ref L2:14 square import in=main -> lib/math.square (lib/math.js)
+  ref L2:29 require call in=main -> ?
+  ref L3:17 require call in=main -> ?
+  ref L4:14 require call in=main -> ?
+  ref L6:19 Counter call in=main -> main.Counter
+  ref L7:1 counter in=main -> main.counter
+  ref L7:9 increment call in=main -> lib/counter.Counter.increment (lib/counter.js)
+  ref L7:21 increment call in=main -> ?
+  ref L10:16 add call in=main.main -> lib/math.add (lib/math.js)
+  ref L10:28 sq call in=main.main -> main.sq
+  ref L10:36 math in=main.main -> main.math
+  ref L10:41 sum call in=main.main -> lib/math.add (lib/math.js)
+  ref L11:7 argv in=main.main -> main.main->argv
+  ref L11:12 length in=main.main -> ?
+  ref L12:18 math in=main.main -> main.math
+  ref L12:23 multiply call in=main.main -> lib/math.multiply (lib/math.js)
+  ref L12:32 result in=main.main -> main.main->result
+  ref L14:10 path in=main.main -> main.path
+  ref L14:15 join call in=main.main -> ?
+  ref L14:20 String call in=main.main -> ?
+  ref L14:27 result in=main.main -> main.main->result
+  ref L14:36 require call in=main.main -> ?
+  ref L14:58 VERSION in=main.main -> lib/math.VERSION (lib/math.js)
+  ref L17:1 main call in=main -> main.main
+  ref L17:6 process in=main -> ?
+  ref L17:14 argv in=main -> ?
+  ref L21:10 hidden in=main -> main->hidden

@@ -1,0 +1,9 @@
+file broken.py python module=broken
+  decl function broken.ok L1:5 body=L2:5-L2:13
+  decl variable broken.x L4:1
+  decl function broken.after L7:5 body=L8:5-L8:20
+  decl parameter broken.after->y L7:11
+  decl variable broken.s L10:1
+  decl variable broken.t L11:1
+  ref L8:12 ok call in=broken.after -> broken.ok
+  ref L8:19 y in=broken.after -> broken.after->y

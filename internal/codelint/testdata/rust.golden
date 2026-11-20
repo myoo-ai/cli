@@ -1,0 +1,81 @@
+#1 dup.rs:20:63-31.2 - duplicated-block: block of code duplicates another block (first occurrence at dup.rs:7:60, lines 7-18).
+#2 positive.rs:1:1-2.43 - comments-in-file-header: use of docstring/explanatory comments in file header.
+#3 positive.rs:4:1-20 - rust-extern-crate: `extern crate` declarations are not needed since the 2018 edition, as dependencies are in scope by their name (`extern crate serde;` -> remove it).
+#4 positive.rs:10:1-44 - decorative-comment: use of banner or separator comments made of repeated characters.
+#5 positive.rs:14:5-45 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#6 positive.rs:16:5-46 - narrating-comment: comment narrates what the code does instead of explaining why.
+#7 positive.rs:21:5-41 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#8 positive.rs:23:5-43 - step-comment: use of numbered or sequenced comments that narrate the steps of the code.
+#9 positive.rs:28:5-12 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#10 positive.rs:32:5-12 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#11 positive.rs:36:5-30 - placeholder-code: placeholder code left in the source (an empty body marked TODO, or a not implemented error).
+#12 positive.rs:40:15-16 - emoji-in-code: use of emoji in comments or string literals.
+#13 positive.rs:41:20-21 - utf8-icons-in-code: use of utf-8 characters (arrows, check marks, bullets, box drawing) as icons in comments or string literals.
+#14 positive.rs:42:19-20 - emdash-in-code: use of emdash in comments or string literals.
+#15 positive.rs:43:20-34 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#16 positive.rs:44:14-26 - ascii-banner-output: printing separator lines or banners made of repeated characters.
+#17 positive.rs:45:13-34 - no-formatted-string-placeholders: formatted string without any placeholders (`format!("plain text")` -> `"plain text".to_string()`).
+#18 positive.rs:46:5-17 - rust-println-empty-string: prefer calling `println!()` without arguments instead of printing an empty string, as both print a newline (`println!("")` -> `println!()`).
+#19 positive.rs:51:5-40 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#20 positive.rs:52:5-36 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#21 positive.rs:53:5-49 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#22 positive.rs:56:9-21 - swallowed-exception: broad exception handler that ignores the error (empty, pass/continue, or only logs).
+#23 positive.rs:60:1-20 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#24 positive.rs:63:1-23 - suppressed-diagnostic: diagnostic suppressed without a justification.
+#25 positive.rs:65:15-27 - rust-ptr-arg: prefer borrowing a slice or `str` instead of `&String`, `&Vec<T>`, `&PathBuf` or `&Box<T>` parameters, as the function then accepts more argument types (`v: &Vec<u32>` -> `v: &[u32]`).
+#26 positive.rs:65:29-42 - rust-ptr-arg: prefer borrowing a slice or `str` instead of `&String`, `&Vec<T>`, `&PathBuf` or `&Box<T>` parameters, as the function then accepts more argument types (`name: &String` -> `name: &str`).
+#27 positive.rs:65:44-56 - rust-ptr-arg: prefer borrowing a slice or `str` instead of `&String`, `&Vec<T>`, `&PathBuf` or `&Box<T>` parameters, as the function then accepts more argument types (`b: &Box<u32>` -> `b: &u32`).
+#28 positive.rs:65:58-69 - rust-ptr-arg: prefer borrowing a slice or `str` instead of `&String`, `&Vec<T>`, `&PathBuf` or `&Box<T>` parameters, as the function then accepts more argument types (`p: &PathBuf` -> `p: &Path`).
+#29 positive.rs:66:8-20 - rust-len-zero: prefer using `is_empty()` instead of comparing `len()` with zero, as it states the intent and works for any collection (`v.len() == 0` -> `v.is_empty()`).
+#30 positive.rs:69:16-30 - rust-len-zero: prefer using `is_empty()` instead of comparing `len()` with zero, as it states the intent and works for any collection (`name.len() > 0` -> `!name.is_empty()`).
+#31 positive.rs:70:8-20 - rust-bool-comparison: prefer using the boolean itself instead of comparing it with `true` or `false`, as the comparison adds nothing (`flag == true` -> `flag`).
+#32 positive.rs:71:16-28 - rust-len-zero: prefer using `is_empty()` instead of comparing `len()` with zero, as it states the intent and works for any collection (`0 != v.len()` -> `!v.is_empty()`).
+#33 positive.rs:78:5-14 - rust-needless-return: prefer ending a function with its value instead of a `return` statement, as the last expression of a block is its value (`return y;` -> `y`).
+#34 positive.rs:82:13-27 - rust-manual-string-new: prefer using `String::new()` instead of converting an empty string literal, as it says what is created without a conversion (`"".to_string()` -> `String::new()`).
+#35 positive.rs:83:13-29 - rust-manual-string-new: prefer using `String::new()` instead of converting an empty string literal, as it says what is created without a conversion (`String::from("")` -> `String::new()`).
+#36 positive.rs:84:13-26 - rust-manual-string-new: prefer using `String::new()` instead of converting an empty string literal, as it says what is created without a conversion (`"".to_owned()` -> `String::new()`).
+#37 positive.rs:89:17-32 - rust-iter-nth-zero: prefer using `next()` instead of `nth(0)` on an iterator, as it says that the first element is taken (`v.iter().nth(0)` -> `v.iter().next()`).
+#38 positive.rs:90:14-22 - rust-explicit-iter-loop: prefer looping over a reference to the collection instead of calling `iter()`, `iter_mut()` or `into_iter()` in a `for` loop, as the loop does that itself (`v.iter()` -> `&v`).
+#39 positive.rs:93:14-26 - rust-explicit-iter-loop: prefer looping over a reference to the collection instead of calling `iter()`, `iter_mut()` or `into_iter()` in a `for` loop, as the loop does that itself (`w.iter_mut()` -> `&mut w`).
+#40 positive.rs:96:15-30 - rust-single-char-pattern: prefer using a `char` instead of a one-character string as a string pattern, as a `char` pattern is faster (`s.contains("x")` -> `s.contains('x')`).
+#41 positive.rs:96:34-52 - rust-single-char-pattern: prefer using a `char` instead of a one-character string as a string pattern, as a `char` pattern is faster (`s.starts_with("a")` -> `s.starts_with('a')`).
+#42 positive.rs:97:17-29 - rust-single-char-pattern: prefer using a `char` instead of a one-character string as a string pattern, as a `char` pattern is faster (`s.split(",")` -> `s.split(',')`).
+#43 positive.rs:98:13-46 - rust-map-unwrap-or: prefer using `map_or` or `map_or_else` instead of `map(f).unwrap_or(d)`, as it maps and defaults in one call (`first.map(|x| x + 1).unwrap_or(0)` -> `first.map_or(0, |x| x + 1)`).
+#44 positive.rs:99:18-47 - rust-chars-next-cmp: prefer using `starts_with` or `ends_with` instead of comparing the first or last of `chars()`, as they say what is tested (`s.chars().next() == Some('a')` -> `s.starts_with('a')`).
+#45 positive.rs:101:14-27 - rust-explicit-iter-loop: prefer looping over a reference to the collection instead of calling `iter()`, `iter_mut()` or `into_iter()` in a `for` loop, as the loop does that itself (`w.into_iter()` -> `w`).
+#46 positive.rs:108:14-36 - rust-unwrap-or-default: prefer using `unwrap_or_default()` or `or_default()` instead of passing an empty value or `Default::default`, as it states that the default is meant (`.unwrap_or(Vec::new())` -> `.unwrap_or_default()`).
+#47 positive.rs:109:14-42 - rust-unwrap-or-default: prefer using `unwrap_or_default()` or `or_default()` instead of passing an empty value or `Default::default`, as it states that the default is meant (`.unwrap_or_else(String::new)` -> `.unwrap_or_default()`).
+#48 positive.rs:110:15-37 - rust-unwrap-or-default: prefer using `unwrap_or_default()` or `or_default()` instead of passing an empty value or `Default::default`, as it states that the default is meant (`.or_insert(Vec::new())` -> `.or_default()`).
+#49 positive.rs:115:13-118.6 - rust-question-mark: prefer using the `?` operator instead of matching an error or `None` only to return it, as `?` does the same in one character (`match r { Ok(v) => v, Err(e) => return Err(e.into()), }` -> `r?`).
+#50 positive.rs:126:5-128.6 - rust-question-mark: prefer using the `?` operator instead of matching an error or `None` only to return it, as `?` does the same in one character (`if o.is_none() { return None; }` -> `o.as_ref()?;`).
+#51 positive.rs:129:13-132.6 - rust-question-mark: prefer using the `?` operator instead of matching an error or `None` only to return it, as `?` does the same in one character (`match o { Some(x) => x, None => return None, }` -> `o?`).
+#52 positive.rs:138:5-29 - rust-format-push-string: prefer using `write!` instead of appending the result of `format!` to a string, as it formats into the string without a temporary allocation (`out += &format!("{}", n)` -> `write!(out, "{}", n)`).
+#53 positive.rs:139:5-37 - rust-format-push-string: prefer using `write!` instead of appending the result of `format!` to a string, as it formats into the string without a temporary allocation (`out.push_str(&format!("{name}"))` -> `write!(out, "{name}")`).
+#54 positive.rs:140:31-44 - rust-to-string-in-format-args: prefer passing a value to a format macro directly instead of calling `to_string()` on it, as the macro formats it without the extra allocation (`n.to_string()` -> `n`).
+#55 positive.rs:141:25-41 - rust-to-string-in-format-args: prefer passing a value to a format macro directly instead of calling `to_string()` on it, as the macro formats it without the extra allocation (`name.to_string()` -> `name`).
+#56 positive.rs:142:5-12 - rust-dbg-macro: `dbg!` calls should not be left in the code, as they print to stderr in every build (`dbg!(n)` -> `n`).
+#57 positive.rs:147:5-11 - rust-undocumented-unsafe: `unsafe` blocks and `unsafe impl` should be preceded by a `// SAFETY:` comment, as readers need to know why the code upholds the invariants.
+#58 positive.rs:152:1-12 - rust-undocumented-unsafe: `unsafe` blocks and `unsafe impl` should be preceded by a `// SAFETY:` comment, as readers need to know why the code upholds the invariants.
+#59 positive.rs:154:15-23 - rust-missing-safety-doc: public `unsafe` functions should document their contract in a `# Safety` section, as callers must know what to uphold.
+#60 positive.rs:160:45-54 - rust-unwrap-in-result: functions returning `Result` should propagate errors with `?` instead of calling `unwrap()`, as a panic takes the choice away from the caller (`std::fs::read_to_string(path).unwrap()` -> `std::fs::read_to_string(path)?`).
+#61 positive.rs:165:13-45 - rust-mem-replace-with-default: prefer using `mem::take` or `Option::take` instead of `mem::replace` with a default value, as they state the intent (`std::mem::replace(v, Vec::new())` -> `std::mem::take(v)`).
+#62 positive.rs:166:14-60 - rust-mem-replace-with-default: prefer using `mem::take` or `Option::take` instead of `mem::replace` with a default value, as they state the intent (`std::mem::replace(&mut *v, Default::default())` -> `std::mem::take(&mut *v)`).
+#63 positive.rs:167:13-45 - rust-mem-replace-with-default: prefer using `mem::take` or `Option::take` instead of `mem::replace` with a default value, as they state the intent (`std::mem::replace(&mut *o, None)` -> `o.take()`).
+#64 positive.rs:178:13-17 - rust-redundant-field-names: prefer the field init shorthand instead of repeating a field name that the variable already has (`x: x` -> `x`).
+#65 positive.rs:178:19-23 - rust-redundant-field-names: prefer the field init shorthand instead of repeating a field name that the variable already has (`y: y` -> `y`).
+#66 positive.rs:184:7-185.11 - rust-collapsible-else-if: prefer `else if` instead of an `else` block holding only an `if` expression, as it removes a level of nesting (`else { if .. }` -> `else if ..`).
+#67 positive.rs:194:5-12 - rust-single-match: prefer `if let` instead of a `match` with one pattern and an empty wildcard arm, as it states the single case directly (`match o { Some(x) => .., _ => {} }` -> `if let Some(x) = o { .. }`).
+#68 positive.rs:201:18-33 - rust-redundant-closure: prefer passing a function directly instead of a closure that only calls it with its argument (`|x| describe(x)` -> `describe`).
+#69 positive.rs:215:25-35 - deep-nesting: control flow nested more than 4 levels deep (depth 5).
+#70 positive.rs:230:5-43 - obvious-comment: comment repeats the code it is attached to.
+#71 positive.rs:235:1-323.2 - long-function: function has more than 80 lines of code (89 lines of code).
+#72 positive.rs:325:1-338.2 - excessive-comments: function body is dominated by comments (6 of 14 non-blank lines are comments).
+#73 positive.rs:341:8-16 - change-narration-comment: comment describes the edit history instead of the code (`CHANGED:`).
+#74 positive.rs:341:28-43 - change-narration-comment: comment describes the edit history instead of the code (`no longer calls`).
+#75 positive.rs:342:27-38 - rust-expect-empty-message: `expect` should say why the value is present, as an empty message panics with no more information than `unwrap()` (`.expect("")`).
+#76 positive.rs:343:27-40 - rust-expect-empty-message: `expect` should say why the value is present, as an empty message panics with no more information than `unwrap()` (`.expect(" ")`).
+#77 positive.rs:345:17-39 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`bail!("Invalid input")`).
+#78 positive.rs:348:20-44 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`anyhow!("unknown error")`).
+#79 positive.rs:350:5-18 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assert!(true)`).
+#80 positive.rs:351:5-21 - tautological-assertion: assertion compares literals or asserts a literal true, so it cannot fail (`assert_eq!(2, 2)`).
+#81 positive.rs:357:16-52 - generic-error-message: error raised with a generic message that names neither what failed nor the value (`Err("Operation failed.".to_string())`).

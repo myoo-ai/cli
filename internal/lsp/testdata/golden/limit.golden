@@ -1,0 +1,11 @@
+$ myoo lsp definition a --limit=2 --backend=builtin
+# format: (for each matching symbol) `<symbol>:<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<source, max. 50 lines counting from top to bottom>\n\n`
+Calc:calc.Calc (calc/calc.go:4:6)
+	type Calc struct {
+		total int
+	}
+
+total:calc.Calc.total (calc/calc.go:5:2)
+		total int
+[stderr]
+note: more than 2 symbols match `a`, showing the first 2. narrow the query or raise --limit

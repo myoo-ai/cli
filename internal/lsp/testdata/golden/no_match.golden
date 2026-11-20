@@ -1,0 +1,2 @@
+$ myoo lsp definition zzzqqq --backend=builtin
+[err] unable to find symbols matching `zzzqqq`, try widening the query (exit 1)

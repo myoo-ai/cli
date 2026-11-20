@@ -1,0 +1,8 @@
+$ myoo lsp rename src/math.add->a x -c --dry-run --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+src/math.add->x (src/math.ts:2:21)
+	export function add(x: number, b: number): number {
+	  return x + b;
+	}
+
+- src/math.ts (3 edits)

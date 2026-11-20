@@ -1,0 +1,6 @@
+$ myoo lsp definition src/index.ts:add --backend=builtin
+# format: (for each matching symbol) `<symbol>:<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<source, max. 50 lines counting from top to bottom>\n\n`
+add:src/math.add (src/math.ts:2:17)
+	export function add(a: number, b: number): number {
+	  return a + b;
+	}

@@ -1,0 +1,7 @@
+$ myoo lsp definition main.go:Add --backend=builtin
+# format: (for each matching symbol) `<symbol>:<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<source, max. 50 lines counting from top to bottom>\n\n`
+Add:calc.Calc.Add (calc/calc.go:9:16)
+	func (c *Calc) Add(a, b int) int {
+		c.total += a + b
+		return c.total
+	}

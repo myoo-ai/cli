@@ -1,0 +1,18 @@
+$ myoo lsp rename calculator.calculate add --backend=builtin
+# format: `<fqn>[-><local/temporary symbols>] (<file>:<line>:<col>)\n\t<new source, max. 50 lines counting from top to bottom>\n\n- <changed file> (<n> edits)`
+calculator.add (calculator.py:2:5)
+	def add(a, b):
+	    """sums `a` and `b`"""
+	    return a + b
+
+- calculator.py (1 edit)
+- main.py (2 edits)
+[changed calculator.py]
+# source for calculator
+def add(a, b):
+    """sums `a` and `b`"""
+    return a + b
+[changed main.py]
+from calculator import add
+
+print(add(1, 1))

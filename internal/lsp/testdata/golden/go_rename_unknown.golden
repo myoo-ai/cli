@@ -1,0 +1,2 @@
+$ myoo lsp rename calc.Calc.Ad Sum --backend=builtin
+[err] unknown symbol `calc.Calc.Ad`, did you mean `calc.Calc.Add` or `calc.Calc` or `calc.Calc.Add->a`? (exit 1)

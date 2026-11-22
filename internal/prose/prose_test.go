@@ -137,7 +137,7 @@ func TestLikelihood(t *testing.T) {
 	}
 }
 
-// TestEvidence checks which signals a text gets: markdown gets the bold
+// TestEvidence checks which signals a text gets. Markdown gets the bold
 // line, plain text doesn't, and text without any word the wording model
 // knows gets no wording line.
 func TestEvidence(t *testing.T) {

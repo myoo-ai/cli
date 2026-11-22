@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"flag"
+	"fmt"
 	"os"
 	"path/filepath"
 	"slices"
@@ -120,7 +121,7 @@ func TestReadmeMaze(t *testing.T) {
 		"#1 maze.py:2:1-10.4 - comments-in-file-header: use of docstring/explanatory comments in file header. in general, explanations should be part of the documentation outside of the code itself (external applications like Notion or wikis, or markdown files), however there are sometimes cases where this is warranted (eg. for purposes of generating an automated documentation), in that case it is acceptable to ignore this. "
 	violations, evidence, ok := strings.Cut(out, "# format: "+likelihood.EvidenceFormat+"\n")
 	if !ok || !strings.HasPrefix(violations, want) || strings.Count(violations, "\n") != 2 ||
-		!strings.HasPrefix(evidence, "-2.20 prior: ") || !strings.HasSuffix(evidence, "\n(likely) AI patterns: 8.2 %\n") {
+		!strings.HasPrefix(evidence, "-2.20 prior: ") || !strings.HasSuffix(evidence, "\n(likely) AI patterns: 7.2 %\n") {
 		t.Errorf("got:\n%s\nwant prefix:\n%s", out, want)
 	}
 }
@@ -153,9 +154,10 @@ func TestClean(t *testing.T) {
 	// A single short docstring is next to no evidence, so the estimate
 	// should stay near the prior.
 	evidence := "-2.20 prior: before any evidence\n" +
+		"-0.03 possessives: 0 possessives (\"the inbox's\", \"own\") in 10 comment words of files commented in English\n" +
 		"-0.02 comment prose patterns: 0 comment-prose violations in 10 comment words\n" +
-		"+0.01 first person, contractions and interjections: 0 first-person words, contractions and interjections in 10 comment words\n" +
-		"(likely) AI patterns: 9.9 %\n"
+		"+0.01 human markers: 0 TODO/FIXME/XXX/HACK markers, 0 questions and 0 first-person words and interjections in 10 comment words of files commented in English\n" +
+		"(likely) AI patterns: 9.6 %\n"
 	for _, tt := range []struct {
 		args []string
 		want string
@@ -402,6 +404,124 @@ func TestEvidence(t *testing.T) {
 	}
 	if out, _, _ = lintIn(t, t.TempDir()); out != "no violations found\n(likely) AI patterns: 0 %\n" {
 		t.Errorf("empty directory: got %q", out)
+	}
+}
+
+// TestSpreadFiles checks that a file reads as AI written when its marked
+// comments run through the file, and not when the same number of them sit
+// together at its top.
+func TestSpreadFiles(t *testing.T) {
+	dir := t.TempDir()
+	write := func(name string, bodies []int, marked []bool) {
+		var b strings.Builder
+		b.WriteString("package p\n\n")
+		for i, n := range bodies {
+			if marked[i] {
+				fmt.Fprintf(&b, "// f%d returns the buffer's next value.\n", i)
+			} else {
+				fmt.Fprintf(&b, "// f%d reads the next value from the buffer.\n", i)
+			}
+			fmt.Fprintf(&b, "func f%d() int {\n", i)
+			for j := range n {
+				fmt.Fprintf(&b, "\tx%d := %d\n\t_ = x%d\n", j, j, j)
+			}
+			b.WriteString("\treturn 0\n}\n\n")
+		}
+		if err := os.WriteFile(filepath.Join(dir, name), []byte(b.String()), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	write("spread.go", []int{4, 4, 4, 4, 4, 4}, []bool{true, false, true, false, true, false})
+	write("bunched.go", []int{0, 0, 0, 8, 8, 8}, []bool{true, true, true, false, false, false})
+	out, _, _ := lintIn(t, dir, "-nf")
+	_, line, ok := strings.Cut(out, " files with AI-style comments throughout: ")
+	if !ok {
+		t.Fatalf("no spread evidence in:\n%s", out)
+	}
+	line, _, _ = strings.Cut(line, "\n")
+	if !strings.HasPrefix(line, "1 of 2 files ") || !strings.HasSuffix(line, ": spread.go") {
+		t.Errorf("spread evidence = %q, want only spread.go flagged", line)
+	}
+}
+
+// TestCommentLanguage checks that the signals we fit on English comments
+// (human markers, possessives and spread) skip files commented in other
+// languages, with or without diacritics, and count a short TODO in a file
+// commented in English, which is too short to tell its language on its own.
+func TestCommentLanguage(t *testing.T) {
+	lint := func(comments ...string) string {
+		dir := t.TempDir()
+		var b strings.Builder
+		b.WriteString("package p\n\n")
+		for i, c := range comments {
+			fmt.Fprintf(&b, "// %s\nfunc f%d() int { return %d }\n\n", c, i, i)
+		}
+		if err := os.WriteFile(filepath.Join(dir, "p.go"), []byte(b.String()), 0o644); err != nil {
+			t.Fatal(err)
+		}
+		out, _, _ := lintIn(t, dir, "-nf")
+		return out
+	}
+	slovak := lint(
+		"TODO: prečo sa vyrovnávacia pamäť niekedy vyprázdni?",
+		"vráti ďalšiu hodnotu z vyrovnávacej pamäte",
+		"načíta konfiguráciu zo súboru na disku",
+		"uloží výsledok do databázy pre neskoršie použitie",
+		"skontroluje, či používateľ má prístup k schránke",
+		"odošle správu všetkým členom tímu",
+	)
+	// German written without umlauts, with the English function word "an".
+	german := lint(
+		"TODO: warum wird der Puffer manchmal geleert?",
+		"gibt den naechsten Wert aus dem Puffer zurueck",
+		"laedt die Konfiguration aus der Datei auf der Platte",
+		"speichert das Ergebnis in der Datenbank",
+		"prueft ob der Benutzer Zugriff auf das Postfach hat",
+		"sendet eine Nachricht an alle Mitglieder des Teams",
+	)
+	for lang, out := range map[string]string{"Slovak": slovak, "German": german} {
+		for _, signal := range []string{" human markers: ", " possessives: ", " files with AI-style comments throughout: "} {
+			if strings.Contains(out, signal) {
+				t.Errorf("%s comments weighed by%s\n%s", lang, strings.TrimSuffix(signal, ": "), out)
+			}
+		}
+	}
+	english := lint(
+		"TODO: should probably return here",
+		"f1 reads the next value from the buffer.",
+		"f2 loads the config from a file on disk.",
+	)
+	if !strings.Contains(english, " human markers: 1 TODO/FIXME/XXX/HACK markers, ") {
+		t.Errorf("short TODO in an English file not counted:\n%s", english)
+	}
+}
+
+// TestStringProse checks that string-prose reads strings that are sentences
+// of running prose, placeholders included. It leaves alone error chains that
+// aren't sentences, SQL, CSS classes and short labels, even when they have a
+// colon or semicolon.
+func TestStringProse(t *testing.T) {
+	dir := t.TempDir()
+	src := "package p\n\nimport (\n\t\"errors\"\n\t\"fmt\"\n)\n\n" +
+		"var errSave = errors.New(\"Saving the draft failed; the server did not answer in time.\")\n" +
+		"var copied = fmt.Sprintf(\"Copied %d files to %s; the rest of them were duplicates.\", 1, \"x\")\n" +
+		"var errOpen = fmt.Errorf(\"open the config file of %s: the file was removed by another process %w\", \"x\", errSave)\n" +
+		"const query = \"SELECT id, name FROM users WHERE id = ? AND deleted_at IS NULL; DELETE FROM sessions\"\n" +
+		"const classes = \"group flex h-12 cursor-pointer items-center gap-3 border-b px-3; hidden\"\n" +
+		"const label = \"Save; close\"\n"
+	if err := os.WriteFile(filepath.Join(dir, "p.go"), []byte(src), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	out, _, _ := lintIn(t, dir, "-nf")
+	var lines []string
+	for l := range strings.Lines(out) {
+		if _, rest, ok := strings.Cut(l, " p.go:"); ok && strings.Contains(l, " - string-prose: ") {
+			line, _, _ := strings.Cut(rest, ":")
+			lines = append(lines, line)
+		}
+	}
+	if !slices.Equal(lines, []string{"8", "9"}) {
+		t.Errorf("string-prose reported on lines %v, want [8 9]:\n%s", lines, out)
 	}
 }
 

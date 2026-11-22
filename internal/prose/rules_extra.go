@@ -493,10 +493,11 @@ var (
 
 // detectBackslashEscapes flags backslashes before punctuation that markdown
 // would print as is: "1\." in a heading, "A \= B", "\~50 %". It leaves the
-// escapes that change how a line renders: a "-", "+" or "1." that would open
-// a list item, "\!" before a link, "\&" before an entity, a dot between
-// letters that would turn into a link ("rsync\.net"), and the characters
-// that format text anywhere (`*`, `_`, backticks, brackets, `<`, `|`, `$`).
+// escapes that change how a line renders, such as a "-", "+" or "1." that
+// would open a list item, "\!" before a link, "\&" before an entity, a dot
+// between letters that would turn into a link ("rsync\.net"), and the
+// characters that format text anywhere (`*`, `_`, backticks, brackets, `<`,
+// `|`, `$`).
 func detectBackslashEscapes(t *text) []Violation {
 	if !strings.Contains(t.src, `\`) {
 		return nil

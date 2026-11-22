@@ -61,7 +61,7 @@ func (s *source) aiScore(sp code.Span) int {
 	if utf8.RuneCountInString(text) >= longComment {
 		score += scoreLong
 	}
-	score += scoreProse * len(lintCommentText(strings.Join(lines, "\n"), s.comments[first].docstring))
+	score += scoreProse * len(s.lintCommentText(strings.Join(lines, "\n"), s.comments[first].docstring))
 	if s.groupScores == nil {
 		s.groupScores = map[[2]int]int{}
 	}

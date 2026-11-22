@@ -41,10 +41,15 @@ that terminals such as VS Code's open on cmd/ctrl+click.
 The likelihood combines signals measured on human and AI written codebases:
 the voice of English comments (AI comments are dense and declarative, people
 write "we", "if", "will", "to"), comment-prose violations, TODO markers,
-questions and informal words in comments (which people leave and agents do
-not), em dashes, icons and step comments. Each evidence line shows what a
-signal counted and how far it moved the estimate. Code with few comments
-gives little evidence and stays low.
+questions, first person and interjections in comments (which people leave
+and agents do not), possessives ("the inbox's own address"), em dashes,
+icons and step comments. A file reads as AI written when a third of its
+comments have a possessive, "own", ", so" or "rather than" and they spread
+over a third of the file. The share of such files is a signal too, and
+like the markers and possessives it only counts files whose comments read
+as English. Each evidence line shows what a signal counted and how far it
+moved the estimate. Code with few comments gives little evidence and stays
+low.
 
 Rules that judge what a comment says report it only when it reads as
 generated: prose_lint violations in the comment, an upper-case start, several

@@ -13,21 +13,20 @@ import (
 // with their own words, so adding a language means adding an entry here.
 type language struct {
 	name string
-	// common lists frequent function words in lower case: articles,
-	// pronouns, prepositions, conjunctions and forms of "be". detectLang
-	// counts them, and rule-of-three doesn't take one for a list item.
+	// Frequent function words in lower case, such as articles, pronouns and
+	// forms of "be". detectLang counts them, and rule-of-three doesn't take
+	// one for a list item.
 	common string
 	// articles can open a list item ("the logs") without being one.
 	articles string
-	// and lists the words that join the last item of a list ("A, B and C").
+	// The words that join the last item of a list ("A, B and C").
 	and string
-	// negation holds the negative parallelism patterns: "not only A but
-	// also B" (notOnly), "it's not A, it's B", and "A, not B" (notCloser)
-	// where the language marks it clearly. "Not A, but B" ("nicht A,
-	// sondern B") is plain grammar in most of them, so we leave it, as we do
-	// in English.
+	// Negative parallelism, "not only A but also B" (notOnly), "it's not A,
+	// it's B", and "A, not B" (notCloser) where the language marks it
+	// clearly. "Not A, but B" ("nicht A, sondern B") is plain grammar in most
+	// of them, so we leave it, as we do in English.
 	negation []phrase
-	// chatbot holds assistant phrases ("I hope this helps").
+	// Assistant phrases ("I hope this helps").
 	chatbot []phrase
 }
 
@@ -198,6 +197,30 @@ func detectLang(ws []string) string {
 	return ""
 }
 
+// DetectLanguage returns the code of the language ws is written in, or "" if
+// it can't tell (see detectLang). ws are lower-case words as returned by
+// likelihood.Words.
+func DetectLanguage(ws []string) string { return detectLang(ws) }
+
+// RunningProse reports whether ws read as running prose rather than a list
+// of names or CSS classes. The common words of one language have to make up
+// a sixth of them or more. Function words alone make up a third of prose in
+// all the languages we know.
+func RunningProse(ws []string) bool {
+	for _, common := range commonSets {
+		n := 0
+		for _, w := range ws {
+			if common[w] {
+				n++
+			}
+		}
+		if n*6 >= len(ws) && n > 0 {
+			return true
+		}
+	}
+	return false
+}
+
 // langsWhere returns the sorted codes of the languages that have what has
 // asks for, for Rule.Langs.
 func langsWhere(has func(l *language) bool) []string {
@@ -252,10 +275,10 @@ func notOnly(first, second string) string {
 // to 6 words.
 const closerWords = `[\p{L}\p{N}][\p{L}\p{N}'’/-]*(?:[ \t]+[\p{L}\p{N}][\p{L}\p{N}'’/-]*){0,5}`
 
-// notCloser builds the "A, not B" closer: a negation after a comma, a dash,
-// an opening parenthesis or the word and (if given), followed by up to 6
-// words that end the clause ("VIP je nadstavba, nie prerušenie."). We report
-// it from the negation on. A closer that ends in a comma consumes the comma
+// notCloser builds the "A, not B" closer. It matches a negation after a
+// comma, a dash, an opening parenthesis or the word and (if given), followed
+// by up to 6 words that end the clause ("VIP je nadstavba, nie
+// prerušenie."). We report it from the negation on. A closer that ends in a comma consumes the comma
 // that the next one starts with ("nie čakaním, nie zbieraním mincí"), so
 // those that end in a comma get a phrase of their own, which phraseDetector
 // scans separately.

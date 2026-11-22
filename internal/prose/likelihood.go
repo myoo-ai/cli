@@ -37,8 +37,8 @@ var (
 		Signal: "prose patterns", Human: 2.4, AI: 24, Spread: 0.74,
 		MaxAI: 3, MaxHuman: 2,
 	}
-	// emphasis counts bold spans per 1000 words of a markdown document,
-	// labels and table cells included. Human docs bold a term or a warning
+	// emphasis counts bold spans per 1000 words of a markdown document.
+	// Labels and table cells count too. Human docs bold a term or a warning
 	// here and there, AI agents bold a phrase in most paragraphs and label
 	// list items with it, in every language. We fit it on the same documents
 	// as the other two and checked it on Wikipedia articles and AI documents

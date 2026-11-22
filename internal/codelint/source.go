@@ -6,6 +6,8 @@ import (
 	"strings"
 
 	"github.com/myoo-ai/cli/internal/code"
+	"github.com/myoo-ai/cli/internal/likelihood"
+	proselint "github.com/myoo-ai/cli/internal/prose"
 )
 
 // source is a file prepared for the rules.
@@ -23,6 +25,11 @@ type source struct {
 	declLines    map[int]bool
 	bodyStarts   map[int]bool   // see funcBodies
 	groupScores  map[[2]int]int // aiScore by the first and last comment of a group
+	// lang is the language of the comments as prose_lint detects it, or ""
+	// if it can't tell. Short comments like "// TODO: fix" don't have
+	// enough words to tell their own language, so we detect it once for
+	// all comments of the file.
+	lang string
 	// Names of the types that some linted type extends or implements, shared
 	// by the sources of a run.
 	extended map[string]bool
@@ -51,10 +58,17 @@ type comment struct {
 	// and build tags aren't prose.
 	directive bool
 	docstring bool
-	license   bool // copyright or license text, see markLicenses
+	license   bool     // copyright or license text, see markLicenses
+	words     []string // lower-case words of text, see likelihood.Words
 }
 
 func (c *comment) text() string { return strings.TrimSpace(strings.Join(c.lines, " ")) }
+
+// textual reports whether c is text someone wrote for a reader, as opposed to
+// a directive, a license notice or commented-out code.
+func (c *comment) textual() bool {
+	return !c.directive && !c.license && len(c.lines) > 0 && !commentedOutCode(c)
+}
 
 func (c *comment) contentLines() int {
 	n := 0
@@ -108,6 +122,13 @@ func newSource(f *code.File, name string) *source {
 		s.addIgnores(c)
 	}
 	s.markLicenses()
+	var ws []string
+	for _, c := range s.comments {
+		if c.textual() {
+			ws = append(ws, c.words...)
+		}
+	}
+	s.lang = proselint.DetectLanguage(ws)
 	return s
 }
 
@@ -204,6 +225,7 @@ func (s *source) newComment(c code.Comment, docstring bool) *comment {
 		cm.lines = cm.lines[:len(cm.lines)-1]
 	}
 	cm.directive = isDirective(cm, text)
+	cm.words = likelihood.Words(cm.text())
 	return cm
 }
 

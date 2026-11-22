@@ -3,8 +3,12 @@ package codelint
 import (
 	"regexp"
 	"strings"
+	"unicode"
+	"unicode/utf8"
 
 	"github.com/myoo-ai/cli/internal/code"
+	"github.com/myoo-ai/cli/internal/likelihood"
+	proselint "github.com/myoo-ai/cli/internal/prose"
 )
 
 // plainString returns the content of string literal token t unless it has a
@@ -497,6 +501,145 @@ func (s *source) productStrings() []int {
 		out = append(out, i)
 	}
 	return out
+}
+
+// minProseWords is how many words a string literal needs before string-prose
+// reads it. Shorter strings are labels and keys.
+const minProseWords = 8
+
+var (
+	// literalFillRe matches what a string fills in at run time: printf
+	// verbs, {name} and ${name} placeholders and PHP variables.
+	// The printf space flag is left out, it would read "50% of" as a verb.
+	literalFillRe = regexp.MustCompile(`%[-+#0]*(?:\d+|\*)?(?:\.(?:\d+|\*))?[a-zA-Z%]|\$?\{[^{}\n]{0,60}\}|\$\w+`)
+	// sqlRe matches the start of a SQL statement, which has enough English
+	// keywords to read as prose.
+	sqlRe      = regexp.MustCompile(`(?is)^\s*(?:select\b.*\bfrom\b|insert\s+into\b|update\s+\w+\s+set\b|delete\s+from\b|create\s+(?:table|index|view|unique|trigger)\b|alter\s+table\b|drop\s+(?:table|index|view)\b|with\s+\w+\s+as\s*\()`)
+	capsWordRe = regexp.MustCompile(`\b[A-Z]{2,}\b`)
+)
+
+// checkStringProse reports the prose_lint findings in string literals outside
+// tests that are sentences of running prose, like messages, help texts and
+// UI copy, with the rules comment-prose uses. Their language is the one
+// prose_lint detects for all such strings of the file together. Error and
+// log messages that chain their parts with colons ("open %s: %w") aren't
+// sentences, so we don't read them.
+func checkStringProse(s *source) []finding {
+	type literal struct {
+		start int
+		text  string
+	}
+	var lits []literal
+	var ws []string
+	for _, i := range s.productStrings() {
+		t := s.code[i]
+		text := proseLiteral(s.text(t))
+		if w := likelihood.Words(text); sentences(text) && runningProse(text, w) {
+			lits = append(lits, literal{t.Span.Start, text})
+			ws = append(ws, w...)
+		}
+	}
+	if len(lits) == 0 {
+		return nil
+	}
+	lang := proselint.DetectLanguage(ws)
+	var out, triples []finding
+	for _, l := range lits {
+		for _, v := range proselint.LintString(l.text, lang) {
+			if proseSkip[v.Rule.ID] {
+				continue
+			}
+			quote := strings.Join(strings.Fields(l.text[v.Start:v.End]), " ")
+			fd := finding{span: code.Span{Start: l.start + v.Start, End: l.start + v.End}, detail: v.Rule.ID + " `" + quote + "`"}
+			if v.Rule.ID == "rule-of-three" {
+				triples = append(triples, fd)
+				continue
+			}
+			out = append(out, fd)
+		}
+	}
+	if len(triples) >= minTriples {
+		out = append(out, triples...)
+	}
+	return out
+}
+
+// runningProse reports whether text, a string literal from proseLiteral with
+// words ws, is running prose. SQL statements, lists of CSS classes or
+// identifiers and strings full of code symbols aren't, though they can have
+// enough words.
+func runningProse(text string, ws []string) bool {
+	if len(ws) < minProseWords || !proselint.RunningProse(ws) || sqlRe.MatchString(text) ||
+		4*len(capsWordRe.FindAllString(text, -1)) >= len(ws) {
+		return false
+	}
+	letters, symbols := 0, 0
+	for _, r := range text {
+		switch {
+		case unicode.IsLetter(r):
+			letters++
+		case strings.ContainsRune("{}[]<>=*\\|#$@^~_+&", r):
+			symbols++
+		}
+	}
+	return symbols*20 <= letters
+}
+
+// sentences reports whether text starts with a capital letter and ends with
+// sentence punctuation.
+func sentences(text string) bool {
+	text = strings.TrimSpace(text)
+	i := strings.IndexFunc(text, unicode.IsLetter)
+	if i < 0 {
+		return false
+	}
+	first, _ := utf8.DecodeRuneInString(text[i:])
+	last, _ := utf8.DecodeLastRuneInString(text)
+	return unicode.IsUpper(first) && strings.ContainsRune(".?!", last)
+}
+
+// proseLiteral returns the source of string literal lit with its quoting and
+// escapes turned into spaces, so an offset into it is still an offset from
+// the start of the literal. Run-time fills become a word of x's,
+// so "to %s; the rest" still reads as a clause that ends before the
+// semicolon.
+func proseLiteral(lit string) string {
+	open := strings.IndexAny(lit, "\"'`")
+	if open < 0 {
+		return ""
+	}
+	q := 1
+	if strings.HasPrefix(lit[open:], `"""`) || strings.HasPrefix(lit[open:], `'''`) {
+		q = 3
+	}
+	// Rust raw strings close with as many # as they open with: r#"..."#.
+	close := q + strings.Count(lit[:open], "#")
+	if len(lit) < open+q+close {
+		return ""
+	}
+	b := []byte(lit)
+	blank := func(i, j int) {
+		for k := i; k < j; k++ {
+			if b[k] != '\n' {
+				b[k] = ' '
+			}
+		}
+	}
+	blank(0, open+q)
+	blank(len(b)-close, len(b))
+	for i := open + q; i < len(b)-close; i++ {
+		if b[i] == '\\' {
+			_, n := utf8.DecodeRune(b[i+1:])
+			blank(i, min(i+1+n, len(b)-close))
+			i += n
+		}
+	}
+	for _, m := range literalFillRe.FindAllIndex(b, -1) {
+		for k := m[0]; k < m[1]; k++ {
+			b[k] = 'x'
+		}
+	}
+	return string(b)
 }
 
 // excerpt cuts s to n runes and adds "..." if it had to cut.

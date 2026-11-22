@@ -510,11 +510,11 @@ func checkDefinitionComments(s *source) []finding {
 	return out
 }
 
-// commentProseSkip lists the prose_lint rules that comment-prose leaves out.
-// We have our own rules for the characters. Some layout rules misread
-// constants and numbered formats, and markdown layout doesn't matter in a
-// comment.
-var commentProseSkip = setOf("emdash", "utf8-chars-as-icons", "emoji", "capitals-as-heading",
+// proseSkip lists the prose_lint rules that comment-prose and string-prose
+// leave out. We have our own rules for the characters. Some layout rules
+// misread constants, numbered formats and Title Case button labels, and
+// markdown layout doesn't matter in a comment or a string.
+var proseSkip = setOf("emdash", "utf8-chars-as-icons", "emoji", "capitals-as-heading",
 	"left-padded-numbers", "inline-header-list", "title-case-heading")
 
 // commentProseUnscored lists the prose_lint rules that comment-prose started
@@ -534,9 +534,9 @@ func checkCommentProse(s *source) []finding {
 		first, last := g[0], g[len(g)-1]
 		block := code.Span{Start: first.Span.Start, End: last.Span.End}
 		text := s.proseSpanText(block, first.docstring)
-		for _, v := range lintCommentText(text, first.docstring) {
+		for _, v := range s.lintCommentText(text, first.docstring) {
 			sp := code.Span{Start: block.Start + v.Start, End: block.Start + v.End}
-			if commentProseSkip[v.Rule.ID] || s.quotedAt(sp.Start) {
+			if proseSkip[v.Rule.ID] || s.quotedAt(sp.Start) {
 				continue
 			}
 			quote := strings.Join(strings.Fields(text[v.Start:v.End]), " ")
@@ -561,7 +561,7 @@ func (s *source) proseBlocks() [][]*comment {
 	var blocks [][]*comment
 	prev := -1
 	for i, c := range s.comments {
-		if c.directive || c.license || len(c.lines) == 0 || commentedOutCode(c) {
+		if !c.textual() {
 			continue
 		}
 		if prev >= 0 && prev == i-1 && s.lineComment(c) && s.lineComment(s.comments[prev]) && s.continues(prev, i) {
@@ -581,14 +581,14 @@ func (s *source) lineComment(c *comment) bool {
 	return !c.docstring && (b == '#' || b == '/' && s.f.Src[c.Span.Start+1] == '/')
 }
 
-// lintCommentText runs prose_lint on the prose text of a comment. Python
-// docstrings list arguments as "name: description", so they don't get the
-// comment rules.
-func lintCommentText(text string, docstring bool) []proselint.Violation {
+// lintCommentText runs prose_lint on the prose text of a comment of s, in
+// the language of its comments. Python docstrings list arguments as "name:
+// description", so they don't get the comment rules.
+func (s *source) lintCommentText(text string, docstring bool) []proselint.Violation {
 	if docstring {
-		return proselint.LintString(text, "en")
+		return proselint.LintString(text, s.lang)
 	}
-	return proselint.LintComment(text, "en")
+	return proselint.LintComment(text, s.lang)
 }
 
 var (

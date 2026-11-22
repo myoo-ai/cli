@@ -108,7 +108,7 @@ func (s *source) commentPhrases(phrases []commentPhrase, skip *regexp.Regexp) []
 	example := examplePathRe.MatchString(s.f.Path)
 	var out []finding
 	for ci, c := range s.comments {
-		if c.directive || c.license || len(c.lines) == 0 || commentedOutCode(c) || skip != nil && skip.MatchString(c.text()) {
+		if !c.textual() || skip != nil && skip.MatchString(c.text()) {
 			continue
 		}
 		text := s.proseText(c)

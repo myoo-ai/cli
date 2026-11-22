@@ -129,6 +129,12 @@ var coreRules = []*Rule{
 		check:          checkCommentProse,
 	},
 	{
+		ID:             "string-prose",
+		Description:    "string literal contains a prose pattern that reads as AI generated.",
+		Recommendation: "rewrite the text as plain sentences. `myoo prose_lint --list-rules --include-recommendations` explains the named prose rule and how to fix it. the rule reads string literals outside tests that are sentences of 8 or more words of running prose, such as a message or UI copy.",
+		check:          checkStringProse,
+	},
+	{
 		ID:             "change-narration-comment",
 		Description:    "comment describes the edit history instead of the code.",
 		Recommendation: "remove the comment, the commit message is the place for history. if the reader needs to know something, say what the code does now without comparing it with an earlier version.",

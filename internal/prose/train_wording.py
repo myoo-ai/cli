@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# myoo-ignore-file: comments-in-file-header
 """Generate wording_en.go, the English word-choice model of prose_lint.
 
 The model is a logistic regression of AI authorship on how often a text uses

@@ -13,11 +13,15 @@ See <https://github.com/myoo-ai> for the whats and whys.
 
 ## Installation
 
-Building from source requires Go 1.27 or newer.
+```prompt
+Can you install https://github.com/myoo-ai/cli globally?
 
-CI/CD creates an automatic release on every tag.
+Then set up the current AI harness to lint every file its agents change. For omp, download https://raw.githubusercontent.com/myoo-ai/cli/main/integrations/omp/myoo-lint.ts into ~/.omp/agent/extensions/. In other harnesses, build the same with their post-edit hooks.
+```
 
-You can download the latest release [on the releases page](https://github.com/myoo-ai/cli/releases/latest).
+For manual installation, build with Go 1.27 or newer.
+
+CI/CD also creates an automatic release on every tag. You can download the latest release [on the releases page](https://github.com/myoo-ai/cli/releases/latest).
 
 ## Features
 
@@ -28,8 +32,6 @@ When `code_lint` or `prose_lint` finds no violations, it prints `no violations f
 Tests run the built-in help and rule listings through `prose_lint`.
 
 If a command failed, the error is in stderr in descriptive format, for example: "err: unable to find symbols matching `hello_world`, try widening the query".
-
-<!-- TODO: examples might not reflect the actual outputs, update once the cli is done -->
 
 ### AI prose linter
 
